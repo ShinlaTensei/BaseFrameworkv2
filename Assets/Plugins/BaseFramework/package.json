@@ -1,0 +1,12 @@
+{
+    "name": "com.paidrubik.baseframework",
+    "displayName": "Base Framework",
+    "author": { "name": "Shinla Tensei" },
+    "version": "1.0.0",
+    "unity": "2018.4",
+    "description": "Base Framework for Unity",
+    "keywords": [ "Framework"],
+    "license": "MIT",
+    "category": "Framework",
+    "dependencies": {}
+}
