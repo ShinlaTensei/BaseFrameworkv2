@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Base.Helper
 {
-    public delegate void IntervalDelegate();
+    public delegate void IntervalDelegate(IntervalConfig config);
 
     public class IntervalConfig
     {
@@ -18,6 +18,14 @@ namespace Base.Helper
         {
             if (caller != null && action != null)
                 caller.StartCoroutine(action);
+        }
+
+        public void Stop()
+        {
+            if (caller != null && action != null)
+            {
+                caller.StopCoroutine(action);
+            }
         }
     }
     public static class BaseInterval
@@ -45,7 +53,7 @@ namespace Base.Helper
             yield return new WaitForSeconds(_time);
             if (!config.isCancel)
             {
-                _callback.Invoke();
+                _callback.Invoke(config);
                 config.isDone = true;
             }
         }
@@ -70,7 +78,7 @@ namespace Base.Helper
 
             if (!config.isCancel)
             {
-                callback.Invoke();
+                callback.Invoke(config);
                 config.isDone = true;
             }
         }
@@ -104,7 +112,7 @@ namespace Base.Helper
             {
                 if (!config.isCancel)
                 {
-                    callback.Invoke();
+                    callback.Invoke(config);
                 }
                 else
                 {

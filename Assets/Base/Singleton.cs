@@ -45,7 +45,7 @@ namespace Base
                             singletonObject.name = typeof(T).ToString() + " (Singleton)";
 
                             // Make instance persistent.
-                            DontDestroyOnLoad(singletonObject);
+                            //DontDestroyOnLoad(singletonObject);
                         }
                     }
 
