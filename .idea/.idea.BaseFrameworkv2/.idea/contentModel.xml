@@ -27,13 +27,16 @@
               <e p="BaseMono.cs" t="Include" />
             </e>
             <e p="ExtensionMethods" t="Include">
+              <e p="EnumExtensions.cs" t="Include" />
               <e p="ListExtensionMethods.cs" t="Include" />
+              <e p="MathExtensions.cs" t="Include" />
               <e p="TransformUtilities.cs" t="Include" />
               <e p="Vector3ExtensionMethods.cs" t="Include" />
             </e>
             <e p="Mathematics" t="Include">
               <e p="ProjectileMath.cs" t="Include" />
             </e>
+            <e p="UIPageBase.cs" t="Include" />
             <e p="Utilities" t="Include">
               <e p="BaseInterval.cs" t="Include" />
               <e p="ConditionAttribute.cs" t="Include" />
@@ -202,8 +205,6 @@
             <e p="State" t="Include">
               <e p="CharacterState.cs" t="Include" />
               <e p="CharacterStateController.cs" t="Include" />
-              <e p="GameState.cs" t="Include" />
-              <e p="GameStateController.cs" t="Include" />
             </e>
           </e>
           <e p="Singleton.cs" t="Include" />
@@ -243,7 +244,6 @@
             </e>
           </e>
         </e>
-        <e p="Test.cs" t="Include" />
       </e>
       <e p="BaseFrameworkv2.sln" t="IncludeFlat" />
       <e p="Library" t="Include">

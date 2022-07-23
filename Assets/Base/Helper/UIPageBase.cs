@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Base.Helper
 {
-    public abstract class UIPageBase : BaseMono
+    public abstract class UIBase : BaseMono
     {
         public abstract void Show();
         public abstract void Hide();
