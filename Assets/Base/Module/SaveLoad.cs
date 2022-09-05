@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace Base.Module
@@ -159,6 +160,39 @@ namespace Base.Module
                 return null;
             }
 
+        }
+        
+        public static T LoadData<T>(string filePath)
+        {
+            if (String.IsNullOrEmpty(filePath)) return default;
+
+            if (File.Exists(filePath))
+            {
+                byte[] bytes = File.ReadAllBytes(filePath);
+                string base64string = Encoding.UTF8.GetString(bytes);
+                string jsonData = Encoding.UTF8.GetString(Convert.FromBase64String(base64string));
+                T data = JsonConvert.DeserializeObject<T>(jsonData);
+                return data;
+            }
+
+            return default;
+        }
+
+        public static void SaveData<T>(string fileDirectory, string fileName, T data)
+        {
+            string filePath = fileDirectory + $"/{fileName}";
+            if (String.IsNullOrEmpty(filePath)) return;
+
+            string directoryName = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(directoryName))
+            {
+                Directory.CreateDirectory(directoryName);
+            }
+
+            string jsonData = JsonConvert.SerializeObject(data);
+            byte[] bytes = Encoding.UTF8.GetBytes(jsonData);
+            string final = Convert.ToBase64String(bytes);
+            File.WriteAllLines(filePath, new []{final});
         }
     }
 }
