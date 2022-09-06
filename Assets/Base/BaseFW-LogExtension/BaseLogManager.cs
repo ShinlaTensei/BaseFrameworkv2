@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using NLog;
+using ILogger = UnityEngine.ILogger;
 using Logger = NLog.Logger;
 
 namespace Base.Logging
@@ -25,6 +26,10 @@ namespace Base.Logging
             {
                 DontDestroyOnLoad(gameObject);
             }
+
+            if (isDebug) LogManager.ResumeLogging();
+            else LogManager.SuspendLogging();
+            
             _logFilePath = Application.persistentDataPath;
             CheckOldLog();
             InitLogConfiguration();
@@ -35,15 +40,21 @@ namespace Base.Logging
             // Init configuration
             var config = new NLog.Config.LoggingConfiguration();
 
-            var logFile = new NLog.Targets.FileTarget("logfile")
+#if UNITY_EDITOR
+            var logConsole = new UnityDebugTarget()
+            {
+                Name = "UnityDebugLog",
+                Layout = "${longdate} |${level} |${message} |${stacktrace}"
+            };
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
+#else
+            var logFile = new NLog.Targets.FileTarget
             {
                 FileName = _logFilePath + _fileName,
-                Layout = "${longdate}|${level}|${message}|${exception}|${event-properties:myProperty}"
+                Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
             };
-            var logConsole = new NLog.Targets.ConsoleTarget("logconsole");
-
-            config.AddRule(LogLevel.Info, LogLevel.Fatal, logConsole);
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
+#endif
             
             LogManager.Configuration = config;
         }
@@ -55,138 +66,6 @@ namespace Base.Logging
                 File.Delete(_logFilePath + _fileName);
             }
         }
-
-        #region Info Overload
-
-        public void Info<T>(T message)
-        {
-            if (isDebug)
-            {
-                Logger.Info(message);
-            }
-        }
-
-        public void Info(IFormatProvider formatProvider, string message, string[] arguments)
-        {
-            if (isDebug)
-            {
-                Logger.Info(formatProvider, message, arguments);
-            }
-        }
-        
-        public void Info<T>(IFormatProvider formatProvider, T value)
-        {
-            if (isDebug)
-            {
-                Logger.Info(formatProvider, value);
-            }
-        }
-
-        #endregion
-        
-        #region Debug Overload
-
-        /// <overloads>
-        /// Writes the diagnostic message at the <c>Debug</c> level using the specified format provider and format parameters.
-        /// </overloads>
-        /// <summary>
-        /// Writes the diagnostic message at the <c>Debug</c> level.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="value">The value to be written.</param>
-        public void Debug<T>(T value)
-        {
-            if (isDebug)
-            {
-                Logger.Debug(value);
-            }
-        }
-
-        /// <summary>
-        /// Writes the diagnostic message at the <c>Debug</c> level.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="formatProvider">An IFormatProvider that supplies culture-specific formatting information.</param>
-        /// <param name="value">The value to be written.</param>
-        public void Debug<T>(IFormatProvider formatProvider, T value)
-        {
-            if (isDebug)
-            {
-                Logger.Debug(formatProvider, value);
-            }
-        }
-
-        #endregion
-
-        #region Warn Overload
-
-        /// <overloads>
-        /// Writes the diagnostic message at the <c>Warn</c> level using the specified format provider and format parameters.
-        /// </overloads>
-        /// <summary>
-        /// Writes the diagnostic message at the <c>Warn</c> level.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="value">The value to be written.</param>
-        public void Warn<T>(T value)
-        {
-            if (isDebug)
-            {
-                Logger.Warn(value);
-            }
-        }
-
-        /// <summary>
-        /// Writes the diagnostic message at the <c>Warn</c> level.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="formatProvider">An IFormatProvider that supplies culture-specific formatting information.</param>
-        /// <param name="value">The value to be written.</param>
-        public void Warn<T>(IFormatProvider formatProvider, T value)
-        {
-            if (isDebug)
-            {
-                Logger.Warn(formatProvider, value);
-                
-            }
-        }
-
-        #endregion
-
-        #region Error Overload
-
-        // <overloads>
-        /// Writes the diagnostic message at the <c>Error</c> level using the specified format provider and format parameters.
-        /// </overloads>
-        /// <summary>
-        /// Writes the diagnostic message at the <c>Error</c> level.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="value">The value to be written.</param>
-        public void Error<T>(T value)
-        {
-            if (isDebug)
-            {
-                Logger.Error(value);
-            }
-        }
-
-        /// <summary>
-        /// Writes the diagnostic message at the <c>Error</c> level.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="formatProvider">An IFormatProvider that supplies culture-specific formatting information.</param>
-        /// <param name="value">The value to be written.</param>
-        public void Error<T>(IFormatProvider formatProvider, T value)
-        {
-            if (isDebug)
-            {
-                Logger.Error(formatProvider, value);
-            }
-        }
-
-        #endregion
-        
     }
 }
 
