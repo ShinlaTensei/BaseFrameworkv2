@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
+using Base.Module;
 using UnityEngine;
 using NLog;
-using ILogger = UnityEngine.ILogger;
+using UnityEngine.Android;
 using Logger = NLog.Logger;
 
 namespace Base.Logging
@@ -17,7 +15,8 @@ namespace Base.Logging
 
         private string _logFilePath;
 
-        private readonly string _fileName = "/DebugLog.txt";
+        private string _fileDirectory;
+        private readonly string _fileName = "DebugLog.txt";
 
         public static Logger BaseLogger => Instance.Logger;
         private void Awake()
@@ -29,9 +28,9 @@ namespace Base.Logging
 
             if (isDebug) LogManager.ResumeLogging();
             else LogManager.SuspendLogging();
-            
-            _logFilePath = Application.persistentDataPath;
-            CheckOldLog();
+
+            _logFilePath = FileUtilities.GetSystemPath();
+            _fileDirectory = Application.productName + "-Debug";
             InitLogConfiguration();
         }
 
@@ -47,23 +46,35 @@ namespace Base.Logging
                 Layout = "${longdate} |${level} |${message} |${stacktrace}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
-#else
+#elif UNITY_ANDROID
+            FileUtilities.RequestPermissionAndroid(new[] {Permission.ExternalStorageRead, Permission.ExternalStorageWrite});
+            FileUtilities.CreateFolder(_logFilePath, _fileDirectory);
             var logFile = new NLog.Targets.FileTarget
             {
-                FileName = _logFilePath + _fileName,
+                FileName = _logFilePath + _fileDirectory + "/" + _fileName,
                 Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
+            CheckOldLog(_logFilePath + _fileDirectory + "/" + _fileName);
+#elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
+            var logFile = new NLog.Targets.FileTarget
+            {
+                FileName = _logFilePath + _fileDirectory + "\\" + _fileName,
+                Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
+            };
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
+            CheckOldLog(_logFilePath + _fileDirectory + "\\" + _fileName);
 #endif
             
             LogManager.Configuration = config;
         }
 
-        private void CheckOldLog()
+        private void CheckOldLog(string path)
         {
-            if (File.Exists(_logFilePath + _fileName))
+            if (File.Exists(path))
             {
-                File.Delete(_logFilePath + _fileName);
+                Debug.Log(path);
+                File.Delete(path);
             }
         }
     }

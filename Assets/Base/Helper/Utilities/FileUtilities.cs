@@ -5,10 +5,11 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using UnityEngine.Android;
 
 namespace Base.Module
 {
-    public static class SaveLoad
+    public static class FileUtilities
     {
         public static void SaveToBinary(object data, string fileName)
         {
@@ -193,6 +194,42 @@ namespace Base.Module
             byte[] bytes = Encoding.UTF8.GetBytes(jsonData);
             string final = Convert.ToBase64String(bytes);
             File.WriteAllLines(filePath, new []{final});
+        }
+        
+        /// <summary>
+        /// Get the system path based on platform
+        /// </summary>
+        /// <returns>The path specific on each platform (Window:"C:\Users\{Your_user_name}\", Android: "/storage/emulated/0/")</returns>
+        public static string GetSystemPath()
+        {
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_STANDALONE_WIN
+            return Environment.GetEnvironmentVariable("USERPROFILE") + "\\";
+#elif UNITY_ANDROID
+            return Application.persistentDataPath.Substring(0, Application.persistentDataPath.IndexOf("Android", StringComparison.Ordinal));
+#endif
+        }
+
+        public static void RequestPermissionAndroid(string[] permissions)
+        {
+            Permission.RequestUserPermissions(permissions);
+        }
+
+        public static void CreateFolder(string folderRelativePath)
+        {
+            string path = GetSystemPath() + folderRelativePath;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+
+        public static void CreateFolder(string directory, string folderName)
+        {
+            string path = directory + folderName;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
     }
 }
