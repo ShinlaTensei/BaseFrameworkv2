@@ -2,7 +2,6 @@ using System.IO;
 using Base.Module;
 using UnityEngine;
 using NLog;
-using UnityEngine.Android;
 using Logger = NLog.Logger;
 
 namespace Base.Logging
@@ -47,8 +46,6 @@ namespace Base.Logging
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
 #elif UNITY_ANDROID
-            FileUtilities.RequestPermissionAndroid(new[] {Permission.ExternalStorageRead, Permission.ExternalStorageWrite});
-            FileUtilities.CreateFolder(_logFilePath, _fileDirectory);
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = _logFilePath + _fileDirectory + "/" + _fileName,
