@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="" />
+    <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,8 +24,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/BaseInterval.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/UtilsClass.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayTraverse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/FileUtilities.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayExtensions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -31,6 +35,10 @@
       <option value="$PROJECT_DIR$/Assets/TestLog.cs" />
       <option value="$PROJECT_DIR$/Assets/Base/Helper/Utilities/FileUtilities.cs" />
       <option value="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/BaseLogManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ObjectExtension.cs" />
+      <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayTraverse.cs" />
+      <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ObjectExtensions.cs" />
     </changedPaths>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -51,6 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="AndroidSettingsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -98,6 +107,10 @@
       <workItem from="1661843590068" duration="847000" />
       <workItem from="1662385410696" duration="1204000" />
       <workItem from="1662541834641" duration="5178000" />
+      <workItem from="1662601002231" duration="338000" />
+      <workItem from="1662601638386" duration="390000" />
+      <workItem from="1662602094829" duration="1407000" />
+      <workItem from="1662711181527" duration="291000" />
     </task>
     <servers />
   </component>
