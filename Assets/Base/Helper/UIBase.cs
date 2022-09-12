@@ -11,8 +11,8 @@ namespace Base.Helper
         public abstract void Next();
         public abstract void Back();
 
-        public virtual void Show<T>() {}
-        public virtual void Hide<T>() {}
+        public virtual void Show<T>(T argument) {}
+        public virtual void Hide<T>(T argument) {}
     }
 }
 
