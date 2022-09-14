@@ -4,6 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
+using Base.Helper;
+using Base.Logging;
 using Newtonsoft.Json;
 using UnityEngine.Android;
 
@@ -179,6 +181,32 @@ namespace Base.Module
             return default;
         }
 
+        public static T LoadDataWithEncrypted<T>(string filePath)
+        {
+            if (String.IsNullOrEmpty(filePath)) return default;
+
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    byte[] bytes = File.ReadAllBytes(filePath);
+                    string base64string = Encoding.UTF8.GetString(bytes);
+                    string encrypted = Encoding.UTF8.GetString(Convert.FromBase64String(base64string));
+                    string jsonData = Encryption.Decrypt(encrypted);
+                    T data = JsonConvert.DeserializeObject<T>(jsonData);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                
+            }
+
+            return default;
+        }
+
         public static void SaveData<T>(string fileDirectory, string fileName, T data)
         {
             string filePath = fileDirectory + $"/{fileName}";
@@ -195,7 +223,33 @@ namespace Base.Module
             string final = Convert.ToBase64String(bytes);
             File.WriteAllLines(filePath, new []{final});
         }
-        
+
+        public static void SaveDataWithEncrypted<T>(string fileDirectory, string fileName, T data)
+        {
+            try
+            {
+                string filePath = fileDirectory + $"/{fileName}";
+                if (String.IsNullOrEmpty(filePath)) return;
+
+                string directoryName = Path.GetDirectoryName(filePath);
+                if (!Directory.Exists(directoryName))
+                {
+                    Directory.CreateDirectory(directoryName);
+                }
+
+                string jsonData = JsonConvert.SerializeObject(data);
+                string encrypted = Encryption.Encrypt(jsonData);
+                byte[] bytes = Encoding.UTF8.GetBytes(encrypted);
+                string final = Convert.ToBase64String(bytes);
+                File.WriteAllLines(filePath, new []{final});
+            }
+            catch (Exception e)
+            {
+                BaseLogManager.BaseLogger.Error(e, e.Message);
+                throw;
+            }
+        }
+
         /// <summary>
         /// Get the system path based on platform
         /// </summary>

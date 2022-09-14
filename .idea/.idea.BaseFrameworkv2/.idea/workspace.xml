@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Helper/Utilities/FileUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Helper/Utilities/FileUtilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TestLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TestLog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +25,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/BaseInterval.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/UtilsClass.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/ReferenceEqualityComparer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayTraverse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/FileUtilities.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/UtilsClass.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/BaseInterval.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Helper/Utilities/FileUtilities.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -38,6 +42,7 @@
       <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ObjectExtension.cs" />
       <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ArrayTraverse.cs" />
+      <option value="$PROJECT_DIR$/Assets/Base/Helper/ReferenceEqualityComparer.cs" />
       <option value="$PROJECT_DIR$/Assets/Base/Helper/ExtensionMethods/ObjectExtensions.cs" />
     </changedPaths>
   </component>
@@ -81,10 +86,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="844">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="844" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -110,7 +115,10 @@
       <workItem from="1662601002231" duration="338000" />
       <workItem from="1662601638386" duration="390000" />
       <workItem from="1662602094829" duration="1407000" />
-      <workItem from="1662711181527" duration="291000" />
+      <workItem from="1662711181527" duration="1030000" />
+      <workItem from="1662951522198" duration="198000" />
+      <workItem from="1663037411149" duration="1302000" />
+      <workItem from="1663122238750" duration="1708000" />
     </task>
     <servers />
   </component>
@@ -130,7 +138,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
