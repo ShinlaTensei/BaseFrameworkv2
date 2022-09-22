@@ -1,4 +1,5 @@
-﻿using Base.Helper;
+﻿using System;
+using Base.Helper;
 using UnityEngine;
 
 namespace Base
@@ -7,7 +8,7 @@ namespace Base
     /// Inherit from this base class to create a singleton.
     /// e.g. public class MyClassName : Singleton<MyClassName> {}
     /// </summary>
-    public class Singleton<T> : BaseMono where T : BaseMono
+    public class SingletonMono<T> : BaseMono where T : BaseMono
     {
         // Check to see if we're about to be destroyed.
         protected static bool m_ShuttingDown = false;
@@ -33,10 +34,6 @@ namespace Base
                 {
                     if (m_Instance == null)
                     {
-                        // Search for existing instance.
-                        m_Instance = (T)FindObjectOfType(typeof(T));
-
-                        // Create new instance if one doesn't already exist.
                         if (m_Instance == null)
                         {
                             // Need to create a new GameObject to attach the singleton to.
@@ -54,6 +51,11 @@ namespace Base
             }
         }
 
+        protected virtual void Awake()
+        {
+            m_Instance = this as T;
+        }
+
         protected virtual void OnApplicationQuit()
         {
             m_ShuttingDown = true;
@@ -63,6 +65,7 @@ namespace Base
         {
             base.OnDestroy();
             m_ShuttingDown = true;
+            m_Instance = null;
         }
     }
 }

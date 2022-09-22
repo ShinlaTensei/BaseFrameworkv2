@@ -6,7 +6,7 @@ using Logger = NLog.Logger;
 
 namespace Base.Logging
 {
-    public class BaseLogManager : Singleton<BaseLogManager>
+    public class BaseLogManager : SingletonMono<BaseLogManager>
     {
         [SerializeField] private bool isDebug = false;
         [SerializeField] private bool isPersistent = false;
@@ -18,8 +18,9 @@ namespace Base.Logging
         private readonly string _fileName = "DebugLog.txt";
 
         public static Logger BaseLogger => Instance.Logger;
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             if (isPersistent)
             {
                 DontDestroyOnLoad(gameObject);
