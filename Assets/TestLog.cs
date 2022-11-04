@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Base.Helper;
 using Base.Logging;
+using Base.MessageSystem;
 using Base.Module;
 using UnityEngine;
 
@@ -10,19 +11,31 @@ public class TestLog : MonoBehaviour
 {
     public void Start()
     {
-        BaseLogManager.BaseLogger.Info("Test log Info v3");
-        BaseLogManager.BaseLogger.Debug("Test log");
+        this.GetLogger().Info("Test log Info v3");
+        this.GetLogger().Info("Test log");
 
         string message = "I am a God";
         string encrypted = Encryption.Encrypt(message);
-        BaseLogManager.BaseLogger.Info("{msg}", encrypted);
+        this.GetLogger().Info("{msg}", encrypted);
         string decrypted = Encryption.Decrypt(encrypted);
-        BaseLogManager.BaseLogger.Info("{msg}", decrypted);
+        this.GetLogger().Info("{msg}", decrypted);
         // TestData test = new TestData {name = "LALLALALA", amount = 1000};
         // FileUtilities.SaveDataWithEncrypted(FileUtilities.GetSystemPath(),"TestEncrypt.bin", test);
 
         var data = FileUtilities.LoadDataWithEncrypted<TestData>(FileUtilities.GetSystemPath() + "/TestEncrypt.bin");
-        BaseLogManager.BaseLogger.Info("Load Data: {@data}", data);
+        this.GetLogger().Info("Load Data: {@data}", data);
+    }
+
+    private void OnEnable()
+    {
+        this.RegisterListener<object>(TestEvent.OnNotify, ResponseNotifyEvent);
+        
+        this.PostEvent<object>(TestEvent.OnNotify, null);
+    }
+
+    private void ResponseNotifyEvent(object argument)
+    {
+        this.GetLogger().Info("Event called successfully");
     }
 }
 
@@ -32,3 +45,5 @@ public class TestData
     public int amount = 0;
     public string name = "Phong";
 }
+
+public enum TestEvent{OnNotify}

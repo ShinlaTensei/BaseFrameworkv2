@@ -10,6 +10,7 @@ namespace Base
     /// </summary>
     public class SingletonMono<T> : BaseMono where T : BaseMono
     {
+        [SerializeField] private bool isPersistent;
         // Check to see if we're about to be destroyed.
         protected static bool m_ShuttingDown = false;
 
@@ -54,6 +55,11 @@ namespace Base
         protected virtual void Awake()
         {
             m_Instance = this as T;
+
+            if (isPersistent)
+            {
+                DontDestroyOnLoad(this);
+            }
         }
 
         protected virtual void OnApplicationQuit()

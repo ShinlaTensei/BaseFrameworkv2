@@ -245,7 +245,7 @@ namespace Base.Module
             }
             catch (Exception e)
             {
-                BaseLogManager.BaseLogger.Error(e, e.Message);
+                BaseLogSystem.GetLogger().Error(e, e.Message);
                 throw;
             }
         }

@@ -1,73 +1,55 @@
+using System.Diagnostics;
 using System.IO;
-using Base.Module;
-using UnityEngine;
 using NLog;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Logger = NLog.Logger;
 
 namespace Base.Logging
 {
-    public class BaseLogManager : SingletonMono<BaseLogManager>
+    public static class BaseLogSystem
     {
-        [SerializeField] private bool isDebug = false;
-        [SerializeField] private bool isPersistent = false;
-        private NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-
-        private string _logFilePath;
-
-        private string _fileDirectory;
-        private readonly string _fileName = "DebugLog.txt";
-
-        public static Logger BaseLogger => Instance.Logger;
-        protected override void Awake()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        public static void SetupLogSystem()
         {
-            base.Awake();
-            if (isPersistent)
-            {
-                DontDestroyOnLoad(gameObject);
-            }
-
-            if (isDebug) LogManager.ResumeLogging();
-            else LogManager.SuspendLogging();
-
-            _logFilePath = FileUtilities.GetSystemPath();
-            _fileDirectory = Application.productName + "-Debug";
-            InitLogConfiguration();
-        }
-
-        private void InitLogConfiguration()
-        {
+            #if DEBUG
+            LogManager.ResumeLogging();
+            #else
+            LogManager.SuspendLogging();
+            return;
+            #endif
             // Init configuration
             var config = new NLog.Config.LoggingConfiguration();
-
-#if UNITY_EDITOR
+            
+            #if UNITY_EDITOR
             var logConsole = new UnityDebugTarget()
             {
                 Name = "UnityDebugLog",
                 Layout = "${longdate} |${level} |${message} |${stacktrace}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
-#elif UNITY_ANDROID
+            #elif UNITY_ANDROID
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = _logFilePath + _fileDirectory + "/" + _fileName,
                 Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
-            CheckOldLog(_logFilePath + _fileDirectory + "/" + _fileName);
-#elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
+            CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
+            #elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = _logFilePath + _fileDirectory + "\\" + _fileName,
                 Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
-            CheckOldLog(_logFilePath + _fileDirectory + "\\" + _fileName);
-#endif
-            
+            CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "\\" + "DebugLog.txt");
+            #endif
+
             LogManager.Configuration = config;
         }
-
-        private void CheckOldLog(string path)
+        
+        private static void CheckOldLog(string path)
         {
             if (File.Exists(path))
             {
@@ -75,6 +57,15 @@ namespace Base.Logging
                 File.Delete(path);
             }
         }
+        
+        public static Logger GetLogger(this MonoBehaviour target)
+        {
+            return LogManager.GetCurrentClassLogger();
+        }
+
+        public static Logger GetLogger()
+        {
+            return LogManager.GetCurrentClassLogger();
+        }
     }
 }
-
