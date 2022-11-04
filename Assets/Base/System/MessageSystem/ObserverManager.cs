@@ -7,6 +7,7 @@ namespace Base.MessageSystem
     public class ObserverManager : SingletonMono<ObserverManager>
     {
         private Dictionary<Enum, Delegate> _listeners = new Dictionary<Enum, Delegate>();
+        
 
         protected override void OnDestroy()
         {

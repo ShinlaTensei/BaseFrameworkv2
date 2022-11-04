@@ -9,8 +9,6 @@ namespace Base.Helper
         private RectTransform _rectTransform;
         private Transform _transform;
         private GameObject _gameObject;
-
-        protected CancellationTokenSource _cancellation = new CancellationTokenSource();
         public int InstanceId => CacheGameObject.GetInstanceID();
 
         public Transform CacheTransform
@@ -88,12 +86,6 @@ namespace Base.Helper
             set => CacheTransform.localScale = value;
         }
 
-        protected virtual void OnDestroy()
-        {
-            _cancellation.Cancel();
-            _cancellation.Dispose();
-        }
-
         public GameObject CacheInstantiate()
         {
             var obj = Instantiate(CacheGameObject);
@@ -106,7 +98,7 @@ namespace Base.Helper
             return obj;
         }
         
-        public Transform CacheInstantiate(Transform prefab, Vector3 pos, Quaternion rotate, Transform parent)
+        public static Transform CacheInstantiate(Transform prefab, Vector3 pos, Quaternion rotate, Transform parent)
         {
             var obj = Instantiate(prefab, parent.TransformPoint(pos), rotate, parent);
             return obj;

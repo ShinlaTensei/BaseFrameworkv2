@@ -67,9 +67,8 @@ namespace Base
             m_ShuttingDown = true;
         }
 
-        protected override void OnDestroy()
+        protected virtual void OnDestroy()
         {
-            base.OnDestroy();
             m_ShuttingDown = true;
             m_Instance = null;
         }

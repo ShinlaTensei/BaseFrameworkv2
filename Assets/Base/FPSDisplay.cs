@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-#if DEVELOPMENT_BUILD || UNITY_EDITOR
+#if UNITY_EDITOR
 namespace Base
 {
     public class FPSDisplay : MonoBehaviour

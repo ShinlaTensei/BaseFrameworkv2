@@ -43,7 +43,7 @@ namespace Base.Pattern
         
         protected virtual void Update() {}
 
-        protected override void OnDestroy() {base.OnDestroy();}
+        protected virtual void OnDestroy() {}
 
         /// <summary>
         /// This method runs once when the state has entered the state machine

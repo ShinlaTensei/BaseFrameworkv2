@@ -57,9 +57,8 @@ namespace Base.Pattern
             }
         }
 
-        protected override void OnDestroy()
+        private void OnDestroy()
         {
-            base.OnDestroy();
             _sharedInstance = null;
             listPool.Clear();
         }

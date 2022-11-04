@@ -259,7 +259,7 @@ namespace Base.Module
         {
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_STANDALONE_WIN
             return Environment.GetEnvironmentVariable("USERPROFILE") + "\\";
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID || !DEBUG
             return Application.persistentDataPath + "/";
 #endif
         }
