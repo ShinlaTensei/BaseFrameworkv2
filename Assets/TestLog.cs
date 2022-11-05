@@ -26,9 +26,11 @@ public class TestLog : MonoBehaviour
 
     private void OnEnable()
     {
-        this.RegisterListener<object>(TestEvent.OnNotify, ResponseNotifyEvent);
+        this.RegisterListener(TestEvent.OnNotify, ResponseNotifyEvent);
         
-        this.PostEvent<object>(TestEvent.OnNotify, null);
+        this.PostEvent(TestEvent.OnNotify, null);
+        
+        this.RemoveListener(TestEvent.OnNotify, ResponseNotifyEvent);
     }
 
     private void ResponseNotifyEvent(object argument)

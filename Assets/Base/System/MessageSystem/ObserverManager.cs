@@ -6,8 +6,7 @@ namespace Base.MessageSystem
 {
     public class ObserverManager : SingletonMono<ObserverManager>
     {
-        private Dictionary<Enum, Delegate> _listeners = new Dictionary<Enum, Delegate>();
-        
+        private Dictionary<Enum, Callback<object>> _listeners = new Dictionary<Enum, Callback<object>>();
 
         protected override void OnDestroy()
         {
@@ -15,12 +14,12 @@ namespace Base.MessageSystem
             _listeners.Clear();
         }
 
-        public void AddListener<T>(Enum eventId, Callback<T> func)
+        public void AddListener(Enum eventId, Callback<object> func)
         {
             Debug.AssertFormat(func != null, "AddListener event {0} failed due to callback is null !!!", new object[] {eventId.ToString()});
             if (_listeners.ContainsKey(eventId))
             {
-                _listeners[eventId] = func;
+                _listeners[eventId] += func;
             }
             else
             {
@@ -36,13 +35,13 @@ namespace Base.MessageSystem
             }
         }
 
-        public void RemoveListener<T>(Enum eventId, Callback<T> func)
+        public void RemoveListener(Enum eventId, Callback<object> func)
         {
             Debug.AssertFormat(func != null, "RemoveListener event {0} failed due to callback is null !!!", new object[] {eventId.ToString()});
 
             if (_listeners.ContainsKey(eventId))
             {
-                _listeners.Remove(eventId);
+                _listeners[eventId] -= func;
             }
             else
             {
@@ -50,7 +49,7 @@ namespace Base.MessageSystem
             }
         }
 
-        public void BroadcastEvent<T>(Enum eventId, T argument)
+        public void BroadcastEvent(Enum eventId, object argument)
         {
             if (!_listeners.ContainsKey(eventId))
             {
@@ -61,7 +60,7 @@ namespace Base.MessageSystem
             var callback = _listeners[eventId];
             if (callback != null)
             {
-                ((Callback<T>) callback).Invoke(argument);
+                callback.Invoke(argument);
             }
             else
             {
@@ -73,12 +72,12 @@ namespace Base.MessageSystem
 
     public static class ObserverExtension
     {
-        public static void RegisterListener<T>(this MonoBehaviour target, Enum eventId, Callback<T> func)
+        public static void RegisterListener(this MonoBehaviour target, Enum eventId, Callback<object> func)
         {
             ObserverManager.Instance.AddListener(eventId, func);
         }
 
-        public static void RemoveListener<T>(this MonoBehaviour target, Enum eventId, Callback<T> func)
+        public static void RemoveListener(this MonoBehaviour target, Enum eventId, Callback<object> func)
         {
             try
             {
@@ -90,7 +89,7 @@ namespace Base.MessageSystem
             }
         }
 
-        public static void PostEvent<T>(this MonoBehaviour target, Enum eventId, T argument)
+        public static void PostEvent(this MonoBehaviour target, Enum eventId, object argument)
         {
             ObserverManager.Instance.BroadcastEvent(eventId, argument);
         }
