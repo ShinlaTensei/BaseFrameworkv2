@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Threading;
 using UnityEngine;
 
 namespace Base.Helper
 {
     public class BaseMono : MonoBehaviour
     {
+        [SerializeField] private bool isMissingReference;
         private RectTransform _rectTransform;
         private Transform _transform;
         private GameObject _gameObject;
@@ -84,6 +84,16 @@ namespace Base.Helper
         {
             get => CacheTransform.localScale;
             set => CacheTransform.localScale = value;
+        }
+
+        protected virtual void OnValidate()
+        {
+            isMissingReference = this.CheckNullAllSerializedFields();
+        }
+
+        protected virtual void Start()
+        {
+            if (isMissingReference) return;
         }
 
         public GameObject CacheInstantiate()
