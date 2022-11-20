@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class ScrollViewControl : MonoBehaviour
@@ -11,7 +12,7 @@ public class ScrollViewControl : MonoBehaviour
     [SerializeField] private Transform prefab;
 
     private List<RectTransform> _listItem;
-
+    
     private void Start()
     {
         _listItem = new List<RectTransform>();
@@ -20,6 +21,8 @@ public class ScrollViewControl : MonoBehaviour
             var child = Instantiate(prefab, contentParent) as RectTransform;
             _listItem.Add(child);
         }
+        
+        UIModelAttribute attribute = typeof(Cube).GetCustomAttribute(typeof(UIModelAttribute)) as UIModelAttribute;
     }
 
     private void Update()

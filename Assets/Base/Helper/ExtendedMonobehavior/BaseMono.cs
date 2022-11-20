@@ -1,11 +1,14 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Base.Helper
 {
     public class BaseMono : MonoBehaviour
     {
-        [SerializeField] private bool isMissingReference;
+        [SerializeField] [ReadOnly] protected bool isMissingReference;
+        
+        
         private RectTransform _rectTransform;
         private Transform _transform;
         private GameObject _gameObject;

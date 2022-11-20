@@ -114,8 +114,9 @@ namespace Base.Pattern
             AddAndInitializeState();
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             if (CurrentState != null)
             {
                 CurrentState.EnterState(0, CurrentState);
