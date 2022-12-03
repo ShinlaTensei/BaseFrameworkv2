@@ -3,26 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Base.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Base.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Editor/Base.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Editor/Base.Editor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Helper/ExtendedMonobehavior/BaseMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Helper/ExtendedMonobehavior/BaseMono.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Helper/UIBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Helper/UIBase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Pattern/State/CharacterStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Pattern/State/CharacterStateController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/System/GameMaster.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/System/GameMaster/GameMaster.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/System/GameMaster/GameMaster.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScrollViewControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScrollViewControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Helper/UIView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Helper/UIView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cube.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/boot.config" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,10 +88,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20356">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="20356" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -138,7 +123,8 @@
       <workItem from="1663122238750" duration="1708000" />
       <workItem from="1668832925050" duration="2301000" />
       <workItem from="1668873135229" duration="1739000" />
-      <workItem from="1668917841328" duration="2135000" />
+      <workItem from="1668917841328" duration="3898000" />
+      <workItem from="1670048181546" duration="3290000" />
     </task>
     <servers />
   </component>

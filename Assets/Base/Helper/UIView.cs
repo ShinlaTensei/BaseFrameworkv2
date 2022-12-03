@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Base.Pattern;
 using UnityEngine;
 
 namespace Base.Helper
 {
     public enum ExitType {None, Hide, Remove}
-    public abstract class UIView : BaseMono
+    public abstract class UIView : BaseMono, IService
     {
         [SerializeField] protected GameObject root;
         [SerializeField] protected ExitType exitType;
