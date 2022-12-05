@@ -1,18 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Base.Pattern;
 using UnityEngine;
 
 namespace Base.MessageSystem
 {
-    public class ObserverManager : SingletonMono<ObserverManager>
+    public class ObserverManager : IService, IDisposable
     {
         private Dictionary<Enum, Callback<object>> _listeners = new Dictionary<Enum, Callback<object>>();
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            _listeners.Clear();
-        }
 
         public void AddListener(Enum eventId, Callback<object> func)
         {
@@ -68,20 +63,45 @@ namespace Base.MessageSystem
                 _listeners.Remove(eventId);
             }
         }
+
+        private void ReleaseUnmanagedResources()
+        {
+            // TODO release unmanaged resources here
+        }
+
+        private void Dispose(bool disposing)
+        {
+            ReleaseUnmanagedResources();
+            if (disposing)
+            {
+                _listeners.Clear();
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~ObserverManager()
+        {
+            Dispose();
+        }
     }
 
     public static class ObserverExtension
     {
         public static void RegisterListener(this MonoBehaviour target, Enum eventId, Callback<object> func)
         {
-            ObserverManager.Instance.AddListener(eventId, func);
+            ServiceLocator.Get<ObserverManager>().AddListener(eventId, func);
         }
 
         public static void RemoveListener(this MonoBehaviour target, Enum eventId, Callback<object> func)
         {
             try
             {
-                ObserverManager.Instance.RemoveListener(eventId, func);
+                ServiceLocator.Get<ObserverManager>().RemoveListener(eventId, func);
             }
             catch (Exception e)
             {
@@ -91,7 +111,7 @@ namespace Base.MessageSystem
 
         public static void PostEvent(this MonoBehaviour target, Enum eventId, object argument)
         {
-            ObserverManager.Instance.BroadcastEvent(eventId, argument);
+            ServiceLocator.Get<ObserverManager>().BroadcastEvent(eventId, argument);
         }
     }
 }

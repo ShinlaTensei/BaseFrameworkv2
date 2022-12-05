@@ -22,25 +22,16 @@ namespace Base.Pattern
             _services.Clear();
         }
 
-        public static T Get<T>() where T : class, IService, new()
+        public static T Get<T>() where T : class, IService
         {
-            if (Instance.Services.TryGetValue(typeof(T), out IService service))
-            {
-                return service as T;
-            }
-            else
-            {
-                var result = ConstructService<T>();
-                Instance.Services.Add(typeof(T), result);
-                return result;
-            }
+            return Resolve<T>();
         }
 
-        public static void Set<T>() where T : class, IService, new()
+        public static void Set<T>() where T : class, IService
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
-                var value = new T();
+                var value = Activator.CreateInstance<T>();
                 Instance.Services.Add(typeof(T), value);
             }
             else
@@ -61,18 +52,38 @@ namespace Base.Pattern
             }
         }
 
-        private static T ConstructService<T>() where T : class, IService, new()
+        public static void Remove<T>() where T : class, IService
         {
-            var attribute = typeof(T).GetCustomAttribute(typeof(UIModelAttribute)) as UIModelAttribute;
-            if (ReferenceEquals(attribute, null))
+            if (Instance.Services.ContainsKey(typeof(T)))
             {
-                T value = new T();
-                return value;
+                Instance.Services.Remove(typeof(T));
+            }
+        }
+
+        private static T Resolve<T>() where T : class, IService
+        {
+            IService result = default;
+            if (Instance.Services.TryGetValue(typeof(T), out IService concreteType))
+            {
+                result = concreteType;
             }
             else
             {
-                return null;
+                if (typeof(T).IsSubclassOf(typeof(MonoBehaviour)))
+                {
+                    GameObject inst = new GameObject();
+                    result = inst.AddComponent(typeof(T)) as T;
+                    Set(result);
+                    inst.name = $"{typeof(T).Name}-Singleton";
+                }
+                else
+                {
+                    Set<T>();
+                    result = Resolve<T>();
+                }
             }
+
+            return result as T;
         }
     }
 }

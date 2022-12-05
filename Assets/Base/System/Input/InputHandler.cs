@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Base
 {
-    public class InputHandler : MonoBehaviour
+    public class InputHandler : MonoBehaviour, IService
     {
         private InputAction inputAction;
 

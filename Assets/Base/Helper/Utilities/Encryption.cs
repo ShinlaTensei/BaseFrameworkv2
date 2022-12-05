@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Base.Helper
 {
-    public class Encryption
+    public static class Encryption
     {
         private static readonly string _privateKey = "aYwxsNCz";
 

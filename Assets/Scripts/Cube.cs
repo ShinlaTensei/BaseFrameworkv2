@@ -4,6 +4,7 @@ using Base.Helper;
 using Base.Pattern;
 using UnityEngine;
 
+[UIModel("Cube")]
 public class Cube : UIView
 {
     public override void Next()
