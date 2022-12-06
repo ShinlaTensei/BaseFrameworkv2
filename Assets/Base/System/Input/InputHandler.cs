@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Base.Helper;
 using Base.Pattern;
 using UnityEngine;
 
 namespace Base
 {
-    public class InputHandler : MonoBehaviour, IService
+    public class InputHandler : BaseMono, IService
     {
         private InputAction inputAction;
 
@@ -14,13 +15,13 @@ namespace Base
 
         public void CreateInputAction()
         {
-            if (Application.platform == RuntimePlatform.Android)
+            if (Application.platform is RuntimePlatform.Android)
             {
-                inputAction = gameObject.AddComponent<TouchInputAction>();
+                inputAction = CacheGameObject.AddComponent<TouchInputAction>();
             }
-            else if (Application.platform == RuntimePlatform.WindowsEditor)
+            else if (Application.platform is RuntimePlatform.WindowsEditor or RuntimePlatform.OSXEditor)
             {
-                inputAction = gameObject.AddComponent<MouseInputAction>();
+                inputAction = CacheGameObject.AddComponent<MouseInputAction>();
             }
         }
     }

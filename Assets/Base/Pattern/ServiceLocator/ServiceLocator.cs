@@ -72,6 +72,7 @@ namespace Base.Pattern
                 if (typeof(T).IsSubclassOf(typeof(MonoBehaviour)))
                 {
                     GameObject inst = new GameObject();
+                    inst.transform.SetParent(Instance.CacheTransform);
                     result = inst.AddComponent(typeof(T)) as T;
                     Set(result);
                     inst.name = $"{typeof(T).Name}-Singleton";

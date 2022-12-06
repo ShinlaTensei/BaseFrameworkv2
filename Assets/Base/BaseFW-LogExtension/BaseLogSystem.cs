@@ -12,7 +12,7 @@ namespace Base.Logging
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         public static void SetupLogSystem()
         {
-            #if DEBUG
+            #if LOG_ENABLE
             LogManager.ResumeLogging();
             #else
             LogManager.SuspendLogging();
