@@ -24,6 +24,11 @@ namespace Base
                 inputAction = CacheGameObject.AddComponent<MouseInputAction>();
             }
         }
+
+        public void Init()
+        {
+            CreateInputAction();
+        }
     }
 }
 

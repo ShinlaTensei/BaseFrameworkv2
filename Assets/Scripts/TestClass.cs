@@ -11,7 +11,7 @@ public class TestClass : MonoBehaviour
 
     private void OnTest(object argument)
     {
-        ServiceLocator.Get<InputHandler>().CreateInputAction();
+        ServiceLocator.Get<InputHandler>().Init();
     }
 }
 

@@ -20,6 +20,10 @@ namespace Base
     public class UIViewManager : BaseMono, IService
     {
         private Dictionary<string, UIView> _uiViewPool = new Dictionary<string, UIView>();
+        public void Init()
+        {
+            _uiViewPool.Clear();
+        }
     }
 }
 
