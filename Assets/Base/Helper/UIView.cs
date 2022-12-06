@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Base.Helper
 {
     public enum ExitType {None, Hide, Remove}
-    public abstract class UIView : BaseMono, IService
+    public abstract class UIView : BaseMono
     {
         [SerializeField] protected GameObject root;
         [SerializeField] protected ExitType exitType;
