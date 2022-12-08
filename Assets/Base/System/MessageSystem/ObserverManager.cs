@@ -7,7 +7,7 @@ namespace Base.MessageSystem
 {
     public class ObserverManager : IService, IDisposable
     {
-        private Dictionary<Enum, Callback<object>> _listeners = new Dictionary<Enum, Callback<object>>();
+        private Dictionary<Enum, Callback<object>> _listeners;
 
         public void AddListener(Enum eventId, Callback<object> func)
         {
@@ -87,6 +87,11 @@ namespace Base.MessageSystem
         ~ObserverManager()
         {
             Dispose();
+        }
+
+        public void Init()
+        {
+            _listeners = new Dictionary<Enum, Callback<object>>();
         }
     }
 

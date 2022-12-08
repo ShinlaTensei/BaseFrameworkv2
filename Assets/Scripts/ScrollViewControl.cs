@@ -21,8 +21,6 @@ public class ScrollViewControl : MonoBehaviour
             var child = Instantiate(prefab, contentParent) as RectTransform;
             _listItem.Add(child);
         }
-        
-        UIModelAttribute attribute = typeof(Cube).GetCustomAttribute(typeof(UIModelAttribute)) as UIModelAttribute;
     }
 
     private void Update()

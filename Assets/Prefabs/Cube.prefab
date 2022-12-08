@@ -113,3 +113,6 @@ MonoBehaviour:
   isMissingReference: 0
   root: {fileID: 7695114300211419476}
   exitType: 1
+  canvasType: 0
+  activeDefault: 1
+  closePrevOnShow: 1

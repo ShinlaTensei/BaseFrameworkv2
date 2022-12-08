@@ -40,7 +40,7 @@ namespace Base.Pattern
             }
         }
 
-        public static void Set<T>(T argument) where T : IService
+        public static void Set<T>(T argument) where T : class, IService
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
@@ -74,7 +74,7 @@ namespace Base.Pattern
                     GameObject inst = new GameObject();
                     inst.transform.SetParent(Instance.CacheTransform);
                     result = inst.AddComponent(typeof(T)) as T;
-                    Set(result);
+                    Set((T)result);
                     inst.name = $"{typeof(T).Name}-Singleton";
                 }
                 else
