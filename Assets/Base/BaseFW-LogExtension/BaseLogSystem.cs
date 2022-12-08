@@ -25,14 +25,14 @@ namespace Base.Logging
             var logConsole = new UnityDebugTarget()
             {
                 Name = "UnityDebugLog",
-                Layout = "${longdate} |${level} |${message} |${stacktrace}"
+                Layout = "[${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
             #elif UNITY_ANDROID
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = _logFilePath + _fileDirectory + "/" + _fileName,
-                Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
+                Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
@@ -40,7 +40,7 @@ namespace Base.Logging
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = _logFilePath + _fileDirectory + "\\" + _fileName,
-                Layout = "${longdate} |${level} |${message} |${stacktrace} |${event-properties:myProperty} |${exception}"
+                Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "\\" + "DebugLog.txt");
