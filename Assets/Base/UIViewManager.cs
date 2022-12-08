@@ -34,6 +34,8 @@ namespace Base
         private UIView _previous;
         private UIView _current;
 
+        private AddressableManager _addressableManager;
+
         private async UniTask<T> ShowAsync<T>(T instance, Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T view = instance ? instance : TryGetView<T>();
@@ -45,7 +47,7 @@ namespace Base
 
             if (view)
             {
-                InitCompleted(instance, root);
+                InitCompleted(view, root);
             }
             
             onInit?.Invoke();
@@ -117,7 +119,16 @@ namespace Base
             GameObject inst = null;
             string prefabPath = string.Empty;
 
-            return null;
+            if (_addressableManager.IsInit && _addressableManager.IsReadyToGetBundle)
+            {
+                prefabPath = modelName;
+                inst = await _addressableManager.InstantiateAsync(prefabPath, retryCount: 5, cancellationToken: cancellationToken);
+            }
+
+            T view = inst != null ? inst.GetComponent<T>() : null;
+            onCompleted?.Invoke(view);
+
+            return view;
         }
 
         private void InitCompleted<T>(T instance, Transform root = null) where T : UIView
@@ -224,6 +235,8 @@ namespace Base
         {
             _uiViewPool.Clear();
             _uiCanvasPool.Clear();
+
+            _addressableManager = ServiceLocator.Get<AddressableManager>();
         }
     }
 }
