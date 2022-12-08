@@ -48,3 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: CanvasUI
+    uniqueID: 777271281
+    locked: 0
+  - name: OverlayUI
+    uniqueID: 1560406861
+    locked: 0

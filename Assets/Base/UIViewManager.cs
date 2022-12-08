@@ -54,8 +54,35 @@ namespace Base
 
             return view;
         }
+        
+        public async UniTask Show<T>(T instance, Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        {
+            T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
+            if (inst)
+            {
+                _previous = _current;
+                _current = inst;
+                await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
+                _current.Show();
+                if (_previous && _current.ClosePrevOnShow) _previous.Hide();
+            }
+        }
+        
+        public async UniTask Show<T, Y>(T instance, Y value, Action onInit = null, Transform root = null,
+            CancellationToken cancellationToken = default) where T : UIView
+        {
+            T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
+            if (inst)
+            {
+                _previous = _current;
+                _current = inst;
+                await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
+                _current.Show(value);
+                if (_previous && _current.ClosePrevOnShow) _previous.Hide();
+            }
+        }
 
-        public async UniTaskVoid Show<T>(Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        public async UniTask Show<T>(Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)
@@ -68,7 +95,7 @@ namespace Base
             }
         }
 
-        public async UniTaskVoid Show<T, Y>(Y value, Action onInit = null, Transform root = null,
+        public async UniTask Show<T, Y>(Y value, Action onInit = null, Transform root = null,
             CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
@@ -122,7 +149,9 @@ namespace Base
             if (_addressableManager.IsInit && _addressableManager.IsReadyToGetBundle)
             {
                 prefabPath = modelName;
-                inst = await _addressableManager.InstantiateAsync(prefabPath, retryCount: 5, cancellationToken: cancellationToken);
+                inst = await _addressableManager.InstantiateAsync(prefabPath,
+                    parent: GetCanvasWithTag(UICanvasType.RootCanvas, CacheGameObject.scene.name), retryCount: 5,
+                    cancellationToken: cancellationToken);
             }
 
             T view = inst != null ? inst.GetComponent<T>() : null;

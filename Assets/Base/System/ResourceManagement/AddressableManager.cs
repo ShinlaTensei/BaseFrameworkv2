@@ -16,7 +16,7 @@ using Object = UnityEngine.Object;
 
 namespace Base
 {
-    public class AddressableManager : IService
+    public class AddressableManager : MonoBehaviour, IService
     {
         public static float RETRY_DELAY_TIMER = 2f;
         public bool IsInit { get; set; }
