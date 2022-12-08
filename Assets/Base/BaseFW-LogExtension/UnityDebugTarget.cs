@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using NLog;
-using NLog.Common;
 using NLog.Targets;
 using UnityEngine;
 
@@ -19,11 +16,11 @@ namespace Base.Logging
         {
             string logMessage = RenderLogEvent(this.Layout, logEvent);
             if (logEvent.Level <= LogLevel.Info)
-                UnityEngine.Debug.Log(logMessage);
+                Debug.LogFormat($"<b><color=aqua>{logMessage}</color></b>");
             else if (logEvent.Level == LogLevel.Warn)
-                UnityEngine.Debug.LogWarning(logMessage);
+                Debug.LogWarning($"<b><color=yellow>{logMessage}</color></b>");
             else
-                UnityEngine.Debug.LogError(logMessage);
+                Debug.LogError($"<b><color=red>{logMessage}</color></b>");
         }
     }
 }
