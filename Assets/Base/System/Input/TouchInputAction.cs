@@ -8,12 +8,16 @@ namespace Base
 {
     public class TouchInputAction : MonoBehaviour, InputAction
     {
+        private bool m_lock;
+
         public InputPhase Phase
         {
             get
             {
                 if (Input.touchCount == 1)
                 {
+                    if (Lock) return InputPhase.None;
+                    
                     var touch = Input.touches[0];
                     if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject(touch.fingerId))
                     {
@@ -34,6 +38,14 @@ namespace Base
         {
             get => Input.GetTouch(0).deltaPosition;
         }
+
+        public bool Lock => m_lock;
+
+        public void SetLock(bool isLock)
+        {
+            m_lock = isLock;
+        }
+
         public Touch Touch => Input.GetTouch(0);
     }
 }

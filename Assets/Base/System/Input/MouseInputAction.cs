@@ -7,10 +7,14 @@ namespace Base
     public class MouseInputAction : MonoBehaviour, InputAction
     {
         private Vector3 _prevMousePos;
+        private bool m_lock;
+
         public InputPhase Phase
         {
             get
             {
+                if (Lock) return InputPhase.None;
+                
                 if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject())
                 {
                     if (Input.GetMouseButtonDown(0))
@@ -49,6 +53,13 @@ namespace Base
                 _prevMousePos = Input.mousePosition;
                 return deltaPos;
             }
+        }
+
+        public bool Lock => m_lock;
+
+        public void SetLock(bool isLock)
+        {
+            m_lock = isLock;
         }
 
         public Touch Touch => Input.GetTouch(0);

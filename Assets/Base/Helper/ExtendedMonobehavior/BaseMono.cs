@@ -18,7 +18,7 @@ namespace Base.Helper
         {
             get
             {
-                if (_transform == null)
+                if (_transform is null)
                 {
                     _transform = transform;
                 }
@@ -31,7 +31,7 @@ namespace Base.Helper
         {
             get
             {
-                if (_gameObject == null)
+                if (_gameObject is null)
                 {
                     _gameObject = gameObject;
                 }
@@ -44,7 +44,7 @@ namespace Base.Helper
         {
             get
             {
-                if (_rectTransform == null)
+                if (_rectTransform is null)
                 {
                     _rectTransform = gameObject.GetComponent<RectTransform>();
                 }
