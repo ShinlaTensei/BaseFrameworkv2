@@ -3389,6 +3389,7 @@ GameObject:
   - component: {fileID: 1762595018}
   - component: {fileID: 1762595017}
   - component: {fileID: 1762595021}
+  - component: {fileID: 1762595022}
   m_Layer: 5
   m_Name: DebugCanvas
   m_TagString: Untagged
@@ -3496,6 +3497,20 @@ MonoBehaviour:
   isMissingReference: 0
   floatingButton: {fileID: 327099754}
   debugContent: {fileID: 220134283}
+  functionObj: {fileID: 1762595018}
+  functionDropdown: {fileID: 1548178003}
+--- !u!114 &1762595022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762595016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14566289dd16314195443fbb61e7fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1785027564
 GameObject:
   m_ObjectHideFlags: 0
