@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Base.Logging
 {
     [Target("UnityDebugLog")]
-    public class UnityDebugTarget : TargetWithLayout
+    public class UnityDebugTarget : TargetWithContext
     {
         protected override void InitializeTarget()
         {
@@ -16,7 +16,7 @@ namespace Base.Logging
         {
             string logMessage = RenderLogEvent(this.Layout, logEvent);
             if (logEvent.Level <= LogLevel.Info)
-                Debug.LogFormat($"<b><color=aqua>{logMessage}</color></b>");
+                Debug.Log($"<b><color=aqua>{logMessage}</color></b>");
             else if (logEvent.Level == LogLevel.Warn)
                 Debug.LogWarning($"<b><color=yellow>{logMessage}</color></b>");
             else

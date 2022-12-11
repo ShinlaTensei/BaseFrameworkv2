@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 #if UNITY_EDITOR
+using Base.Logging;
 using UnityEditor;
 #endif // UNITY_EDITOR
 using UnityEngine;
