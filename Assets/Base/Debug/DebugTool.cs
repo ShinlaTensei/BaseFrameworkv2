@@ -22,6 +22,9 @@ namespace Base
         [SerializeField] private TMP_Dropdown groupDropdown;
         [SerializeField] private Transform functionParamContainer;
 
+        [SerializeField] private InputParamUI inputParamUI;
+        [SerializeField] private SelectorParamUI selectorParamUI;
+
         private bool _init = false;
         private int _functionIndex = 0;
         private int _groupIndex = 0;
@@ -51,6 +54,7 @@ namespace Base
             if (!_init) Init(functionObj);
             
             FilterByScene();
+            Render();
             
             debugContent.SetActive(true);
             floatingButton.Active = false;
@@ -182,7 +186,92 @@ namespace Base
 
                 for (int i = 0; i < paramsInfo.Length; ++i)
                 {
-                    
+                    int temp = i;
+                    ParameterInfo info = paramsInfo[i];
+                    SelectAttribute selectAttribute = info.GetCustomAttribute<SelectAttribute>();
+                    _parameters[i] = info.DefaultValue;
+                    if (selectAttribute != null) // Parameter that can be select from dropdown menu
+                    {
+                        int             lastIndex = paramData[i];
+                        SelectorParamUI input     = Instantiate(selectorParamUI);
+                        Transform inputTrans = input.transform;
+                        inputTrans.SetParent(functionParamContainer.transform);
+                        inputTrans.localScale    = Vector3.one;
+                        inputTrans.localPosition = Vector3.zero;
+                        input.gameObject.name         = "DropDown - " + info.Name;
+                        input.gameObject.SetActive(true);
+                        input.InitUI(info.Name, info.ParameterType.Name, info.DefaultValue);
+                        input.MainInput.ClearOptions();
+                        input.MainInput.onValueChanged.RemoveAllListeners();
+
+                        MethodInfo m = functionObj.GetType().GetMethod(selectAttribute.MethodName);
+                        if (m != null)
+                        {
+                            List<string> options  = new List<string>();
+                            IList        options_ = (IList)m.Invoke(functionObj, null);
+
+                            if (options_ != null)
+                            {
+                                foreach (object option in options_) { options.Add(option.ToString()); }
+                            }
+
+                            input.MainInput.AddOptions(options);
+                            if (input.MainInput.options.Count > input.MainInput.value)
+                            {
+                                string text = input.MainInput.options[input.MainInput.value].text;
+                                _parameters[i] = Convert(text, info.ParameterType);
+                            }
+
+                            if (lastIndex < options.Count)
+                            {
+                                _parameters[i]         = Convert(options[lastIndex], info.ParameterType);
+                                input.MainInput.value = lastIndex;
+                            }
+                        }
+                        input.MainInput.onValueChanged.AddListener(id =>
+                        {
+                            if (input.MainInput.options.Count > id)
+                            {
+                                string text = input.MainInput.options[id].text;
+                                _parameters[temp]   = Convert(text, info.ParameterType);
+                                paramData[temp] = id;
+                            }
+                        });
+                    }
+                    else
+                    {
+                        InputParamUI input = Instantiate(inputParamUI);
+                        Transform inputTrans = input.transform;
+                        inputTrans.SetParent(functionParamContainer.transform);
+                        inputTrans.localScale    = Vector3.one;
+                        inputTrans.localPosition = Vector3.zero;
+                        input.gameObject.name         = "Input - " + info.Name;
+                        input.gameObject.SetActive(true);
+                        input.InitUI(info.Name, info.ParameterType.Name, info.DefaultValue);
+                        input.MainInput.onValueChanged.RemoveAllListeners();
+                        input.Toggle1.onValueChanged.RemoveAllListeners();
+                        input.MainInput.onValueChanged.AddListener(value =>
+                        {
+                            if (string.IsNullOrEmpty(value))
+                            {
+                                _parameters[temp]        = Activator.CreateInstance(info.ParameterType);
+                                input.MainInput.text = _parameters[temp].ToString();
+                                return;
+                            }
+                            if (Convert(value, info.ParameterType, out object result))
+                            {
+                                _parameters[temp] = result;
+                            }
+                            else
+                            {
+                                input.MainInput.text = _parameters[temp].ToString();
+                            }
+                        });
+                        input.Toggle1.onValueChanged.AddListener(value =>
+                        {
+                            _parameters[temp] = value;
+                        });
+                    }
                 }
             }
         }
@@ -203,6 +292,8 @@ namespace Base
         {
             functionDropdown.value = index;
             _functionIndex = index;
+            
+            Render();
         }
 
         private void OnGroupValueChanged(int index)
@@ -223,6 +314,45 @@ namespace Base
                 methodInfo.Invoke(functionObj, _parameters);
             }
         }
+        
+        #region static
+        public static object Convert(string value, Type conversionType)
+        {
+            if (conversionType.GetTypeInfo().IsEnum)
+            {
+                return Enum.Parse(conversionType, value);
+            }
+
+            return System.Convert.ChangeType(value, conversionType);
+        }
+        public static bool Convert(string value, Type conversionType, out object result)
+        {
+            result = null;
+            if (conversionType.GetTypeInfo().IsEnum)
+            {
+                try
+                {
+                    result = Enum.Parse(conversionType, value);
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
+            }
+
+            try
+            {
+                result = System.Convert.ChangeType(value, conversionType);
+                return true;
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            return false;
+        }
+        #endregion //static
     }
 
     public enum SceneName
