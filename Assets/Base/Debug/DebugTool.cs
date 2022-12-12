@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Base.Helper;
 using Base.Logging;
@@ -15,21 +16,28 @@ namespace Base
     {
         [SerializeField] private FloatingButton floatingButton;
         [SerializeField] private GameObject debugContent;
-        [SerializeField] private MonoBehaviour functionObj;
+        [SerializeField] private DebugMono functionObj;
 
         [SerializeField] private TMP_Dropdown functionDropdown;
+        [SerializeField] private TMP_Dropdown groupDropdown;
+        [SerializeField] private Transform functionParamContainer;
 
         private bool _init = false;
         private int _functionIndex = 0;
+        private int _groupIndex = 0;
 
         private List<GameDebugProperty> _debugProperties = new List<GameDebugProperty>();
         private List<GameDebugSceneMethod> _debugSceneMths = new List<GameDebugSceneMethod>();
         private Dictionary<SceneName, List<GameDebugSceneMethod>> _sceneMethods = new Dictionary<SceneName, List<GameDebugSceneMethod>>();
+        private List<string> _renderGroup = new List<string>();
+
+        private object[] _parameters;
 
         protected override void Start()
         {
             base.Start();
-
+            functionDropdown.onValueChanged.AddListener(OnFunctionValueChanged);
+            groupDropdown.onValueChanged.AddListener(OnGroupValueChanged);
             floatingButton.OnClick += OpenDebugUI;
         }
 
@@ -157,6 +165,28 @@ namespace Base
             functionDropdown.value = _functionIndex;
         }
 
+        private void Render()
+        {
+            functionParamContainer.DestroyAllChildren();
+
+            int index = _functionIndex;
+            if (_debugSceneMths.Count > index)
+            {
+                GameDebugSceneMethod sceneMethod = _debugSceneMths[index];
+                Attribute attribute = sceneMethod.Attribute;
+                ParameterInfo[] paramsInfo = sceneMethod.Method.GetParameters();
+                int[] paramData = sceneMethod.ParamIndex ?? new int[paramsInfo.Length];
+
+                _parameters = new object[paramsInfo.Length];
+                sceneMethod.ParamIndex = paramData;
+
+                for (int i = 0; i < paramsInfo.Length; ++i)
+                {
+                    
+                }
+            }
+        }
+
         private string GetOpenScene()
         {
             string sceneName = String.Empty;
@@ -167,6 +197,31 @@ namespace Base
             }
 
             return sceneName;
+        }
+
+        private void OnFunctionValueChanged(int index)
+        {
+            functionDropdown.value = index;
+            _functionIndex = index;
+        }
+
+        private void OnGroupValueChanged(int index)
+        {
+            groupDropdown.value = index;
+            _groupIndex = index;
+            
+            FilterByScene();
+        }
+
+        public void OnSubmitClick()
+        {
+            if (_functionIndex < _debugSceneMths.Count)
+            {
+                GameDebugSceneMethod method = _debugSceneMths[_functionIndex];
+                MethodInfo methodInfo = method.Method;
+                this.GetLogger().Debug(CultureInfo.CurrentCulture, "CHEAT: calling {method}", methodInfo.Name);
+                methodInfo.Invoke(functionObj, _parameters);
+            }
         }
     }
 

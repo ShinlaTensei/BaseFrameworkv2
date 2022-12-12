@@ -76,11 +76,12 @@ namespace Base.Helper
             return children;
         }
 
-        public static void DestroyAllChildren(this Transform target)
+        public static void DestroyAllChildren(this Transform target, bool isImmediate = false)
         {
             foreach (Transform child in target)
             {
-                Object.Destroy(child.gameObject);
+                if (!isImmediate) Object.Destroy(child.gameObject);
+                else Object.DestroyImmediate(child.gameObject);
             }
         }
         
