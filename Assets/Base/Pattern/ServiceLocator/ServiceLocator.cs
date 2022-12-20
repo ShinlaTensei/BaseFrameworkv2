@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using Base.Helper;
 using Base.Logging;
+using Base.MessageSystem;
 using UnityEngine;
 
 namespace Base.Pattern
@@ -12,22 +9,27 @@ namespace Base.Pattern
     public class ServiceLocator : SingletonMono<ServiceLocator>
     {
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+        private Dictionary<Type, ISignal>   _signals = new Dictionary<Type, ISignal>();
 
         public Dictionary<Type, IService> Services => _services;
+        public Dictionary<Type, ISignal> Signals => _signals;
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
             
-            _services.Clear();
+            Services.Clear();
+            Signals.Clear();
         }
 
-        public static T Get<T>() where T : class, IService
+        #region Service
+
+        public static T GetService<T>() where T : class, IService
         {
-            return Resolve<T>();
+            return ResolveService<T>();
         }
 
-        public static void Set<T>() where T : class, IService
+        public static void SetService<T>() where T : class, IService
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
@@ -40,7 +42,7 @@ namespace Base.Pattern
             }
         }
 
-        public static void Set<T>(T argument) where T : class, IService
+        public static void SetService<T>(T argument) where T : class, IService
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
@@ -52,7 +54,7 @@ namespace Base.Pattern
             }
         }
 
-        public static void Remove<T>() where T : class, IService
+        public static void RemoveService<T>() where T : class, IService
         {
             if (Instance.Services.ContainsKey(typeof(T)))
             {
@@ -60,7 +62,7 @@ namespace Base.Pattern
             }
         }
 
-        private static T Resolve<T>() where T : class, IService
+        private static T ResolveService<T>() where T : class, IService
         {
             IService result = default;
             if (Instance.Services.TryGetValue(typeof(T), out IService concreteType))
@@ -74,18 +76,66 @@ namespace Base.Pattern
                     GameObject inst = new GameObject();
                     inst.transform.SetParent(Instance.CacheTransform);
                     result = inst.AddComponent(typeof(T)) as T;
-                    Set((T)result);
+                    SetService((T)result);
                     inst.name = $"{typeof(T).Name}-Singleton";
                 }
                 else
                 {
-                    Set<T>();
-                    result = Resolve<T>();
+                    SetService<T>();
+                    result = ResolveService<T>();
                 }
             }
 
             return result as T;
         }
+
+        #endregion
+
+        #region Signal
+
+        public static T GetSignal<T>() where T : class, ISignal
+        {
+            return ResolveSignal<T>();
+        }
+
+        public static void SetSignal<T>() where T : class, ISignal
+        {
+            if (!Instance.Signals.ContainsKey(typeof(T)))
+            {
+                T signal = Activator.CreateInstance<T>();
+                Instance.Signals.TryAdd(typeof(T), signal);
+            }
+            else
+            {
+                Instance.GetLogger().Debug("Signal {0} is already added", typeof(T));
+            }
+        }
+
+        public static void RemoveSignal<T>() where T : class, ISignal
+        {
+            if (Instance.Signals.ContainsKey(typeof(T)))
+            {
+                Instance.Signals.Remove(typeof(T));
+            }
+        }
+
+        private static T ResolveSignal<T>() where T : class, ISignal
+        {
+            ISignal result = default;
+            if (Instance.Signals.TryGetValue(typeof(T), out ISignal concreteSignal))
+            {
+                result = concreteSignal;
+            }
+            else
+            {
+                SetSignal<T>();
+                result = ResolveSignal<T>();
+            }
+
+            return result as T;
+        }
+
+        #endregion
     }
 }
 

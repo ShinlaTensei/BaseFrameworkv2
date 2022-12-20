@@ -19,7 +19,7 @@ namespace Base.Helper
         [SerializeField] private bool activeDefault;
         [SerializeField] private bool closePrevOnShow;
 
-        protected GameObject Root
+        public GameObject Root
         {
             get
             {
@@ -89,7 +89,7 @@ namespace Base.Helper
 
         protected virtual void OnDestroy()
         {
-            ServiceLocator.Get<UIViewManager>().Remove(this);
+            ServiceLocator.GetService<UIViewManager>().Remove(this);
         }
     }
 }

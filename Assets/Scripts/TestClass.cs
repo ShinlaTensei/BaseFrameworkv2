@@ -13,8 +13,8 @@ public class TestClass : MonoBehaviour
 
     private void OnTest(object argument)
     {
-        ServiceLocator.Get<InputHandler>().Init();
-        ServiceLocator.Get<ObserverManager>().Init();
+        ServiceLocator.GetService<InputHandler>().Init();
+        ServiceLocator.GetService<ObserverManager>().Init();
         
         this.GetLogger().Info("Test log info");
         this.GetLogger().Debug("Test log debug");

@@ -95,10 +95,10 @@ namespace Base
             }
         }
 
-        public async UniTask Show<T, Y>(Y value, Action onInit = null, Transform root = null,
-            CancellationToken cancellationToken = default) where T : UIView
+        public async UniTask Show<T1, T2>(T2 value, Action onInit = null, Transform root = null,
+            CancellationToken cancellationToken = default) where T1 : UIView
         {
-            T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
+            T1 inst = await ShowAsync<T1>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)
             {
                 _previous = _current;
@@ -179,7 +179,7 @@ namespace Base
             instance.CacheTransform.SetLocalPosition(Vector3.zero);
             instance.RectTransform.anchoredPosition = Vector3.zero;
             instance.CacheTransform.SetAsLastSibling();
-            instance.Active = instance.ActiveDefault;
+            instance.Root.SetActive(instance.ActiveDefault);
             
             Add(instance);
         }
@@ -235,7 +235,7 @@ namespace Base
                 }
             }
             
-            this.GetLogger().Debug("Cannot find canvas with tag {tag} in scene: {sceneName}", newTag, sceneName);
+            this.GetLogger().Warn("Cannot find canvas with tag {tag} in scene: {sceneName}", newTag, sceneName);
 
             return null;
         }
@@ -265,7 +265,7 @@ namespace Base
             _uiViewPool.Clear();
             _uiCanvasPool.Clear();
 
-            _addressableManager = ServiceLocator.Get<AddressableManager>();
+            _addressableManager = ServiceLocator.GetService<AddressableManager>();
         }
     }
 }
