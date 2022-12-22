@@ -8,6 +8,7 @@ namespace Base
     public class DebugMono : MonoBehaviour
     {
         [SerializeField] private FPSDisplay fpsDisplay;
+        
         #region Debug
         [DebugAction("Show FPS", "Analytics", SceneName.AnyScene)]
         public void ToggleFPS()

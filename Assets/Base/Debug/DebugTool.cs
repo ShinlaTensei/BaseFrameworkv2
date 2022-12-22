@@ -38,10 +38,14 @@ namespace Base
 
         protected override void Start()
         {
+            #if CHEAT_ENABLE
             base.Start();
             functionDropdown.onValueChanged.AddListener(OnFunctionValueChanged);
             groupDropdown.onValueChanged.AddListener(OnGroupValueChanged);
             floatingButton.OnClick += OpenDebugUI;
+            #else
+            Active = false;
+            #endif
         }
 
         private void OnDestroy()
