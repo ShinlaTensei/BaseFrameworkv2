@@ -29,21 +29,25 @@ namespace Base.Logging
                 Layout = "[${level}] ${message} (${stacktrace})",
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
-            string fileDirectory
+            
             #elif UNITY_ANDROID
             string logFilePath = FileUtilities.GetSystemPath() + "/";
+            string fileDirectory = Application.productName + "-Debug";
+            string fileName = "DebugLog.txt";
             var logFile = new NLog.Targets.FileTarget
             {
-                FileName = logFilePath + _fileDirectory + "/" + _fileName,
+                FileName = logFilePath + fileDirectory + "/" + fileName,
                 Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
             #elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
-            string logFilePath = FileUtilities.GetSystemPath() + "/";
+            string logFilePath = FileUtilities.GetSystemPath() + "\\";
+            string fileDirectory = Application.productName + "-Debug";
+            string fileName = "DebugLog.txt";
             var logFile = new NLog.Targets.FileTarget
             {
-                FileName = logFilePath + _fileDirectory + "\\" + _fileName,
+                FileName = logFilePath + fileDirectory + "\\" + fileName,
                 Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
