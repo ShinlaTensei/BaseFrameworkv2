@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Base.Pattern;
+using Base.Utilities;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Base.Helper
 {
     public enum ExitType {None, Hide, Remove, RemoveImmediate}
-    public abstract class UIView : BaseMono
+    public abstract class UIView : BaseMono, IPointerClickHandler
     {
         private const string RootName = "Root";
         
@@ -18,6 +21,9 @@ namespace Base.Helper
         [SerializeField] private UICanvasType canvasType;
         [SerializeField] private bool activeDefault;
         [SerializeField] private bool closePrevOnShow;
+        [SerializeField] private bool closeOnTouchOutside;
+        [Condition("closeOnTouchOutside", true, false)] 
+        [SerializeField] private RectTransform touchRect;
 
         public GameObject Root
         {
@@ -37,14 +43,14 @@ namespace Base.Helper
 
         public virtual void Show()
         {
-            if (isMissingReference) return;
+            //if (IsMissingReference) return;
             
             Root.SetActive(true);
         }
 
         public virtual void Hide()
         {
-            if (isMissingReference) return;
+            //if (IsMissingReference) return;
 
             switch (exitType)
             {
@@ -87,9 +93,16 @@ namespace Base.Helper
             }
         }
 
-        protected virtual void OnDestroy()
+        public void OnPointerClick(PointerEventData eventData)
         {
-            ServiceLocator.GetService<UIViewManager>().Remove(this);
+            if (!closeOnTouchOutside) return;
+            bool inside = false;
+            if (touchRect)
+            {
+                inside = RectTransformUtility.RectangleContainsScreenPoint(touchRect, eventData.position, eventData.pressEventCamera);
+            }
+            
+            if(!inside) {Hide();}
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Base.Pattern
     public abstract class CharacterState: BaseMono, IUpdateable
     {
         [SerializeField] private bool isOverrideAnimator = false;
-        [SerializeField, Condition("isOverrideAnimator", ConditionAttribute.ConditionType.IsTrue)] 
+        [SerializeField, Condition("isOverrideAnimator", true)] 
         private RuntimeAnimatorController runtimeAnimatorController = null;
         
         protected CharacterStateController CharacterStateController { get; private set; }

@@ -6,7 +6,7 @@ namespace Base.Helper
 {
     public class BaseMono : MonoBehaviour
     {
-        [SerializeField] [ReadOnly] protected bool isMissingReference;
+        [SerializeField] [ReadOnly] private bool isMissingReference;
         
         
         private RectTransform _rectTransform;
@@ -53,6 +53,8 @@ namespace Base.Helper
             }
         }
 
+        public bool IsMissingReference => isMissingReference;
+
         public bool Active
         {
             get => CacheGameObject.activeSelf;
@@ -96,7 +98,7 @@ namespace Base.Helper
 
         protected virtual void Start()
         {
-            if (isMissingReference) return;
+            //if (isMissingReference) return;
         }
 
         public GameObject CacheInstantiate()
