@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.IO;
+using Base.Module;
 using NLog;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -28,18 +29,21 @@ namespace Base.Logging
                 Layout = "[${level}] ${message} (${stacktrace})",
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
+            string fileDirectory
             #elif UNITY_ANDROID
+            string logFilePath = FileUtilities.GetSystemPath() + "/";
             var logFile = new NLog.Targets.FileTarget
             {
-                FileName = _logFilePath + _fileDirectory + "/" + _fileName,
+                FileName = logFilePath + _fileDirectory + "/" + _fileName,
                 Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
             #elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
+            string logFilePath = FileUtilities.GetSystemPath() + "/";
             var logFile = new NLog.Targets.FileTarget
             {
-                FileName = _logFilePath + _fileDirectory + "\\" + _fileName,
+                FileName = logFilePath + _fileDirectory + "\\" + _fileName,
                 Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);

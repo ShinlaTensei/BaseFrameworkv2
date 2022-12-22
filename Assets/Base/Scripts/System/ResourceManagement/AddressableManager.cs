@@ -134,9 +134,10 @@ namespace Base
 
         public void Init()
         {
+            Initialize();
         }
 
-        public void Initialize(Action<bool> callback, int retryCount = 0, int retry = 0)
+        public void Initialize(Action<bool> callback = null, int retryCount = 0, int retry = 0)
         {
             BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing ...");
 
@@ -197,7 +198,7 @@ namespace Base
             }
         }
 
-        public async UniTask<bool> InitializeAsync(Action<bool> callback, int retryCount = 0, int retry = 0,
+        public async UniTask<bool> InitializeAsync(Action<bool> callback = null, int retryCount = 0, int retry = 0,
             CancellationToken cancellationToken = default)
         {
             BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing ...");

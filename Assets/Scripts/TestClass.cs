@@ -15,6 +15,7 @@ public class TestClass : MonoBehaviour
     {
         ServiceLocator.GetService<InputHandler>().Init();
         ServiceLocator.GetService<ObserverManager>().Init();
+        ServiceLocator.GetService<AddressableManager>().Init();
         
         this.GetLogger().Info("Test log info");
         this.GetLogger().Debug("Test log debug");
