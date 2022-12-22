@@ -31,7 +31,7 @@ namespace Base.Logging
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
             
             #elif UNITY_ANDROID
-            string logFilePath = FileUtilities.GetSystemPath() + "/";
+            string logFilePath = FileUtilities.GetSystemPath();
             string fileDirectory = Application.productName + "-Debug";
             string fileName = "DebugLog.txt";
             var logFile = new NLog.Targets.FileTarget
@@ -42,7 +42,7 @@ namespace Base.Logging
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
             #elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
-            string logFilePath = FileUtilities.GetSystemPath() + "\\";
+            string logFilePath = FileUtilities.GetSystemPath();
             string fileDirectory = Application.productName + "-Debug";
             string fileName = "DebugLog.txt";
             var logFile = new NLog.Targets.FileTarget
