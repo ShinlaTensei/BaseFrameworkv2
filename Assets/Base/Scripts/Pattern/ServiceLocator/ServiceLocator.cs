@@ -29,28 +29,36 @@ namespace Base.Pattern
             return ResolveService<T>();
         }
 
-        public static void SetService<T>() where T : class, IService
+        public static T SetService<T>() where T : class, IService
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
                 var value = Activator.CreateInstance<T>();
                 Instance.Services.Add(typeof(T), value);
+
+                return value;
             }
             else
             {
                 Instance.GetLogger().Debug("Service {0} is already added", typeof(T));
+
+                return null;
             }
         }
 
-        public static void SetService<T>(T argument) where T : class, IService
+        public static T SetService<T>(T argument) where T : class, IService
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
                 Instance.Services.Add(typeof(T), argument);
+
+                return argument;
             }
             else
             {
                 Instance.GetLogger().Debug("Service {0} is already added", typeof(T));
+
+                return null;
             }
         }
 

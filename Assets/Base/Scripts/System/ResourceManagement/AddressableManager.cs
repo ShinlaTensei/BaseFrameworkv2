@@ -243,6 +243,7 @@ namespace Base
         public void Dispose()
         {
             ClearAtlases();
+            ReleaseTracked();
         }
 
         #endregion

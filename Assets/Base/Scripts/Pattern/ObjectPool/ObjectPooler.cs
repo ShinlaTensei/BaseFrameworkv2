@@ -8,7 +8,7 @@ using Base.Helper;
 
 namespace Base.Pattern
 {
-    public class ObjectPooler : BaseMono
+    public class ObjectPooler : BaseMono, IService, IDisposable
     {
         #region Singleton
 
@@ -49,18 +49,19 @@ namespace Base.Pattern
             _sharedInstance = this;
         }
 
-        private void Start()
+        protected override void Start()
         {
             if (isInitializeOnStart)
             {
-                InitObjectPool();
+                Init();
             }
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
-            _sharedInstance = null;
+            _poolDictionary.Clear();
             listPool.Clear();
+            _sharedInstance = null;
         }
 
         #endregion
@@ -70,7 +71,12 @@ namespace Base.Pattern
             return SharedInstance._poolDictionary.ContainsKey(key);
         }
         
-        public static void InitObjectPool()
+        public void Init()
+        {
+            InitObjectPool();
+        }
+        
+        private static void InitObjectPool()
         {
             for (int i = 0; i < SharedInstance.listPool.Count; i++)
             {
@@ -160,7 +166,6 @@ namespace Base.Pattern
                 pool.Reset();
             }
         }
-
     }
     
     [Serializable]

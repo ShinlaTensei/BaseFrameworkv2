@@ -62,11 +62,6 @@ namespace Base
             }
         }
 
-        protected virtual void OnApplicationQuit()
-        {
-            m_ShuttingDown = true;
-        }
-
         protected virtual void OnDestroy()
         {
             m_ShuttingDown = true;

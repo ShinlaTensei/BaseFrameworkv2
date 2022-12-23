@@ -12,6 +12,10 @@ using UnityEngine.EventSystems;
 namespace Base.Helper
 {
     public enum ExitType {None, Hide, Remove, RemoveImmediate}
+    public enum NavigationState {
+        None = 0,
+        Obscured,
+        Overlap}
     public abstract class UIView : BaseMono, IPointerClickHandler
     {
         private const string RootName = "Root";
@@ -19,6 +23,8 @@ namespace Base.Helper
         [SerializeField] private GameObject root;
         [SerializeField] private ExitType exitType;
         [SerializeField] private UICanvasType canvasType;
+        [BitFlag(typeof(NavigationState))]
+        [SerializeField] private long navigationState = 0;
         [SerializeField] private bool activeDefault;
         [SerializeField] private bool closePrevOnShow;
         [SerializeField] private bool closeOnTouchOutside;
@@ -40,6 +46,8 @@ namespace Base.Helper
         public UICanvasType CanvasType => canvasType;
         public bool ActiveDefault => activeDefault;
         public bool ClosePrevOnShow => closePrevOnShow;
+
+        public long NavigationState => navigationState;
 
         public virtual void Show()
         {

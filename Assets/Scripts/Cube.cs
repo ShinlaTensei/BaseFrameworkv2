@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Base;
 using Base.Helper;
 using Base.Pattern;
 using UnityEngine;
 
-[UIModel("Cube")]
+[UIModel("Cube", "AnyScene")]
 public class Cube : UIView
 {
     public override void Next()

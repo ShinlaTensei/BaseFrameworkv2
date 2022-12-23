@@ -23,7 +23,7 @@ namespace Base
         UIOverlayLayout = 6,
         CampaignCanvasUI = 7,
     }
-    public class UIViewManager : BaseMono, IService
+    public class UIViewManager : BaseMono, IService, IDisposable
     {
         private const string RootName = "Root";
 
@@ -36,9 +36,9 @@ namespace Base
 
         private AddressableManager _addressableManager;
 
-        private async UniTask<T> ShowAsync<T>(T instance, Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
-            T view = instance ? instance : TryGetView<T>();
+            T view = instance ? instance : GetView<T>();
 
             if (!view)
             {
@@ -50,12 +50,12 @@ namespace Base
                 InitCompleted(view, root);
             }
             
-            onInit?.Invoke();
+            onInit?.Invoke(view);
 
             return view;
         }
         
-        public async UniTask Show<T>(T instance, Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        public async UniTask<T> Show<T>(T instance, Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)
@@ -66,9 +66,11 @@ namespace Base
                 _current.Show();
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
+
+            return inst;
         }
         
-        public async UniTask Show<T, Y>(T instance, Y value, Action onInit = null, Transform root = null,
+        public async UniTask Show<T, Y>(T instance, Y value, Action<T> onInit = null, Transform root = null,
             CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
@@ -82,7 +84,7 @@ namespace Base
             }
         }
 
-        public async UniTask Show<T>(Action onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        public async UniTask<T> Show<T>(Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)
@@ -93,9 +95,11 @@ namespace Base
                 _current.Show();
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
+
+            return inst;
         }
 
-        public async UniTask Show<T1, T2>(T2 value, Action onInit = null, Transform root = null,
+        public async UniTask<T1> Show<T1, T2>(T2 value, Action<T1> onInit = null, Transform root = null,
             CancellationToken cancellationToken = default) where T1 : UIView
         {
             T1 inst = await ShowAsync<T1>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
@@ -107,6 +111,8 @@ namespace Base
                 _current.Show(value);
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
+
+            return inst;
         }
         
         public void Add<T>(T view) where T : UIView
@@ -123,7 +129,7 @@ namespace Base
             _uiViewPool.Remove(key);
         }
         
-        private T TryGetView<T>() where T : UIView
+        public T GetView<T>() where T : UIView
         {
             _uiViewPool.TryGetValue(typeof(T).Name, out UIView value);
 
@@ -150,7 +156,7 @@ namespace Base
             {
                 prefabPath = modelName;
                 inst = await _addressableManager.InstantiateAsync(prefabPath,
-                    parent: GetCanvasWithTag(UICanvasType.RootCanvas, CacheGameObject.scene.name), retryCount: 5,
+                    parent: GetCanvasWithTag(UICanvasType.RootCanvas, attribute.SceneName), retryCount: 5,
                     cancellationToken: cancellationToken);
             }
 
@@ -178,7 +184,14 @@ namespace Base
             instance.CacheTransform.SetScale(1);
             instance.CacheTransform.SetLocalPosition(Vector3.zero);
             instance.RectTransform.anchoredPosition = Vector3.zero;
-            instance.CacheTransform.SetAsLastSibling();
+            if (instance.NavigationState.HasBit(NavigationState.Overlap))
+            {
+                instance.CacheTransform.SetAsFirstSibling();
+            }
+            else
+            {
+                instance.CacheTransform.SetAsLastSibling();
+            }
             instance.Root.SetActive(instance.ActiveDefault);
             
             Add(instance);
@@ -262,10 +275,13 @@ namespace Base
 
         public void Init()
         {
-            _uiViewPool.Clear();
-            _uiCanvasPool.Clear();
-
             _addressableManager = ServiceLocator.GetService<AddressableManager>();
+        }
+
+        public void Dispose()
+        {
+            _uiCanvasPool.Clear();
+            _uiViewPool.Clear();
         }
     }
 }
