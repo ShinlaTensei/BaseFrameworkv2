@@ -92,7 +92,7 @@ namespace Base
             }
         }
 
-        public static AsyncOperationHandle<SceneInstance>? UnloadScene(SceneInstance scene, Action<bool> callback, bool autoReleaseHandle = true)
+        public AsyncOperationHandle<SceneInstance>? UnloadScene(SceneInstance scene, Action<bool> callback, bool autoReleaseHandle = true)
         {
             void OnComplete(AsyncOperationHandle<SceneInstance> result)
             {
@@ -132,7 +132,7 @@ namespace Base
             return null;
         }
 
-        public static async UniTask<SceneInstance?> UnloadScene(SceneInstance scene, bool autoReleaseHandle = true,
+        public async UniTask<SceneInstance?> UnloadScene(SceneInstance scene, bool autoReleaseHandle = true,
             CancellationToken cancellationToken = default)
         {
             try
@@ -151,7 +151,7 @@ namespace Base
             }
         }
 
-        public static AsyncOperationHandle<SceneInstance>? UnloadScene(AsyncOperationHandle handle, Action<bool> callback,
+        public AsyncOperationHandle<SceneInstance>? UnloadScene(AsyncOperationHandle handle, Action<bool> callback,
             bool autoReleaseHandle = true)
         {
             void OnComplete(AsyncOperationHandle<SceneInstance> result)
@@ -192,7 +192,7 @@ namespace Base
             return null;
         }
 
-        public static async UniTask<SceneInstance?> UnloadScene(AsyncOperationHandle handle, bool autoReleaseHandle = true,
+        public async UniTask<SceneInstance?> UnloadScene(AsyncOperationHandle handle, bool autoReleaseHandle = true,
             CancellationToken cancellationToken = default)
         {
             try
@@ -211,7 +211,7 @@ namespace Base
             }
         }
 
-        public static AsyncOperationHandle<SceneInstance>? UnloadScene(AsyncOperationHandle? handle, Action<bool> callback,
+        public AsyncOperationHandle<SceneInstance>? UnloadScene(AsyncOperationHandle? handle, Action<bool> callback,
             bool autoReleaseHandle = true)
         {
             if (handle != null && handle.HasValue)
@@ -224,7 +224,7 @@ namespace Base
             return null;
         }
 
-        public static async UniTask<SceneInstance?> UnloadScene(AsyncOperationHandle? handle, bool autoReleaseHandle = true,
+        public async UniTask<SceneInstance?> UnloadScene(AsyncOperationHandle? handle, bool autoReleaseHandle = true,
             CancellationToken cancellationToken = default)
         {
             if (handle != null && handle.HasValue)

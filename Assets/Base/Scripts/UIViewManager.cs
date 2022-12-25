@@ -55,7 +55,8 @@ namespace Base
             return view;
         }
         
-        public async UniTask<T> Show<T>(T instance, Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        public async UniTask<T> Show<T>(T instance, IViewData viewData = null, Action<T> onInit = null, 
+            Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)
@@ -63,6 +64,7 @@ namespace Base
                 _previous = _current;
                 _current = inst;
                 await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
+                _current.Populate(viewData);
                 _current.Show();
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
@@ -71,7 +73,7 @@ namespace Base
         }
         
         public async UniTask Show<T, Y>(T instance, Y value, Action<T> onInit = null, Transform root = null,
-            CancellationToken cancellationToken = default) where T : UIView
+            CancellationToken cancellationToken = default) where T : UIView where Y : IViewData
         {
             T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)
@@ -100,7 +102,7 @@ namespace Base
         }
 
         public async UniTask<T1> Show<T1, T2>(T2 value, Action<T1> onInit = null, Transform root = null,
-            CancellationToken cancellationToken = default) where T1 : UIView
+            CancellationToken cancellationToken = default) where T1 : UIView where T2 : IViewData
         {
             T1 inst = await ShowAsync<T1>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
             if (inst)

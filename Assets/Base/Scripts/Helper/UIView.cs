@@ -16,6 +16,8 @@ namespace Base.Helper
         None = 0,
         Obscured,
         Overlap}
+    
+    public interface IViewData {}
     public abstract class UIView : BaseMono, IPointerClickHandler
     {
         private const string RootName = "Root";
@@ -78,12 +80,14 @@ namespace Base.Helper
         public virtual void Next() {}
         public virtual void Back() {}
 
-        public virtual void Show<T>(T argument)
+        public virtual void Show<T>(T argument) where T : IViewData
         {
             Show();
+            
+            Populate(argument);
         }
 
-        public virtual void Hide<T>(T argument)
+        public virtual void Hide<T>(T argument) where T : IViewData
         {
             Hide();
         }
@@ -100,6 +104,8 @@ namespace Base.Helper
                 await UniTask.Yield();
             }
         }
+        
+        public virtual void Populate<T>(T viewData) where T : IViewData {}
 
         public void OnPointerClick(PointerEventData eventData)
         {

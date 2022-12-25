@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Base.Logging;
 using Base.MessageSystem;
+using UniRx;
 using UnityEngine;
 
 namespace Base.Pattern
@@ -16,10 +17,11 @@ namespace Base.Pattern
 
         protected override void OnDestroy()
         {
-            base.OnDestroy();
-            
+            ClearAllListener();
             Services.Clear();
             Signals.Clear();
+
+            base.OnDestroy();
         }
 
         #region Service
@@ -141,6 +143,14 @@ namespace Base.Pattern
             }
 
             return result as T;
+        }
+
+        private void ClearAllListener()
+        {
+            foreach (var signal in Signals.Values)
+            {
+                signal.RemoveAllListener();
+            }
         }
 
         #endregion
