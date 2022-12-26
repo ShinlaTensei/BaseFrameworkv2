@@ -147,4 +147,9 @@ public class UnityMainThreadDispatcher : MonoBehaviour, IMainThreadDispatcher, I
     {
         
     }
+
+    public void DeInit()
+    {
+        
+    }
 }

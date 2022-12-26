@@ -48,7 +48,7 @@ namespace Base.Pattern
             {
                 Instance.GetLogger().Debug("Service {0} is already added", typeof(T));
 
-                return null;
+                return GetService<T>();
             }
         }
 
@@ -115,16 +115,20 @@ namespace Base.Pattern
             return ResolveSignal<T>();
         }
 
-        public static void SetSignal<T>() where T : class, ISignal
+        public static T SetSignal<T>() where T : class, ISignal
         {
             if (!Instance.Signals.ContainsKey(typeof(T)))
             {
                 T signal = Activator.CreateInstance<T>();
                 Instance.Signals.TryAdd(typeof(T), signal);
+
+                return signal;
             }
-            else
+            
             {
                 Instance.GetLogger().Debug("Signal {0} is already added", typeof(T));
+
+                return GetSignal<T>();
             }
         }
 

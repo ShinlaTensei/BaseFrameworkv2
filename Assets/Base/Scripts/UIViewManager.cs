@@ -23,7 +23,7 @@ namespace Base
         UIOverlayLayout = 6,
         CampaignCanvasUI = 7,
     }
-    public class UIViewManager : BaseMono, IService, IDisposable
+    public class UIViewManager : BaseMono, IService
     {
         private const string RootName = "Root";
 
@@ -280,7 +280,7 @@ namespace Base
             _addressableManager = ServiceLocator.GetService<AddressableManager>();
         }
 
-        public void Dispose()
+        public void DeInit()
         {
             _uiCanvasPool.Clear();
             _uiViewPool.Clear();

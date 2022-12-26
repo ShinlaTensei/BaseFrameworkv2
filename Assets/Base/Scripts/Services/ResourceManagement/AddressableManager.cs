@@ -14,7 +14,7 @@ using Object = UnityEngine.Object;
 
 namespace Base
 {
-    public partial class AddressableManager : MonoBehaviour, IService, IDisposable
+    public partial class AddressableManager : MonoBehaviour, IService
     {
         public static float RETRY_DELAY_TIMER = 2f;
         public bool IsInit { get; set; }
@@ -127,12 +127,19 @@ namespace Base
 
             return e?.ToString();
         }
-
+        #endregion
+        
         #region Init & Update
 
         public void Init()
         {
             Initialize();
+        }
+
+        public void DeInit()
+        {
+            ClearAtlases();
+            ReleaseTracked();
         }
 
         public void Initialize(Action<bool> callback = null, int retryCount = 0, int retry = 0)
@@ -237,12 +244,6 @@ namespace Base
                 }
             }
         }
-        
-        public void Dispose()
-        {
-            ClearAtlases();
-            ReleaseTracked();
-        }
 
         #endregion
 
@@ -258,7 +259,5 @@ namespace Base
                 yield return new WaitUntil(() => Application.internetReachability != NetworkReachability.NotReachable);
             }
         }
-        
-        #endregion
     }
 }

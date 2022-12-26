@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Base.Logging;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -50,12 +52,28 @@ namespace Base.Module
         public abstract void LoadDummyData();
         public virtual void DeserializeJson(string json)
         {
-            Data = JsonConvert.DeserializeObject<T>(json);
+            try
+            {
+                Data = JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception exception)
+            {
+                BaseLogSystem.GetLogger().Error("[{0}] Error: {1}", GetType(), exception);
+            }
         }
 
         public virtual string SerializeObject()
         {
-            return JsonConvert.SerializeObject(Data);
+            try
+            {
+                return JsonConvert.SerializeObject(Data);
+            }
+            catch (Exception exception)
+            {
+                BaseLogSystem.GetLogger().Error("[{0}] Error: {1}", GetType(), exception);
+            }
+
+            return string.Empty;
         }
     }
 }

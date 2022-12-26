@@ -16,10 +16,10 @@ public class TestClass : BaseMono
 {
     private void OnEnable()
     {
-        ServiceLocator.GetService<InputHandler>()?.Init();
-        ServiceLocator.GetService<AddressableManager>()?.Init();
-        ServiceLocator.GetSignal<TestSignal>()?.Subscribe(OnTest);
-        ServiceLocator.GetSignal<TestSignal>()?.Dispatch(null);
+        ServiceLocator.SetService<InputHandler>().Init();
+        ServiceLocator.SetService<AddressableManager>().Init();
+        ServiceLocator.SetSignal<TestSignal>().Subscribe(OnTest);
+        ServiceLocator.SetSignal<TestSignal>().Dispatch(null);
 
         SceneManager.LoadScene("TestScene", LoadSceneMode.Additive);
     }
@@ -27,8 +27,11 @@ public class TestClass : BaseMono
     private void OnApplicationQuit()
     {
         this.GetLogger().Debug("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
-        ServiceLocator.GetService<AddressableManager>()?.Dispose();
+        ServiceLocator.GetService<AddressableManager>()?.DeInit();
         ServiceLocator.GetSignal<TestSignal>()?.UnSubscribe(OnTest);
+        
+        ServiceLocator.RemoveService<AddressableManager>();
+        ServiceLocator.RemoveSignal<TestSignal>();
     }
 
     private void OnTest(object argument)

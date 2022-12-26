@@ -93,6 +93,11 @@ namespace Base.Services
         {
             _listeners = new Dictionary<Enum, Callback<object>>();
         }
+
+        public void DeInit()
+        {
+            
+        }
     }
 
     public static class ObserverExtension

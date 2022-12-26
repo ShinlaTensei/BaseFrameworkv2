@@ -8,7 +8,7 @@ using Base.Helper;
 
 namespace Base.Pattern
 {
-    public class ObjectPooler : BaseMono, IService, IDisposable
+    public class ObjectPooler : BaseMono, IService
     {
         #region Singleton
 
@@ -57,13 +57,6 @@ namespace Base.Pattern
             }
         }
 
-        public void Dispose()
-        {
-            _poolDictionary.Clear();
-            listPool.Clear();
-            _sharedInstance = null;
-        }
-
         #endregion
 
         public static bool Include(string key)
@@ -75,7 +68,14 @@ namespace Base.Pattern
         {
             InitObjectPool();
         }
-        
+
+        public void DeInit()
+        {
+            _poolDictionary.Clear();
+            listPool.Clear();
+            _sharedInstance = null;
+        }
+
         private static void InitObjectPool()
         {
             for (int i = 0; i < SharedInstance.listPool.Count; i++)

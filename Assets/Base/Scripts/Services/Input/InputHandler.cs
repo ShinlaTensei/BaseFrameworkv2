@@ -29,6 +29,11 @@ namespace Base
         {
             CreateInputAction();
         }
+
+        public void DeInit()
+        {
+            
+        }
     }
 }
 

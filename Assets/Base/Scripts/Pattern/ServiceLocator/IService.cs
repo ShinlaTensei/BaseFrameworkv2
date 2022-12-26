@@ -7,6 +7,7 @@ namespace Base.Pattern
     public interface IService
     {
         void Init();
+        void DeInit();
     }
 
     public interface IService<T> : IService
