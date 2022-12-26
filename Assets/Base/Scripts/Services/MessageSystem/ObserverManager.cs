@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Base.Pattern;
 using UnityEngine;
 
-namespace Base.MessageSystem
+namespace Base.Services
 {
     public class ObserverManager : IService, IDisposable
     {

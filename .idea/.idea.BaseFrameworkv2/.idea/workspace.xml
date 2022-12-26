@@ -3,18 +3,44 @@
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtendedMonobehavior/BaseMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtendedMonobehavior/BaseMono.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/SingletonMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/SingletonMono.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Build Package/BaseV2.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Audio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Audio/Audio.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Audio/Audio.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Audio/SoundManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Audio/SoundManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Grid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Grid/GridBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Grid/GridBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/InputAction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/InputAction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/InputHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/InputHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/MouseInputAction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/MouseInputAction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/TouchInputAction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/Input/TouchInputAction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem/Callback.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem/Callback.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem/ISignal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem/ISignal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem/ObserverManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/MessageSystem/ObserverManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Asset.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Asset.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Atlas.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Atlas.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Scene.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Scene.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TestLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TestLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +64,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6699fc57078e482ca0c155289442169615d800/a4/ea0cc8fd/CanBeNullAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bdac415f4ef04067a4645ae20e683ce1860800/24/c34d30f9/PlayerSettingsEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Asset.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Atlas.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/System/ResourceManagement/AddressableManager.Scene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/Progress/ProgressControlsForDialogs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.2/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.6.0/Runtime/Core.Internal/Components/Authentication/IEnvironmentId.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -159,7 +184,7 @@
       <workItem from="1671680077876" duration="2126000" />
       <workItem from="1671697480312" duration="7563000" />
       <workItem from="1671790416423" duration="82000" />
-      <workItem from="1672020229256" duration="7958000" />
+      <workItem from="1672020229256" duration="10161000" />
     </task>
     <servers />
   </component>

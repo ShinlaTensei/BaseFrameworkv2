@@ -1,4 +1,4 @@
-﻿namespace Base.MessageSystem
+﻿namespace Base.Services
 {
     public delegate void Callback();
 

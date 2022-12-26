@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Base.Audio
+namespace Base.Services
 {
     /// <summary>
     /// The audio object

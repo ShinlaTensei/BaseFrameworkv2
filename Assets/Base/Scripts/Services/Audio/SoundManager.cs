@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-namespace Base.Audio
+namespace Base.Services
 {
     /// <summary>
     /// Static class responsible for playing and managing audio and sounds.
