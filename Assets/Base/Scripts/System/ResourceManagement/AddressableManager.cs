@@ -128,8 +128,6 @@ namespace Base
             return e?.ToString();
         }
 
-        #endregion
-
         #region Init & Update
 
         public void Init()
@@ -260,5 +258,7 @@ namespace Base
                 yield return new WaitUntil(() => Application.internetReachability != NetworkReachability.NotReachable);
             }
         }
+        
+        #endregion
     }
 }

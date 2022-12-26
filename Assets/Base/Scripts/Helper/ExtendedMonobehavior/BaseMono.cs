@@ -1,4 +1,5 @@
 ﻿using System;
+using Base.Logging;
 using NaughtyAttributes;
 using UnityEngine;
 

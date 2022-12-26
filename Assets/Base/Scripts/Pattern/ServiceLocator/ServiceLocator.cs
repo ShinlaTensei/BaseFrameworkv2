@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Base.Helper;
 using Base.Logging;
 using Base.MessageSystem;
+using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using UniRx;
 using UnityEngine;
 
@@ -20,12 +23,13 @@ namespace Base.Pattern
             ClearAllListener();
             Services.Clear();
             Signals.Clear();
-
+            
             base.OnDestroy();
         }
 
         #region Service
-
+        
+        [CanBeNull]
         public static T GetService<T>() where T : class, IService
         {
             return ResolveService<T>();
@@ -74,6 +78,8 @@ namespace Base.Pattern
 
         private static T ResolveService<T>() where T : class, IService
         {
+            if (ShuttingDown) return null;
+            
             IService result = default;
             if (Instance.Services.TryGetValue(typeof(T), out IService concreteType))
             {
@@ -102,7 +108,8 @@ namespace Base.Pattern
         #endregion
 
         #region Signal
-
+        
+        [CanBeNull]
         public static T GetSignal<T>() where T : class, ISignal
         {
             return ResolveSignal<T>();
@@ -131,6 +138,8 @@ namespace Base.Pattern
 
         private static T ResolveSignal<T>() where T : class, ISignal
         {
+            if (ShuttingDown) return null;
+            
             ISignal result = default;
             if (Instance.Signals.TryGetValue(typeof(T), out ISignal concreteSignal))
             {

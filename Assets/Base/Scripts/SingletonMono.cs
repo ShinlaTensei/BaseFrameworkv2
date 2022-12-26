@@ -15,7 +15,9 @@ namespace Base
         protected static bool m_ShuttingDown = false;
 
         private static object m_Lock = new object();
-        private static T m_Instance;
+        protected static T m_Instance;
+
+        public static bool ShuttingDown => m_ShuttingDown;
 
         /// <summary>
         /// Access singleton instance through this propriety.
