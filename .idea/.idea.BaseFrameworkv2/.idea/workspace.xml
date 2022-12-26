@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Components.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Components/LocalizeTMP_Text.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Components/LocalizeTMP_Text.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/Localize.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/Localize.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/UnityMainThreadDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/UnityMainThreadDispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ObjectPool/ObjectPooler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ObjectPool/ObjectPooler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/IService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/IService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/DebugCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/DebugCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/DebugMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Debug/DebugMono.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Fonts/roboto-condensed/RobotoCondensed-Light SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Fonts/roboto-condensed/RobotoCondensed-Light SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo_2018.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Input/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Input/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/BlueprintLocalization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/BlueprintLocalization.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Services/MessageSystem/ObserverManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/MessageSystem/ObserverManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Services/ResourceManagement/AddressableManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/ResourceManagement/AddressableManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/UIViewManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/UIViewManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +30,13 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f8/f5ba5afa/CustomAttributeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6699fc57078e482ca0c155289442169615d800/a4/ea0cc8fd/CanBeNullAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bdac415f4ef04067a4645ae20e683ce1860800/24/c34d30f9/PlayerSettingsEditor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/Progress/ProgressControlsForDialogs.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.2/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.6.0/Runtime/Core.Internal/Components/Authentication/IEnvironmentId.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -72,13 +62,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\BaseFrameworkv2.exe" />
@@ -163,6 +152,8 @@
       <workItem from="1671790416423" duration="82000" />
       <workItem from="1672020229256" duration="10161000" />
       <workItem from="1672043005633" duration="5982000" />
+      <workItem from="1672056904400" duration="1649000" />
+      <workItem from="1672067474255" duration="649000" />
     </task>
     <servers />
   </component>

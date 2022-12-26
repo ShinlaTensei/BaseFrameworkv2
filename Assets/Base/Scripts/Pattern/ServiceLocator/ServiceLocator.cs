@@ -39,10 +39,22 @@ namespace Base.Pattern
         {
             if (!Instance.Services.ContainsKey(typeof(T)))
             {
-                var value = Activator.CreateInstance<T>();
-                Instance.Services.Add(typeof(T), value);
+                IService result;
+                if (typeof(T).IsSubclassOf(typeof(MonoBehaviour)))
+                {
+                    GameObject inst = new GameObject();
+                    inst.transform.SetParent(Instance.CacheTransform);
+                    result = inst.AddComponent(typeof(T)) as T;
+                    inst.name = $"{typeof(T).Name}-Singleton";
+                }
+                else
+                {
+                    result = Activator.CreateInstance<T>();
+                }
+                
+                Instance.Services.Add(typeof(T), result);
 
-                return value;
+                return (T)result;
             }
             else
             {
@@ -81,26 +93,7 @@ namespace Base.Pattern
             if (ShuttingDown) return null;
             
             IService result = default;
-            if (Instance.Services.TryGetValue(typeof(T), out IService concreteType))
-            {
-                result = concreteType;
-            }
-            else
-            {
-                if (typeof(T).IsSubclassOf(typeof(MonoBehaviour)))
-                {
-                    GameObject inst = new GameObject();
-                    inst.transform.SetParent(Instance.CacheTransform);
-                    result = inst.AddComponent(typeof(T)) as T;
-                    SetService((T)result);
-                    inst.name = $"{typeof(T).Name}-Singleton";
-                }
-                else
-                {
-                    SetService<T>();
-                    result = ResolveService<T>();
-                }
-            }
+            result = Instance.Services.TryGetValue(typeof(T), out IService concreteType) ? concreteType : SetService<T>();
 
             return result as T;
         }

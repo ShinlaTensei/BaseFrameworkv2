@@ -53,6 +53,12 @@ namespace Base
             fpsDisplay.ShowFps = true;
             fpsDisplay.ShowMemory = true;
         }
+        
+        [DebugAction("TestParam", "Debug", SceneName.AnyScene)]
+        public void TestParam(int a = 4)
+        {
+            
+        }
 
         #endregion
     }
