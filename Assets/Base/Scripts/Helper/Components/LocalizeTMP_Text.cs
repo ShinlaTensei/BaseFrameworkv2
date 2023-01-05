@@ -37,7 +37,7 @@ namespace Base.Helper
 
         private void SetText()
         {
-            _tmpText.text = Localize.GetText(mainKey);
+            _tmpText.text = Localization.GetText(mainKey);
             _isInit = true;
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Base.Helper;
 using Base.Logging;
+using FileHelpers;
 using Newtonsoft.Json;
 using UnityEngine.Android;
 
@@ -13,9 +14,11 @@ namespace Base.Module
 {
     public static class FileUtilities
     {
+        #region Save & Load
+
         public static void SaveToBinary(object data, string fileName)
         {
-            FileStream stream = new FileStream(Application.persistentDataPath + "/" + fileName, 
+            FileStream stream = new FileStream(Application.persistentDataPath + "/" + fileName,
                 FileMode.OpenOrCreate);
             BinaryFormatter formatter = new BinaryFormatter();
             try
@@ -25,8 +28,10 @@ namespace Base.Module
             catch (Exception e)
             {
                 Debug.Log(e.Message);
+
                 throw;
             }
+
             stream.Close();
         }
 
@@ -38,7 +43,7 @@ namespace Base.Module
                 BinaryFormatter formatter = new BinaryFormatter();
                 FileStream stream = new FileStream(path, FileMode.Open);
 
-                result = (T) formatter.Deserialize(stream);
+                result = (T)formatter.Deserialize(stream);
                 stream.Close();
             }
             else result = default(T);
@@ -71,8 +76,10 @@ namespace Base.Module
             {
                 return false;
             }
+
             sw.Close();
             stream.Close();
+
             return true;
         }
 
@@ -87,11 +94,13 @@ namespace Base.Module
                 result = JsonConvert.DeserializeObject<T>(jsonStr);
                 reader.Close();
                 stream.Close();
+
                 return true;
             }
             else
             {
                 result = default;
+
                 return false;
             }
         }
@@ -106,10 +115,12 @@ namespace Base.Module
                 result = JsonConvert.DeserializeObject<T>(jsonStr);
                 reader.Close();
                 stream.Close();
+
                 return true;
             }
 
             result = default;
+
             return false;
         }
 
@@ -126,9 +137,10 @@ namespace Base.Module
             catch (Exception e)
             {
                 Console.WriteLine(e);
+
                 throw;
             }
-            
+
             writer.Close();
             stream.Close();
         }
@@ -139,13 +151,15 @@ namespace Base.Module
             StreamWriter sw = new StreamWriter(fs);
             try
             {
-                sw.WriteLine((string) data);
+                sw.WriteLine((string)data);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+
                 throw;
             }
+
             sw.Close();
             fs.Close();
         }
@@ -155,16 +169,17 @@ namespace Base.Module
             try
             {
                 var textResouce = Resources.Load<TextAsset>(filePath);
+
                 return textResouce.text;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+
                 return null;
             }
-
         }
-        
+
         public static T LoadData<T>(string filePath)
         {
             if (String.IsNullOrEmpty(filePath)) return default;
@@ -175,6 +190,7 @@ namespace Base.Module
                 string base64string = Encoding.UTF8.GetString(bytes);
                 string jsonData = Encoding.UTF8.GetString(Convert.FromBase64String(base64string));
                 T data = JsonConvert.DeserializeObject<T>(jsonData);
+
                 return data;
             }
 
@@ -194,14 +210,15 @@ namespace Base.Module
                     string encrypted = Encoding.UTF8.GetString(Convert.FromBase64String(base64string));
                     string jsonData = Encryption.Decrypt(encrypted);
                     T data = JsonConvert.DeserializeObject<T>(jsonData);
+
                     return data;
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
+
                     throw;
                 }
-                
             }
 
             return default;
@@ -210,6 +227,7 @@ namespace Base.Module
         public static void SaveData<T>(string fileDirectory, string fileName, T data)
         {
             string filePath = fileDirectory + $"/{fileName}";
+
             if (String.IsNullOrEmpty(filePath)) return;
 
             string directoryName = Path.GetDirectoryName(filePath);
@@ -221,7 +239,7 @@ namespace Base.Module
             string jsonData = JsonConvert.SerializeObject(data);
             byte[] bytes = Encoding.UTF8.GetBytes(jsonData);
             string final = Convert.ToBase64String(bytes);
-            File.WriteAllLines(filePath, new []{final});
+            File.WriteAllLines(filePath, new[] {final});
         }
 
         public static void SaveDataWithEncrypted<T>(string fileDirectory, string fileName, T data)
@@ -229,6 +247,7 @@ namespace Base.Module
             try
             {
                 string filePath = fileDirectory + $"/{fileName}";
+
                 if (String.IsNullOrEmpty(filePath)) return;
 
                 string directoryName = Path.GetDirectoryName(filePath);
@@ -241,14 +260,42 @@ namespace Base.Module
                 string encrypted = Encryption.Encrypt(jsonData);
                 byte[] bytes = Encoding.UTF8.GetBytes(encrypted);
                 string final = Convert.ToBase64String(bytes);
-                File.WriteAllLines(filePath, new []{final});
+                File.WriteAllLines(filePath, new[] {final});
             }
             catch (Exception e)
             {
                 BaseLogSystem.GetLogger().Error(e, e.Message);
+
                 throw;
             }
         }
+
+        #endregion
+
+        #region File Helper
+
+        public static T[] ReadFromCsv<T>(string filePath) where T : class
+        {
+            if (!File.Exists(filePath))
+            {
+                return null;
+            }
+
+            FileHelperEngine<T> engine = new FileHelperEngine<T>();
+
+            return engine.ReadFile(filePath);
+        }
+        
+        public static T[] ReadFromCsv<T>(byte[] rawData) where T : class
+        {
+            string source = Encoding.UTF8.GetString(rawData);
+
+            FileHelperEngine<T> engine = new FileHelperEngine<T>();
+
+            return engine.ReadString(source);
+        }
+
+        #endregion
 
         /// <summary>
         /// Get the system path based on platform
@@ -283,4 +330,3 @@ namespace Base.Module
         }
     }
 }
-

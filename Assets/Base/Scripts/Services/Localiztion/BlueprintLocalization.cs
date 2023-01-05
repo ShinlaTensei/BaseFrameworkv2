@@ -4,33 +4,23 @@ using System.Collections.Generic;
 using Base.Logging;
 using Base.Module;
 using Base.Pattern;
-using UnityEngine;
+using Base.Data.Structure;
 
 namespace Base.Services
 {
-    [Serializable]
-    public class LocalizeDataItem
-    {
-        public string Key;
-        public string Data;
-    }
-
-    /// <summary>
-    /// The data-class get from server stand for a set of localize text for a language
-    /// </summary>
-    [Serializable]
-    public class LocalizeDataStructure : IBlueprintData
-    {
-        public string LangCode;
-        public List<LocalizeDataItem> LocalizeData = new List<LocalizeDataItem>();
-    }
-
-    public class BlueprintLocalization : BaseBlueprint<LocalizeDataStructure>, IService<LocalizeDataItem>
+    public class BlueprintLocalization : BaseBlueprint<LocalizeDataStructure>, IService<List<LocalizeDataItem>>
     {
         private Dictionary<string, LocalizeDataItem> _localizeData;
-        public void UpdateData(LocalizeDataItem data)
+        public void UpdateData(List<LocalizeDataItem> data)
         {
-            
+            if (data is {Count: > 0})
+            {
+                _localizeData.Clear();
+                foreach (var dataItem in data)
+                {
+                    _localizeData.TryAdd(dataItem.Key, dataItem);
+                }
+            }
         }
 
         public void Init()

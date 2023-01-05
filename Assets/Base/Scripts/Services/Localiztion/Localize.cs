@@ -75,13 +75,13 @@ namespace Base.Services
         }
     }
 
-    public static class Localize
+    public static class Localization
     {
         public static string GetText(string key)
         {
             BlueprintLocalization blueprint = ServiceLocator.GetService<BlueprintLocalization>();
             string text = blueprint?.GetTextByKey(key);
-
+        
             return text != string.Empty ? text : key;
         }
     }

@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Base.Data/structure/localize.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base.Data/structure/localize.proto.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/TestCSV/testCSV.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/TestCSV/testCSV.csv.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/DebugCanvas.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/DebugCanvas.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/DebugMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Debug/DebugMono.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Fonts/roboto-condensed/RobotoCondensed-Light SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Fonts/roboto-condensed/RobotoCondensed-Light SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo_2018.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Base.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Base.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Components/LocalizeTMP_Text.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Components/LocalizeTMP_Text.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Utilities/FileUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Utilities/FileUtilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/BlueprintLocalization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/BlueprintLocalization.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/Localize.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/Localiztion/Localize.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Build Package/BaseV2.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestClass.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,13 +34,18 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/Progress/ProgressControlsForDialogs.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.2/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/33cfa6a5f6d1419fa8bbac04c61ae21564518/de/754ca93f/IMessage`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca708c8ef1a74696b810ef9c6507a3d933000/84/505a36d8/FileHelperEngine`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.6.0/Runtime/Core.Internal/Components/Authentication/IEnvironmentId.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Helper/BlueprintHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/Progress/ProgressControlsForDialogs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.2/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.6.0/Runtime/Core.Internal/Components/Authentication/IEnvironmentId.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -62,12 +71,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\BaseFrameworkv2.exe" />
@@ -95,10 +106,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19481">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="19481" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -154,6 +165,8 @@
       <workItem from="1672043005633" duration="5982000" />
       <workItem from="1672056904400" duration="1649000" />
       <workItem from="1672067474255" duration="649000" />
+      <workItem from="1672106980313" duration="1955000" />
+      <workItem from="1672886358064" duration="9244000" />
     </task>
     <servers />
   </component>

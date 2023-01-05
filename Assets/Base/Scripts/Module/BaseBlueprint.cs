@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Base.Helper;
 using Base.Logging;
+using Google.Protobuf;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -9,7 +11,7 @@ namespace Base.Module
 {
     public interface IBlueprint
     {
-        void Init(bool usingLocal = false);
+        void InitBlueprint(bool usingLocal = false);
         void Load();
         void LoadDummyData();
 
@@ -22,22 +24,24 @@ namespace Base.Module
     {
         void DeserializeJson(string json);
 
-        string SerializeObject();
+        string SerializeJson();
     }
 
-    public interface IBlueprintData
+    public interface IProtoDataDeserialize
     {
-        
+        void DeserializeProto(byte[] rawData);
+
+        byte[] SerializeProto();
     }
-    
-    public abstract class BaseBlueprint<T> : IBlueprint, IJsonDataDeserialize where T : IBlueprintData
+
+    public abstract class BaseBlueprint<T> : IBlueprint, IJsonDataDeserialize, IProtoDataDeserialize where T : IMessage<T>
     {
         public string TypeUrl { get; set; }
         public bool IsDataReady { get; set; }
         public bool LoadDummy { get; set; }
 
         public T Data;
-        public void Init(bool usingLocal = false)
+        public virtual void InitBlueprint(bool usingLocal = false)
         {
             LoadDummy = usingLocal;
             if (usingLocal)
@@ -52,21 +56,29 @@ namespace Base.Module
         public abstract void LoadDummyData();
         public virtual void DeserializeJson(string json)
         {
-            try
-            {
-                Data = JsonConvert.DeserializeObject<T>(json);
-            }
-            catch (Exception exception)
-            {
-                BaseLogSystem.GetLogger().Error("[{0}] Error: {1}", GetType(), exception);
-            }
+            Data = BlueprintHelper.ProtoDeserialize<T>(json);
         }
 
-        public virtual string SerializeObject()
+        public virtual void DeserializeProto(byte[] rawData)
+        {
+            Data = BlueprintHelper.ProtoDeserialize<T>(rawData);
+        }
+
+        public virtual byte[] SerializeProto()
+        {
+            return Data != null ? Data.ToByteArray() : null;
+        }
+
+        public virtual string SerializeJson()
         {
             try
             {
-                return JsonConvert.SerializeObject(Data);
+                JsonFormatter formatter = new JsonFormatter(new JsonFormatter.Settings(true));
+                string jsonString = formatter.Format(Data);
+                object jsonObject = JsonConvert.DeserializeObject(jsonString);
+                jsonString = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
+
+                return jsonString;
             }
             catch (Exception exception)
             {
