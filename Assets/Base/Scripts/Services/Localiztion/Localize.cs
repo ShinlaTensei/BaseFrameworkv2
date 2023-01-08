@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Base.Pattern;
 using UnityEngine;
 using System;
+using System.Text;
 using Base.Logging;
 
 namespace Base.Services
@@ -77,12 +78,32 @@ namespace Base.Services
 
     public static class Localization
     {
-        public static string GetText(string key)
+        private static string GetLocalizeText(string key)
         {
             BlueprintLocalization blueprint = ServiceLocator.GetService<BlueprintLocalization>();
             string text = blueprint?.GetTextByKey(key);
         
             return text != string.Empty ? text : key;
+        }
+        
+        public static string GetText(string textID)
+        {
+            return GetLocalizeText(textID);
+        }
+        
+        public static string Format(string textID, params object[] args)
+        {
+            return Format(null, GetLocalizeText(textID), args);
+        }
+
+        static string Format(IFormatProvider provider, string format, params object[] args)
+        {
+            if (format == null) { return null; }
+            if (args == null) { throw new ArgumentNullException("args"); }
+
+            StringBuilder sb = new StringBuilder(format.Length + args.Length * 8);
+            sb.AppendFormat(provider, format, args);
+            return sb.ToString();
         }
     }
 }

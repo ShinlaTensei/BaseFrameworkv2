@@ -6,7 +6,7 @@ using UnityEngine;
 public class TestClass : BaseMono
 {
     [DelimitedRecord(",")]
-    public class TestCsv
+    public record TestCsv
     {
         public string ID;
         public int Interger;
@@ -18,5 +18,5 @@ public class TestClass : BaseMono
 
         var asset = Resources.Load<TextAsset>("TestCSV/testCSV");
         FileUtilities.ReadFromCsv<TestCsv>(asset.bytes);
-    }
+    } 
 }
