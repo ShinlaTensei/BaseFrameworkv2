@@ -2,7 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Text;
 using Base.Logging;
+using Base.Module;
 using Google.Protobuf;
 using UnityEngine;
 
@@ -70,6 +73,31 @@ namespace Base.Helper
             {
                 BaseLogSystem.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
                 throw;
+            }
+        }
+
+        public static void ReadBlueprint(this IBlueprint blueprint, byte[] rawData)
+        {
+            BlueprintReaderAttribute att = blueprint.GetType().GetCustomAttribute(typeof(BlueprintReaderAttribute)) 
+                as BlueprintReaderAttribute;
+
+            if (att is null || att.IsIgnore) return;
+
+            if (att.IsLocal)
+            {
+                
+            }
+            else
+            {
+                if (att.DataFormat == DataFormat.Json)
+                {
+                    string json = Encoding.UTF8.GetString(rawData);
+                    (blueprint as IJsonDataDeserialize)?.DeserializeJson(json);
+                }
+                else
+                {
+                    (blueprint as IProtoDataDeserialize)?.DeserializeProto(rawData);
+                }
             }
         }
     }
