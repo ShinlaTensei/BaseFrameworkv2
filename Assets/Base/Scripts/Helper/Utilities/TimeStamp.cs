@@ -29,6 +29,15 @@ namespace Base.Helper
         }
         
         /// <summary>
+        /// Get time UTC in milliseconds
+        /// </summary>
+        /// <returns> milliseconds </returns>
+        public static long MillisecondsUtc()
+        {
+            return (long) (DateTime.UtcNow - EpochUTC).TotalMilliseconds;
+        }
+        
+        /// <summary>
         /// Get time local in seconds.
         /// </summary>
         /// <returns></returns>
