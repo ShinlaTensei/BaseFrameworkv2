@@ -57,11 +57,13 @@ namespace Base.Module
         public virtual void DeserializeJson(string json)
         {
             Data = BlueprintHelper.ProtoDeserialize<T>(json);
+            IsDataReady = Data != null;
         }
 
         public virtual void DeserializeProto(byte[] rawData)
         {
             Data = BlueprintHelper.ProtoDeserialize<T>(rawData);
+            IsDataReady = Data != null;
         }
 
         public virtual byte[] SerializeProto()
