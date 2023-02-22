@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
-using Base.Pattern;
 using Base.Utilities;
 using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,6 +25,7 @@ namespace Base.Helper
         [SerializeField] private bool activeDefault;
         [SerializeField] private bool closePrevOnShow;
         [SerializeField] private bool closeOnTouchOutside;
+        [SerializeField] private bool triggerViewChange;
         [Condition("closeOnTouchOutside", true, false)] 
         [SerializeField] private RectTransform touchRect;
 
@@ -48,7 +44,7 @@ namespace Base.Helper
         public UICanvasType CanvasType => canvasType;
         public bool ActiveDefault => activeDefault;
         public bool ClosePrevOnShow => closePrevOnShow;
-
+        public bool TriggerViewChange => triggerViewChange;
         public long NavigationState => navigationState;
 
         public virtual void Show()

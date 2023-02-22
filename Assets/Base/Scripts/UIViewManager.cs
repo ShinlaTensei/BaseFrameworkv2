@@ -6,6 +6,7 @@ using System.Threading;
 using Base.Helper;
 using Base.Logging;
 using Base.Pattern;
+using Base.Services;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,8 @@ namespace Base
         UIOverlayLayout = 6,
         CampaignCanvasUI = 7,
     }
+        
+    public class OnUIViewChangedSignal : Signal<UIView, UIView> {}
     public class UIViewManager : BaseMono, IService
     {
         private const string RootName = "Root";
@@ -36,6 +39,13 @@ namespace Base
 
         private AddressableManager _addressableManager;
 
+        private void NotifyUIViewChanged()
+        {
+            if (_previous.TriggerViewChange)
+            {
+                ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(_previous, _current);
+            }
+        }
         private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T view = instance ? instance : GetView<T>();
@@ -81,8 +91,12 @@ namespace Base
                 _previous = _current;
                 _current = inst;
                 await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
+                if (_previous && _current.ClosePrevOnShow)
+                {
+                    _previous.Hide();
+                }
                 _current.Show(value);
-                if (_previous && _current.ClosePrevOnShow) _previous.Hide();
+                NotifyUIViewChanged();
             }
         }
 
@@ -95,6 +109,7 @@ namespace Base
                 _current = inst;
                 await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
                 _current.Show();
+                NotifyUIViewChanged();
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
 
@@ -111,6 +126,7 @@ namespace Base
                 _current = inst;
                 await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
                 _current.Show(value);
+                NotifyUIViewChanged();
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
 
@@ -125,10 +141,12 @@ namespace Base
             }
         }
 
-        public void Remove(UIView value)
+        public void Remove<T>(T value) where T : UIView
         {
-            string key = _uiViewPool.FirstOrDefault(item => item.Value.Equals(value)).Key;
-            _uiViewPool.Remove(key);
+            if (_uiViewPool.ContainsKey(typeof(T).Name))
+            {
+                _uiViewPool.Remove(typeof(T).Name);
+            }
         }
         
         public T GetView<T>() where T : UIView
