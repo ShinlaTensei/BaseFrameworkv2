@@ -1,4 +1,5 @@
 using System.Threading;
+using Base.Pattern;
 using Base.Utilities;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Base.Helper
         [SerializeField] private bool triggerViewChange;
         [Condition("closeOnTouchOutside", true, false)] 
         [SerializeField] private RectTransform touchRect;
+
+        private IViewData _data = null;
 
         public GameObject Root
         {
@@ -64,9 +67,11 @@ namespace Base.Helper
                     Root.SetActive(false);
                     break;
                 case ExitType.Remove:
+                    ServiceLocator.GetService<UIViewManager>()?.Remove(this);
                     Destroy(CacheGameObject);
                     break;
                 case ExitType.RemoveImmediate:
+                    ServiceLocator.GetService<UIViewManager>()?.Remove(this);
                     DestroyImmediate(CacheGameObject);
                     break;
                 default: break;
@@ -74,7 +79,15 @@ namespace Base.Helper
         }
         
         public virtual void Next() {}
-        public virtual void Back() {}
+
+        public virtual void Back()
+        {
+            UIViewManager viewManager = ServiceLocator.GetService<UIViewManager>();
+            if (viewManager && viewManager.Previous)
+            {
+                viewManager.Show(viewManager.Previous).Forget();
+            }
+        }
 
         public virtual void Show<T>(T argument) where T : IViewData
         {

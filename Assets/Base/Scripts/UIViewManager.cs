@@ -39,6 +39,8 @@ namespace Base
 
         private AddressableManager _addressableManager;
 
+        public UIView Previous => _previous;
+
         private void NotifyUIViewChanged()
         {
             if (_previous.TriggerViewChange)
