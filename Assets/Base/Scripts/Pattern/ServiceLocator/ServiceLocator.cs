@@ -24,8 +24,20 @@ namespace Base.Pattern
         protected override void OnDestroy()
         {
             ClearAllListener();
+            foreach (var service in Services.Values)
+            {
+                try
+                {
+                    service.DeInit();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
             Services.Clear();
             Signals.Clear();
+            Blueprints.Clear();
             
             base.OnDestroy();
         }
@@ -61,7 +73,7 @@ namespace Base.Pattern
             }
             else
             {
-                Instance.GetLogger().Debug("Service {0} is already added", typeof(T));
+                Instance.GetLogger().Info("Service {0} is already added", typeof(T));
 
                 return GetService<T>();
             }
@@ -77,7 +89,7 @@ namespace Base.Pattern
             }
             else
             {
-                Instance.GetLogger().Debug("Service {0} is already added", typeof(T));
+                Instance.GetLogger().Info("Service {0} is already added", typeof(T));
 
                 return null;
             }
@@ -122,7 +134,7 @@ namespace Base.Pattern
             }
             
             {
-                Instance.GetLogger().Debug("Signal {0} is already added", typeof(T));
+                Instance.GetLogger().Info("Signal {0} is already added", typeof(T));
 
                 return GetSignal<T>();
             }
