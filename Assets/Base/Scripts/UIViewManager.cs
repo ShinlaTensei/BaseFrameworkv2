@@ -76,8 +76,7 @@ namespace Base
                 _previous = _current;
                 _current = inst;
                 await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
-                _current.Populate(viewData);
-                _current.Show();
+                _current.Show(viewData);
                 if (_previous && _current.ClosePrevOnShow) _previous.Hide();
             }
 
