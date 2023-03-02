@@ -2,6 +2,7 @@ using System.Threading;
 using Base.Pattern;
 using Base.Utilities;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -32,6 +33,8 @@ namespace Base.Helper
 
         private IViewData _data = null;
 
+        private bool m_isShow = false;
+
         public GameObject Root
         {
             get
@@ -49,18 +52,20 @@ namespace Base.Helper
         public bool ClosePrevOnShow => closePrevOnShow;
         public bool TriggerViewChange => triggerViewChange;
         public long NavigationState => navigationState;
+        public bool IsShowing { get => m_isShow; set => m_isShow = value; }
 
         public virtual void Show()
         {
             //if (IsMissingReference) return;
             
             Root.SetActive(true);
+            IsShowing = true;
         }
 
         public virtual void Hide()
         {
             //if (IsMissingReference) return;
-
+            IsShowing = false;
             switch (exitType)
             {
                 case ExitType.Hide:
