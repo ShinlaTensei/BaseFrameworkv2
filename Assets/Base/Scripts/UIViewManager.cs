@@ -32,20 +32,21 @@ namespace Base
 
         #region UIView Handle
         
-        private Dictionary<string, UIView> _uiViewPool = new Dictionary<string, UIView>();
-        
-        private UIView _previous;
-        private UIView _current;
+        private Dictionary<string, UIView>  m_uiViewPool    = new Dictionary<string, UIView>();
+        private List<UIView>               m_stackUi       = new List<UIView>();
 
-        private AddressableManager _addressableManager;
+        private UIView m_previous;
+        private UIView m_current;
 
-        public UIView Previous => _previous;
+        private AddressableManager m_addressableManager;
+
+        public UIView Previous => m_previous;
 
         private void NotifyUIViewChanged()
         {
-            if (_previous.TriggerViewChange)
+            if (m_previous.TriggerViewChange)
             {
-                ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(_previous, _current);
+                ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(m_previous, m_current);
             }
         }
         private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
@@ -59,7 +60,7 @@ namespace Base
 
             if (view)
             {
-                InitCompleted(view, root);
+                await InitCompleted(view, root, cancellationToken);
             }
             
             onInit?.Invoke(view);
@@ -71,48 +72,19 @@ namespace Base
             Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-            if (inst)
-            {
-                _previous = _current;
-                _current = inst;
-                await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
-                _current.Show(viewData);
-                if (_previous && _current.ClosePrevOnShow) _previous.Hide();
-            }
 
             return inst;
         }
         
-        public async UniTask Show<T, Y>(T instance, Y value, Action<T> onInit = null, Transform root = null,
+        public async UniTask<T> Show<T, Y>(T instance, Y value, Action<T> onInit = null, Transform root = null,
             CancellationToken cancellationToken = default) where T : UIView where Y : IViewData
         {
-            T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-            if (inst)
-            {
-                _previous = _current;
-                _current = inst;
-                await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
-                if (_previous && _current.ClosePrevOnShow)
-                {
-                    _previous.Hide();
-                }
-                _current.Show(value);
-                NotifyUIViewChanged();
-            }
+            return await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
         }
 
         public async UniTask<T> Show<T>(Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-            if (inst)
-            {
-                _previous = _current;
-                _current = inst;
-                await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
-                _current.Show();
-                NotifyUIViewChanged();
-                if (_previous && _current.ClosePrevOnShow) _previous.Hide();
-            }
 
             return inst;
         }
@@ -121,40 +93,73 @@ namespace Base
             CancellationToken cancellationToken = default) where T1 : UIView where T2 : IViewData
         {
             T1 inst = await ShowAsync<T1>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-            if (inst)
-            {
-                _previous = _current;
-                _current = inst;
-                await _current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
-                _current.Show(value);
-                NotifyUIViewChanged();
-                if (_previous && _current.ClosePrevOnShow) _previous.Hide();
-            }
 
             return inst;
         }
-        
-        public void Add<T>(T view) where T : UIView
+
+        public void CloseView<T>(T view) where T : UIView
         {
-            if (!_uiViewPool.ContainsKey(typeof(T).Name))
+            if (view is null) return;
+
+            if (m_uiViewPool.ContainsValue(view))
             {
-                _uiViewPool.TryAdd(typeof(T).Name, view);
+                if (view.ExitType is ExitType.Remove or ExitType.RemoveImmediate) Remove(view);
+                view.Hide();
+
+                NotifyUIViewChanged();
+            }
+        }
+
+        private UIView GetTopUIView()
+        {
+            for (int i = 0; i < m_stackUi.Count; ++i)
+            {
+                UIView view = m_stackUi[i];
+                if (view && view.IsShowing)
+                {
+                    return view;
+                }
+            }
+
+            return null;
+        }
+
+        private void Add<T>(T view) where T : UIView
+        {
+            if (!m_uiViewPool.ContainsKey(typeof(T).Name))
+            {
+                m_uiViewPool.TryAdd(typeof(T).Name, view);
             }
         }
 
         public void Remove<T>(T value) where T : UIView
         {
-            if (_uiViewPool.ContainsKey(typeof(T).Name))
+            if (m_uiViewPool.ContainsKey(typeof(T).Name))
             {
-                _uiViewPool.Remove(typeof(T).Name);
+                m_uiViewPool.Remove(typeof(T).Name);
+            }
+
+            if (m_stackUi.Contains(value))
+            {
+                m_stackUi.Remove(value);
             }
         }
         
         public T GetView<T>() where T : UIView
         {
-            _uiViewPool.TryGetValue(typeof(T).Name, out UIView value);
+            m_uiViewPool.TryGetValue(typeof(T).Name, out UIView value);
 
             return value as T;
+        }
+
+        private void PushStack<T>(T view) where T : UIView
+        {
+            if (view != null)
+            {
+                m_stackUi.Remove(view);
+                m_stackUi.Insert(0, view);
+            }
+            this.GetLogger().Info("[UIViewManager] Push {0}", view.GetType().Name);
         }
 
         private async UniTask<T> InitAsync<T>(Action<T> onCompleted = null, CancellationToken cancellationToken = default) where T : UIView
@@ -173,10 +178,10 @@ namespace Base
             GameObject inst = null;
             string prefabPath = string.Empty;
 
-            if (_addressableManager.IsInit && _addressableManager.IsReadyToGetBundle)
+            if (m_addressableManager.IsInit && m_addressableManager.IsReadyToGetBundle)
             {
                 prefabPath = modelName;
-                inst = await _addressableManager.InstantiateAsync(prefabPath,
+                inst = await m_addressableManager.InstantiateAsync(prefabPath,
                     parent: GetCanvasWithTag(UICanvasType.RootCanvas, attribute.SceneName), retryCount: 5,
                     cancellationToken: cancellationToken);
             }
@@ -187,7 +192,7 @@ namespace Base
             return view;
         }
 
-        private void InitCompleted<T>(T instance, Transform root = null) where T : UIView
+        private async UniTask InitCompleted<T>(T instance, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
         {
             if (instance == null)
             {
@@ -215,20 +220,27 @@ namespace Base
             }
             instance.Root.SetActive(instance.ActiveDefault);
             
+            m_previous = m_current;
+            m_current = instance;
+            await m_current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
+            m_current.Show();
+            if (m_previous && m_current.ClosePrevOnShow) CloseView(m_previous);
+
             Add(instance);
+            PushStack(instance);
         }
 
         #endregion
 
         #region Canvas Handle
         
-        private Dictionary<string, Transform> _uiCanvasPool = new Dictionary<string, Transform>();
+        private Dictionary<string, Transform> m_uiCanvasPool = new Dictionary<string, Transform>();
 
         public Transform GetCanvasWithTag(UICanvasType enumTag)
         {
             string newTag = !(enumTag is UICanvasType.None) ? enumTag.ToString() : UICanvasType.RootCanvas.ToString();
 
-            if (_uiCanvasPool.TryGetValue(newTag, out Transform value))
+            if (m_uiCanvasPool.TryGetValue(newTag, out Transform value))
             {
                 return value;
             }
@@ -236,7 +248,7 @@ namespace Base
             GameObject obj = GameObject.FindGameObjectWithTag(newTag);
             if (obj != null)
             {
-                _uiCanvasPool.TryAdd(newTag, obj.transform);
+                m_uiCanvasPool.TryAdd(newTag, obj.transform);
 
                 return obj.transform;
             }
@@ -252,7 +264,7 @@ namespace Base
             if (!scene.isLoaded) return null;
 
             string key = $"{newTag}-{scene.name}";
-            if (_uiCanvasPool.TryGetValue(key, out Transform result))
+            if (m_uiCanvasPool.TryGetValue(key, out Transform result))
             {
                 return result;
             }
@@ -263,7 +275,7 @@ namespace Base
                 if (objects[i].scene.name.Equals(scene.name, StringComparison.CurrentCulture))
                 {
                     Transform final = objects[i].transform.FindChildRecursive<Transform>(RootName);
-                    _uiCanvasPool.TryAdd($"{newTag}-{scene.name}", final);
+                    m_uiCanvasPool.TryAdd($"{newTag}-{scene.name}", final);
 
                     return final;
                 }
@@ -277,18 +289,18 @@ namespace Base
         public void Remove(UICanvasType canvasType)
         {
             string key = canvasType.ToString();
-            if (_uiCanvasPool.ContainsKey(key))
+            if (m_uiCanvasPool.ContainsKey(key))
             {
-                _uiCanvasPool.Remove(key);
+                m_uiCanvasPool.Remove(key);
             }
         }
 
         public void Remove(UICanvasType canvasType, string sceneName)
         {
             string key = $"{canvasType.ToString()}-{sceneName}";
-            if (_uiCanvasPool.ContainsKey(key))
+            if (m_uiCanvasPool.ContainsKey(key))
             {
-                _uiCanvasPool.Remove(key);
+                m_uiCanvasPool.Remove(key);
             }
         }
 
@@ -296,13 +308,14 @@ namespace Base
 
         public void Init()
         {
-            _addressableManager = ServiceLocator.GetService<AddressableManager>();
+            m_addressableManager = ServiceLocator.GetService<AddressableManager>();
         }
 
         public void DeInit()
         {
-            _uiCanvasPool.Clear();
-            _uiViewPool.Clear();
+            m_uiCanvasPool.Clear();
+            m_uiViewPool.Clear();
+            m_stackUi.Clear();
         }
     }
 }

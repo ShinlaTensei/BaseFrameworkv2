@@ -19,19 +19,19 @@ namespace Base.Helper
     {
         private const string RootName = "Root";
         
-        [SerializeField] private GameObject root;
-        [SerializeField] private ExitType exitType;
-        [SerializeField] private UICanvasType canvasType;
+        [SerializeField] private GameObject m_root;
+        [SerializeField] private ExitType m_exitType;
+        [SerializeField] private UICanvasType m_canvasType;
         [BitFlag(typeof(NavigationState))]
-        [SerializeField] private long navigationState = 0;
-        [SerializeField] private bool activeDefault;
-        [SerializeField] private bool closePrevOnShow;
-        [SerializeField] private bool closeOnTouchOutside;
-        [SerializeField] private bool triggerViewChange;
-        [Condition("closeOnTouchOutside", true, false)] 
-        [SerializeField] private RectTransform touchRect;
+        [SerializeField] private long m_navigationState = 0;
+        [SerializeField] private bool m_activeDefault;
+        [SerializeField] private bool m_closePrevOnShow;
+        [SerializeField] private bool m_closeOnTouchOutside;
+        [SerializeField] private bool m_triggerViewChange;
+        [Condition("m_closeOnTouchOutside", true, false)] 
+        [SerializeField] private RectTransform m_touchRect;
 
-        private IViewData _data = null;
+        private IViewData m_data = null;
 
         private bool m_isShow = false;
 
@@ -39,19 +39,20 @@ namespace Base.Helper
         {
             get
             {
-                if (!root)
+                if (!m_root)
                 {
-                    root = CacheTransform.FindChildRecursive<GameObject>(RootName);
+                    m_root = CacheTransform.FindChildRecursive<GameObject>(RootName);
                 }
-                return root;
+                return m_root;
             }
         }
 
-        public UICanvasType CanvasType => canvasType;
-        public bool ActiveDefault => activeDefault;
-        public bool ClosePrevOnShow => closePrevOnShow;
-        public bool TriggerViewChange => triggerViewChange;
-        public long NavigationState => navigationState;
+        public ExitType ExitType => m_exitType;
+        public UICanvasType CanvasType => m_canvasType;
+        public bool ActiveDefault => m_activeDefault;
+        public bool ClosePrevOnShow => m_closePrevOnShow;
+        public bool TriggerViewChange => m_triggerViewChange;
+        public long NavigationState => m_navigationState;
         public bool IsShowing { get => m_isShow; set => m_isShow = value; }
 
         public virtual void Show()
@@ -66,17 +67,15 @@ namespace Base.Helper
         {
             //if (IsMissingReference) return;
             IsShowing = false;
-            switch (exitType)
+            switch (m_exitType)
             {
                 case ExitType.Hide:
                     Root.SetActive(false);
                     break;
                 case ExitType.Remove:
-                    ServiceLocator.GetService<UIViewManager>()?.Remove(this);
                     Destroy(CacheGameObject);
                     break;
                 case ExitType.RemoveImmediate:
-                    ServiceLocator.GetService<UIViewManager>()?.Remove(this);
                     DestroyImmediate(CacheGameObject);
                     break;
                 default: break;
@@ -123,11 +122,11 @@ namespace Base.Helper
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!closeOnTouchOutside) return;
+            if (!m_closeOnTouchOutside) return;
             bool inside = false;
-            if (touchRect)
+            if (m_touchRect)
             {
-                inside = RectTransformUtility.RectangleContainsScreenPoint(touchRect, eventData.position, eventData.pressEventCamera);
+                inside = RectTransformUtility.RectangleContainsScreenPoint(m_touchRect, eventData.position, eventData.pressEventCamera);
             }
             
             if(!inside) {Hide();}

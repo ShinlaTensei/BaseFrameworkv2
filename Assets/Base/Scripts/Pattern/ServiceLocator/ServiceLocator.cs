@@ -13,13 +13,13 @@ namespace Base.Pattern
 {
     public class ServiceLocator : SingletonMono<ServiceLocator>
     {
-        private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
-        private Dictionary<Type, ISignal>   _signals = new Dictionary<Type, ISignal>();
-        private Dictionary<Type, IBlueprint> _blueprints = new Dictionary<Type, IBlueprint>();
+        private Dictionary<Type, IService> m_services = new Dictionary<Type, IService>();
+        private Dictionary<Type, ISignal>   m_signals = new Dictionary<Type, ISignal>();
+        private Dictionary<Type, IBlueprint> m_blueprints = new Dictionary<Type, IBlueprint>();
 
-        public Dictionary<Type, IBlueprint> Blueprints => _blueprints;
-        public Dictionary<Type, IService> Services => _services;
-        public Dictionary<Type, ISignal> Signals => _signals;
+        public Dictionary<Type, IBlueprint> Blueprints => m_blueprints;
+        public Dictionary<Type, IService> Services => m_services;
+        public Dictionary<Type, ISignal> Signals => m_signals;
 
         protected override void OnDestroy()
         {
