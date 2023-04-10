@@ -13,12 +13,6 @@ namespace Base.Logging
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         public static void SetupLogSystem()
         {
-            #if LOG_ENABLE
-            LogManager.ResumeLogging();
-            #else
-            LogManager.SuspendLogging();
-            return;
-            #endif
             // Init configuration
             var config = new NLog.Config.LoggingConfiguration();
             
@@ -26,7 +20,7 @@ namespace Base.Logging
             var logConsole = new UnityDebugTarget()
             {
                 Name = "UnityDebugLog",
-                Layout = "[${level}] ${message} (${stacktrace})",
+                Layout = "[${level}]>>>${message}>>>(${stacktrace})",
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
             
@@ -37,7 +31,7 @@ namespace Base.Logging
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = logFilePath + fileDirectory + "/" + fileName,
-                Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
+                Layout = "[${longdate}] >>> [${level}] >>> ${message} >>> (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
@@ -48,20 +42,24 @@ namespace Base.Logging
             var logFile = new NLog.Targets.FileTarget
             {
                 FileName = logFilePath + fileDirectory + "\\" + fileName,
-                Layout = "[${longdate}] [${level}] ${message} (${stacktrace})"
+                Layout = "[${longdate}] >>> [${level}] >>> ${message} >>> (${stacktrace})"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
             CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "\\" + "DebugLog.txt");
             #endif
 
             LogManager.Configuration = config;
+            
+#if !LOG_ENABLE
+            LogManager.Shutdown();
+#endif
         }
         
         private static void CheckOldLog(string path)
         {
             if (File.Exists(path))
             {
-                Debug.Log(path);
+                UnityEngine.Debug.Log(path);
                 File.Delete(path);
             }
         }
@@ -74,6 +72,26 @@ namespace Base.Logging
         public static Logger GetLogger()
         {
             return LogManager.GetCurrentClassLogger();
+        }
+
+        public static void Info(string message)
+        {
+            if (GetLogger().IsInfoEnabled) GetLogger().Info(message);
+        }
+
+        public static void Debug(string message)
+        {
+            if (GetLogger().IsDebugEnabled) GetLogger().Debug(message);
+        }
+
+        public static void Warn(string message)
+        {
+            if (GetLogger().IsWarnEnabled) GetLogger().Warn(message);
+        }
+
+        public static void Error(string message)
+        {
+            if (GetLogger().IsErrorEnabled) GetLogger().Error(message);
         }
     }
 }
