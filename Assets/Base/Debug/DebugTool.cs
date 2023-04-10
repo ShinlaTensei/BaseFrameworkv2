@@ -314,7 +314,7 @@ namespace Base
             {
                 GameDebugSceneMethod method = _debugSceneMths[_functionIndex];
                 MethodInfo methodInfo = method.Method;
-                this.GetLogger().Debug(CultureInfo.CurrentCulture, "CHEAT: calling {method}", methodInfo.Name);
+                PDebug.DebugFormat("CHEAT: calling {method}", methodInfo.Name);
                 methodInfo.Invoke(functionObj, _parameters);
             }
         }

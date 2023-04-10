@@ -55,7 +55,7 @@ namespace Base
                 if (retry >= retryCount)
                 {
                     AddTrackAsset(obj);
-                    this.GetLogger().Error($"[AddressableManager]LoadAssetAsync '{key}'. Error: '{GetError(e)}'");
+                    PDebug.Error($"[AddressableManager]LoadAssetAsync '{key}'. Error: '{GetError(e)}'");
                     callback?.Invoke(obj);
                 }
                 else
@@ -64,7 +64,7 @@ namespace Base
 
                     void CallRetry()
                     {
-                        this.GetLogger().Error($"[AddressableManager]LoadAssetAsync retry '{key}'");
+                        PDebug.Error($"[AddressableManager]LoadAssetAsync retry '{key}'");
                         LoadAssetAsync(key, callback, retryCount, retry);
                     }
 
@@ -88,7 +88,7 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    BaseLogSystem.GetLogger().Error("[AddressableManager] LoadAsset {asset} Error {error}", key, exception.Message);
+                    PDebug.GetLogger().Error("[AddressableManager] LoadAsset {asset} Error {error}", key, exception.Message);
 
                     return null;
                 }
@@ -96,7 +96,7 @@ namespace Base
                 {
                     retry++;
                     await UniTask.Delay(TimeSpan.FromSeconds(RETRY_DELAY_TIMER), ignoreTimeScale: true, cancellationToken: cancellationToken);
-                    BaseLogSystem.GetLogger().Error("[AddressableManager] LoadAsset {asset} Retry ... {count}", key, retry);
+                    PDebug.GetLogger().Error("[AddressableManager] LoadAsset {asset} Retry ... {count}", key, retry);
 
                     return await LoadAsset<T>(key, retryCount, retry, cancellationToken: cancellationToken);
                 }
@@ -118,14 +118,14 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    BaseLogSystem.GetLogger().Error("[AddressableManager] Instantiate Object {obj} Error {error}", key, exception.Message);
+                    PDebug.GetLogger().Error("[AddressableManager] Instantiate Object {obj} Error {error}", key, exception.Message);
 
                     return null;
                 }
 
                 retry++;
                 await UniTask.Delay(TimeSpan.FromSeconds(RETRY_DELAY_TIMER), true, cancellationToken: cancellationToken);
-                BaseLogSystem.GetLogger().Info("[AddressableManager Retry Count {count}", retry);
+                PDebug.GetLogger().Info("[AddressableManager Retry Count {count}", retry);
 
                 return await InstantiateAsync(key, parent, instantiateInWorld, retryCount, retry, cancellationToken);
             }
@@ -171,7 +171,7 @@ namespace Base
                 if (retry >= retryCount)
                 {
                     AddTrackInstance(obj);
-                    this.GetLogger().Error($"[AddressableManager]InstantiateAsync '{key}'. Error: '{GetError(e)}'");
+                    PDebug.Error($"[AddressableManager]InstantiateAsync '{key}'. Error: '{GetError(e)}'");
                     callback?.Invoke(obj);
                 }
                 else
@@ -180,7 +180,7 @@ namespace Base
 
                     void CallRetry()
                     {
-                        this.GetLogger().Error($"[AddressableManager]InstantiateAsync retry '{key}'");
+                        PDebug.Error($"[AddressableManager]InstantiateAsync retry '{key}'");
                         LoadAssetAsync(key, callback, retryCount, retry);
                     }
 

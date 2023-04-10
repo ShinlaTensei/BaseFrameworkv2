@@ -44,7 +44,7 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    BaseLogSystem.GetLogger().Error("[AddressableManager]LoadSceneAsync '{key}'. Error: '{error}'", key, e.Message);
+                    PDebug.GetLogger().Error("[AddressableManager]LoadSceneAsync '{key}'. Error: '{error}'", key, e.Message);
                     callback?.Invoke(result.Result);
                 }
                 else
@@ -53,7 +53,7 @@ namespace Base
 
                     void CallRetry()
                     {
-                        BaseLogSystem.GetLogger().Info("[AddressableManager]LoadSceneAsync retry '{key}'", key);
+                        PDebug.GetLogger().Info("[AddressableManager]LoadSceneAsync retry '{key}'", key);
                         LoadSceneAsync(key, callback, mode, activeOnLoad, retryCount, retry);
                     }
 
@@ -77,7 +77,7 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    BaseLogSystem.GetLogger().Error("[AddressableManager]LoadSceneAsync '{key}'. Error: '{error}'", key, exception.Message);
+                    PDebug.GetLogger().Error("[AddressableManager]LoadSceneAsync '{key}'. Error: '{error}'", key, exception.Message);
 
                     return null;
                 }
@@ -85,7 +85,7 @@ namespace Base
                 {
                     retry++;
                     await UniTask.Delay(TimeSpan.FromSeconds(RETRY_DELAY_TIMER), ignoreTimeScale: true, cancellationToken: cancellationToken);
-                    BaseLogSystem.GetLogger().Info("[AddressableManager]LoadSceneAsync retry {0} times", retry);
+                    PDebug.GetLogger().Info("[AddressableManager]LoadSceneAsync retry {0} times", retry);
 
                     return await LoadSceneAsync(key, mode, activeOnLoad, retryCount, retry, cancellationToken);
                 }
@@ -113,7 +113,7 @@ namespace Base
 
             void CheckThenRetry(Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[AddressableManager]UnloadScene Error: '{error}'", e.Message);
+                PDebug.GetLogger().Error("[AddressableManager]UnloadScene Error: '{error}'", e.Message);
                 callback?.Invoke(false);
             }
 
@@ -145,7 +145,7 @@ namespace Base
             }
             catch (Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[AddressableManager]UnloadScene Error: '{e}'", e.Message);
+                PDebug.GetLogger().Error("[AddressableManager]UnloadScene Error: '{e}'", e.Message);
 
                 return null;
             }
@@ -173,7 +173,7 @@ namespace Base
 
             void CheckThenRetry(Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[AddressableManager]UnloadScene Error: '{e}'", e.Message);
+                PDebug.GetLogger().Error("[AddressableManager]UnloadScene Error: '{e}'", e.Message);
                 callback?.Invoke(false);
             }
 
@@ -205,7 +205,7 @@ namespace Base
             }
             catch (Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[AddressableManager]UnloadScene Error: '{e}'", e.Message);
+                PDebug.GetLogger().Error("[AddressableManager]UnloadScene Error: '{e}'", e.Message);
 
                 return null;
             }

@@ -15,25 +15,25 @@ public class TestLog : MonoBehaviour
     private CompositeDisposable _disposable = new CompositeDisposable();
     public void Start()
     {
-        this.GetLogger().Debug("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
-        this.GetLogger().Info("Test log Info v3");
-        this.GetLogger().Info("Test log");
+        PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
+        PDebug.Info("Test log Info v3");
+        PDebug.Info("Test log");
 
         string message = "I am a God";
         string encrypted = Encryption.Encrypt(message);
-        this.GetLogger().Info("{msg}", encrypted);
+        PDebug.InfoFormat("{msg}", encrypted);
         string decrypted = Encryption.Decrypt(encrypted);
-        this.GetLogger().Info("{msg}", decrypted);
+        PDebug.InfoFormat("{msg}", decrypted);
         // TestData test = new TestData {name = "LALLALALA", amount = 1000};
         // FileUtilities.SaveDataWithEncrypted(FileUtilities.GetSystemPath(),"TestEncrypt.bin", test);
 
         var data = FileUtilities.LoadDataWithEncrypted<TestData>(FileUtilities.GetSystemPath() + "/TestEncrypt.bin");
-        this.GetLogger().Info("Load Data: {@data}", data);
+        PDebug.InfoFormat("Load Data: {@data}", data);
     }
 
     private void OnDisable()
     {
-        this.GetLogger().Debug("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
+        PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
         _disposable.Clear();
     }
 
@@ -45,7 +45,7 @@ public class TestLog : MonoBehaviour
 
         Observable.EveryUpdate().Where(source => Input.GetKeyDown(KeyCode.Space)).Subscribe(source =>
         {
-            this.GetLogger().Debug("ServiceLocator Instance: {0}", ServiceLocator.Instance);
+            PDebug.DebugFormat("ServiceLocator Instance: {0}", ServiceLocator.Instance);
         }).AddTo(_disposable);
     }
 

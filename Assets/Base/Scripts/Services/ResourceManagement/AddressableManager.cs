@@ -144,7 +144,7 @@ namespace Base
 
         public void Initialize(Action<bool> callback = null, int retryCount = 0, int retry = 0)
         {
-            BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing ...");
+            PDebug.GetLogger().Info("[AddressableManager] Initializing ...");
 
             IsInit = false;
             IsReadyToGetBundle = false;
@@ -172,7 +172,7 @@ namespace Base
 
             void CallOnMainThread()
             {
-                BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing Completed!!!");
+                PDebug.GetLogger().Info("[AddressableManager] Initializing Completed!!!");
 
                 IsInit = true;
                 IsReadyToGetBundle = true;
@@ -183,7 +183,7 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    BaseLogSystem.GetLogger().Error("[AddressableManager] Initializing Error: {msg}", ex.Message);
+                    PDebug.GetLogger().Error("[AddressableManager] Initializing Error: {msg}", ex.Message);
                     IsInit = true;
                     IsReadyToGetBundle = false;
                     callback?.Invoke(false);
@@ -194,7 +194,7 @@ namespace Base
 
                     void CallRetry()
                     {
-                        BaseLogSystem.GetLogger().Info("[AddressableManager]Initialized retry");
+                        PDebug.GetLogger().Info("[AddressableManager]Initialized retry");
                         Initialize(callback, retryCount, retry);
                     }
 
@@ -206,7 +206,7 @@ namespace Base
         public async UniTask<bool> InitializeAsync(Action<bool> callback = null, int retryCount = 0, int retry = 0,
             CancellationToken cancellationToken = default)
         {
-            BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing ...");
+            PDebug.GetLogger().Info("[AddressableManager] Initializing ...");
 
             IsInit = false;
             IsReadyToGetBundle = false;
@@ -215,7 +215,7 @@ namespace Base
             {
                 await Addressables.InitializeAsync().ToUniTask(cancellationToken: cancellationToken);
 
-                BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing Completed!!!");
+                PDebug.GetLogger().Info("[AddressableManager] Initializing Completed!!!");
                 IsInit = IsReadyToGetBundle = true;
 
                 return true;
@@ -228,7 +228,7 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    BaseLogSystem.GetLogger().Error("[AddressableManager] Initializing Error: {msg}", exception.Message);
+                    PDebug.GetLogger().Error("[AddressableManager] Initializing Error: {msg}", exception.Message);
                     IsInit = true;
                     IsReadyToGetBundle = false;
                     callback?.Invoke(false);
@@ -238,7 +238,7 @@ namespace Base
                 else
                 {
                     retry++;
-                    BaseLogSystem.GetLogger().Info("[AddressableManager] Initializing Retry");
+                    PDebug.GetLogger().Info("[AddressableManager] Initializing Retry");
 
                     return await InitializeAsync(callback, retryCount, retry, cancellationToken: cancellationToken);
                 }

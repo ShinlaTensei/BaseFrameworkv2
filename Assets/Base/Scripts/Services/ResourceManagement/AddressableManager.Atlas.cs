@@ -100,7 +100,7 @@ namespace Base
             }
             else
             {
-                this.GetLogger().Error("LoadSpriteAsync error unable to get atlas '{0}'", key);
+                PDebug.ErrorFormat("LoadSpriteAsync error unable to get atlas '{0}'", key);
             }
         }
     }

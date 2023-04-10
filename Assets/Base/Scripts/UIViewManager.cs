@@ -159,7 +159,7 @@ namespace Base
                 m_stackUi.Remove(view);
                 m_stackUi.Insert(0, view);
             }
-            this.GetLogger().Info("[UIViewManager] Push {0}", view.GetType().Name);
+            PDebug.InfoFormat("[UIViewManager] Push {0}", view.GetType().Name);
         }
 
         private async UniTask<T> InitAsync<T>(Action<T> onCompleted = null, CancellationToken cancellationToken = default) where T : UIView
@@ -168,7 +168,7 @@ namespace Base
 
             if (attribute == null)
             {
-                this.GetLogger().Error("[UIView]Need to apply UIModelAttribute on class {name}", typeof(T).Name);
+                PDebug.ErrorFormat("[UIView]Need to apply UIModelAttribute on class {name}", typeof(T).Name);
 
                 return null;
             }
@@ -196,7 +196,7 @@ namespace Base
         {
             if (instance == null)
             {
-                this.GetLogger().Error("[UIView]Null reference of type {type}", typeof(T).Name);
+                PDebug.ErrorFormat("[UIView]Null reference of type {type}", typeof(T).Name);
 
                 return;
             }
@@ -281,7 +281,7 @@ namespace Base
                 }
             }
             
-            this.GetLogger().Warn("Cannot find canvas with tag {tag} in scene: {sceneName}", newTag, sceneName);
+            PDebug.WarnFormat("Cannot find canvas with tag {tag} in scene: {sceneName}", newTag, sceneName);
 
             return null;
         }

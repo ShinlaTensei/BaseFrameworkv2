@@ -73,7 +73,7 @@ namespace Base.Pattern
             }
             else
             {
-                Instance.GetLogger().Info("Service {0} is already added", typeof(T));
+                PDebug.InfoFormat("Service {0} is already added", typeof(T));
 
                 return GetService<T>();
             }
@@ -89,7 +89,7 @@ namespace Base.Pattern
             }
             else
             {
-                Instance.GetLogger().Info("Service {0} is already added", typeof(T));
+                PDebug.InfoFormat("Service {0} is already added", typeof(T));
 
                 return null;
             }
@@ -134,7 +134,7 @@ namespace Base.Pattern
             }
             
             {
-                Instance.GetLogger().Info("Signal {0} is already added", typeof(T));
+                PDebug.InfoFormat("Signal {0} is already added", typeof(T));
 
                 return GetSignal<T>();
             }
@@ -213,7 +213,7 @@ namespace Base.Pattern
             }
             
             {
-                Instance.GetLogger().Info("Signal {0} is already added", typeof(T));
+                PDebug.InfoFormat("Signal {0} is already added", typeof(T));
 
                 return GetBlueprint<T>();
             }

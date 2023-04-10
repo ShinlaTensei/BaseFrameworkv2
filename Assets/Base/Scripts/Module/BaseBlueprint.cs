@@ -84,7 +84,7 @@ namespace Base.Module
             }
             catch (Exception exception)
             {
-                BaseLogSystem.GetLogger().Error("[{0}] Error: {1}", GetType(), exception);
+                PDebug.ErrorFormat("[{0}] Error: {1}", GetType(), exception);
             }
 
             return string.Empty;

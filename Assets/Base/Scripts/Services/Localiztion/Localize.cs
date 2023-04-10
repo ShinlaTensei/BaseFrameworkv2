@@ -70,7 +70,7 @@ namespace Base.Services
                 }
                 catch (Exception e)
                 {
-                    BaseLogSystem.GetLogger().Error(e);
+                    PDebug.GetLogger().Error(e);
                 }
             }
         }

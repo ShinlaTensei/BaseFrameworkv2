@@ -264,7 +264,7 @@ namespace Base.Module
             }
             catch (Exception e)
             {
-                BaseLogSystem.GetLogger().Error(e, e.Message);
+                PDebug.Error(e, e.Message);
 
                 throw;
             }

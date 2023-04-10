@@ -56,7 +56,7 @@ namespace Base.Services
             {
                 return _localizeData[key].Data;
             }
-            BaseLogSystem.GetLogger().Warn("[BlueprintLocalize] Missing localize text of ID ({0})", key);
+            PDebug.GetLogger().Warn("[BlueprintLocalize] Missing localize text of ID ({0})", key);
             return string.Empty;
         }
     }

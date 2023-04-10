@@ -23,7 +23,7 @@ namespace Base.Helper
             }
             catch (Exception exception)
             {
-                BaseLogSystem.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, exception);
+                PDebug.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, exception);
 
                 throw;
             }
@@ -38,7 +38,7 @@ namespace Base.Helper
             }
             catch (Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
+                PDebug.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
                 throw e;
             }
         }
@@ -57,7 +57,7 @@ namespace Base.Helper
             }
             catch (Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
+                PDebug.ErrorFormat("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
                 throw;
             }
         }
@@ -71,7 +71,7 @@ namespace Base.Helper
             }
             catch (Exception e)
             {
-                BaseLogSystem.GetLogger().Error("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
+                PDebug.ErrorFormat("[ProtoDeserialized] Parse {0} Error {1}", typeof(T).Name, e);
                 throw;
             }
         }
