@@ -8,6 +8,22 @@ namespace Base
     public class DebugMono : MonoBehaviour
     {
         [SerializeField] private FPSDisplay fpsDisplay;
+
+        #region Properties
+
+        [DebugInfo("DeviceID", 1)]
+        public string DeviceID { get { return SystemInfo.deviceUniqueIdentifier; } }
+
+        [DebugInfo("DeviceModel", 2)]
+        public string DeviceModel { get { return SystemInfo.deviceModel; } }
+
+        [DebugInfo("DeviceOS", 3)]
+        public string DeviceOS { get { return SystemInfo.operatingSystem; } }
+
+        [DebugInfo("Package", 4)]
+        public string Package { get { return Application.identifier; } }
+
+        #endregion
         
         #region Debug
         [DebugAction("Show FPS", "Analytics", SceneName.AnyScene)]

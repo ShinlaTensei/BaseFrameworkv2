@@ -24,6 +24,7 @@ namespace Base
 
         [SerializeField] private InputParamUI inputParamUI;
         [SerializeField] private SelectorParamUI selectorParamUI;
+        [SerializeField] private TMP_Text m_buildText;
 
         private bool _init = false;
         private int _functionIndex = 0;
@@ -277,6 +278,32 @@ namespace Base
                         });
                     }
                 }
+            }
+
+            if (_debugProperties.Count > 0)
+            {
+                string buildTextText = string.Empty;
+                for (int i = 0; i < _debugProperties.Count; i++)
+                {
+                    GameDebugProperty property = _debugProperties[i];
+                    string            color    = property.Attribute.Color;
+                    string            text     = color == null ? $"{property.Attribute.Name}: {property.Property.GetValue(functionObj, null)}" 
+                        : $"{property.Attribute.Name}: <color={color}>{property.Property.GetValue(functionObj, null)}</color>";
+
+                    if (i == _debugProperties.Count - 1)
+                    {
+                        buildTextText += text;
+                    }
+                    else
+                    {
+                        buildTextText += text + "\n";
+                    }
+                }
+                if (m_buildText && !string.IsNullOrEmpty(buildTextText))
+                {
+                    m_buildText.text = buildTextText;
+                }
+                Canvas.ForceUpdateCanvases();
             }
         }
 

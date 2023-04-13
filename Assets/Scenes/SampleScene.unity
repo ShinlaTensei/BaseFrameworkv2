@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -653,6 +653,18 @@ PrefabInstance:
     - target: {fileID: 4186218827395997062, guid: 97ac2499492ab40ab8329475ad953735, type: 3}
       propertyPath: m_Name
       value: DebugCanvasVertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186218828938376898, guid: 97ac2499492ab40ab8329475ad953735, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186218828938376898, guid: 97ac2499492ab40ab8329475ad953735, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186218828938376901, guid: 97ac2499492ab40ab8329475ad953735, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

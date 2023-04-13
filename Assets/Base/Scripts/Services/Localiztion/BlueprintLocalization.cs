@@ -5,42 +5,23 @@ using Base.Logging;
 using Base.Module;
 using Base.Pattern;
 using Base.Data.Structure;
+using UnityEngine;
 
 namespace Base.Services
 {
-    public class BlueprintLocalization : BaseBlueprint<LocalizeDataStructure>, IService<List<LocalizeDataItem>>
+    public class BlueprintLocalization : BaseBlueprint<LocalizeDataStructure>
     {
-        private Dictionary<string, LocalizeDataItem> _localizeData;
-        public void UpdateData(List<LocalizeDataItem> data)
-        {
-            if (data is {Count: > 0})
-            {
-                _localizeData.Clear();
-                foreach (var dataItem in data)
-                {
-                    _localizeData.TryAdd(dataItem.Key, dataItem);
-                }
-            }
-        }
-
-        public void Init()
-        {
-            _localizeData = new Dictionary<string, LocalizeDataItem>();
-        }
-
-        public void DeInit()
-        {
-            
-        }
+        private Dictionary<string, LocalizeDataItem> m_localizeData;
 
         public override void Load()
         {
+            m_localizeData = new Dictionary<string, LocalizeDataItem>();
             if (Data != null && Data.LocalizeData.Count > 0)
             {
-                _localizeData.Clear();
+                m_localizeData.Clear();
                 foreach (var dataItem in Data.LocalizeData)
                 {
-                    _localizeData.TryAdd(dataItem.Key, dataItem);
+                    m_localizeData.TryAdd(dataItem.Key, dataItem);
                 }
             }
         }
@@ -52,11 +33,11 @@ namespace Base.Services
 
         public string GetTextByKey(string key)
         {
-            if (_localizeData.ContainsKey(key))
+            if (m_localizeData.ContainsKey(key))
             {
-                return _localizeData[key].Data;
+                return m_localizeData[key].Data;
             }
-            PDebug.GetLogger().Warn("[BlueprintLocalize] Missing localize text of ID ({0})", key);
+            PDebug.WarnFormat("[BlueprintLocalize] Missing localize text of ID ({0})", key);
             return string.Empty;
         }
     }

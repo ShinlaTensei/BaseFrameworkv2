@@ -80,7 +80,7 @@ namespace Base.Services
     {
         private static string GetLocalizeText(string key)
         {
-            BlueprintLocalization blueprint = ServiceLocator.GetService<BlueprintLocalization>();
+            BlueprintLocalization blueprint = ServiceLocator.GetBlueprint<BlueprintLocalization>();
             string text = blueprint?.GetTextByKey(key);
         
             return text != string.Empty ? text : key;
