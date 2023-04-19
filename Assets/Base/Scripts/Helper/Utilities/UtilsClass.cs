@@ -2,6 +2,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Reflection;
+using Base.Logging;
+using TMPro;
 using Object = UnityEngine.Object;
 
 namespace Base.Helper
@@ -171,6 +173,58 @@ namespace Base.Helper
             if (point.x >= 0 && point.x <= 1 && point.y >= 0 && point.y <= 1) return true;
 
             return false;
+        }
+        
+        public static Vector2 GetTextSize(TMP_Text tmpText, float fontSize, string text, float maxWidthInUI = 0)
+        {
+            if (tmpText.overflowMode != TextOverflowModes.Overflow || !tmpText.enableWordWrapping) return Vector2.zero;
+            
+            TMP_FontAsset font = tmpText.font;
+            float lineHeight = font.faceInfo.lineHeight;
+            float biggestHeight = 1f;
+            float biggestWidth = 1f;
+            float spaceWidth = font.faceInfo.tabWidth * 2f;
+            float width = 0;
+            int spacingCount = 0;
+
+            foreach (var c in text)
+            {
+                if (c == ' ')
+                {
+                    spacingCount++;
+                    continue;
+                }
+                if (font.HasCharacter(c))
+                {
+                    TMP_FontUtilities.SearchForCharacter(font, (uint)Char.ConvertToUtf32(c.ToString(), 0), out TMP_Character character);
+                    width += character.glyph.metrics.width;
+                    if (biggestHeight < character.glyph.metrics.height)
+                    {
+                        biggestHeight = character.glyph.metrics.height;
+                    }
+
+                    if (biggestWidth < character.glyph.metrics.width)
+                    {
+                        biggestWidth = character.glyph.metrics.width;
+                    }
+                }
+            }
+
+            float textWidth = (width + (spacingCount * spaceWidth)) * fontSize / font.faceInfo.pointSize;
+            float textHeight = 0;
+            if (maxWidthInUI > 0)
+            {
+                int numberOfLine = Mathf.CeilToInt(textWidth / maxWidthInUI);
+                textHeight = lineHeight * numberOfLine * fontSize / font.faceInfo.pointSize;
+                textWidth = maxWidthInUI;
+            }
+            else
+            {
+                textHeight = lineHeight * fontSize / font.faceInfo.pointSize;
+            }
+
+            PDebug.InfoFormat("[Utilities] Get Text Size: {0}", new Vector2(textWidth, textHeight));
+            return new Vector2(textWidth, textHeight);
         }
 
         #region Animator

@@ -2,13 +2,846 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Build Package/BaseV2.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base.Data/bin.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base.Data/bin/protoc.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base.Data/bin/protoc.exe.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Straight pixel gothic.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Straight pixel gothic.otf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Yacimiento - deFharo.com.URL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Yacimiento - deFharo.com.URL.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Yacimiento ExtraBold Ex.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Yacimiento ExtraBold Ex.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Zachery.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/Zachery.otf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/vaca.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Fonts/vaca.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Material1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Material1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/btn_common_f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/btn_common_f.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Shader - 1.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Shader - 1.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Shader-1.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Shader-1.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/ButtonShake.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/ButtonShake.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/GamePlayUI.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/GamePlayUI.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/HeartIncrease.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/HeartIncrease.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/Hint.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/Hint.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/HintFading.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/HintFading.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/ShowGameplayUI.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/ShowGameplayUI.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/btnWatchRewardedAd.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/btnWatchRewardedAd.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/heartNumber.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/Gameplay/heartNumber.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/HideMenuPanel.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/HideMenuPanel.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/MenuPanel.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/MenuPanel.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/MenuPanelIdle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/MenuPanelIdle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/ShowMenuPanel.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Anim/MenuPanel/ShowMenuPanel.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/Mix.mixer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/Mix.mixer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/background.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/background.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/button.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/button.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/failed.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/failed.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/fcoin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/fcoin.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/ping.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/ping.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/rewarded.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/rewarded.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/tick.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/tick.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/unlock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/unlock.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/victory.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/victory.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/win.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Audio/win.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Editor/EditorTools.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Editor/EditorTools.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Editor/LevelEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Editor/LevelEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License/LICENSE-2.0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License/LICENSE-2.0.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License/OFL.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License/ubuntu-font-licence-1.0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/License/ubuntu-font-licence-1.0.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/Montserrat 700.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Fonts/Montserrat 700.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Icon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Icon/icon_1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Icon/icon_1024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials/Explore.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials/Explore.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials/Line.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials/Line.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials/Winning.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Materials/Winning.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Balls.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Balls/BlueBall.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Balls/BlueBall.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Balls/PinkBall.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Balls/PinkBall.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Hint.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Hint/Hint.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Hint/Hint.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/LevelButton.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/LevelButton/ButtonGroup.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/LevelButton/ButtonGroup.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/LevelButton/LevelPack.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/LevelButton/LevelPack.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/DeadObstacle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/DeadObstacle/Fence.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/DeadObstacle/Fence.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/DeadObstacle/Wire.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/DeadObstacle/Wire.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_10.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_10.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_11.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_11.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_12.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_12.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_13.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_13.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_14.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_14.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_15.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_15.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_16.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_16.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_17.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_17.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_18.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_18.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_19.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_19.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_20.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_20.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_21.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_21.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_22.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_22.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_5.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_5.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_6.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_6.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_7.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_7.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_8.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_8.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_9.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/FixedObstacles/Obstacle_9.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Conveyor_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Conveyor_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Conveyor_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Conveyor_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Conveyor_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Conveyor_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Roller_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Roller_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Roller_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/Roller_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/WireDestroyer.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/MovingObstacles/WireDestroyer.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/ObstacleManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Obstacles/ObstacleManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Particles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Particles/Explores.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Particles/Explores.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Particles/Winning.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Game/Particles/Winning.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures/HeartPack.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures/HeartPack.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures/PremiumFeaturesManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures/PremiumFeaturesManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures/ShareUI.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/PremiumFeatures/ShareUI.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/AppInfo.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/AppInfo.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/CoinManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/CoinManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/ScoreManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/ScoreManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/SoundManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Prefabs/Services/SoundManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint100.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint11.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint12.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint13.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint14.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint16.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint17.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint18.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint19.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint20.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint21.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint22.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint23.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint24.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint25.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint26.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint27.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint28.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint29.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint30.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint31.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint32.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint33.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint34.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint35.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint36.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint37.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint38.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint39.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint40.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint41.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint42.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint43.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint44.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint45.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint46.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint47.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint48.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint49.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint50.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint51.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint52.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint53.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint53.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint54.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint55.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint55.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint56.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint56.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint57.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint58.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint59.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint59.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint60.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint61.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint61.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint62.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint62.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint63.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint63.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint64.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint65.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint65.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint66.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint66.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint67.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint67.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint68.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint68.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint69.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint69.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint70.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint70.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint71.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint71.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint72.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint73.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint73.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint74.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint74.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint75.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint75.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint76.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint76.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint77.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint77.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint78.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint78.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint79.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint79.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint80.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint81.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint81.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint82.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint82.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint83.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint83.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint84.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint84.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint85.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint85.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint86.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint86.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint87.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint87.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint88.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint88.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint89.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint89.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint90.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint90.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint91.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint91.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint92.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint92.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint93.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint93.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint94.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint94.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint95.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint95.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint96.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint97.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint97.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint98.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint99.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Hints/hint99.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Json/LevelsData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Json/LevelsData.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/100.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/11.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/12.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/13.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/14.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/16.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/17.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/18.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/19.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/20.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/21.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/22.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/23.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/24.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/25.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/26.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/27.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/28.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/29.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/30.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/31.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/32.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/33.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/34.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/35.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/36.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/37.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/38.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/39.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/40.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/41.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/42.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/43.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/44.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/45.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/46.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/47.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/48.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/49.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/50.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/51.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/52.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/53.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/53.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/54.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/55.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/55.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/56.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/56.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/57.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/58.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/59.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/59.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/60.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/61.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/61.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/62.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/62.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/63.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/63.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/64.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/65.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/65.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/66.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/66.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/67.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/67.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/68.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/68.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/69.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/69.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/70.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/70.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/71.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/71.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/72.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/73.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/73.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/74.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/74.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/75.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/75.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/76.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/76.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/77.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/77.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/78.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/78.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/79.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/79.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/80.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/81.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/81.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/82.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/82.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/83.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/83.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/84.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/84.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/85.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/85.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/86.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/86.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/87.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/87.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/88.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/88.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/89.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/89.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/90.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/90.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/91.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/91.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/92.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/92.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/93.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/93.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/94.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/94.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/95.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/95.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/96.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/97.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/97.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/98.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/99.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Resources/Screenshots/99.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes/FirstScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes/FirstScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes/GameScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes/GameScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes/LevelEditor.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scenes/LevelEditor.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/BallController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/BallController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/BetterScrollview.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/BetterScrollview.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/GameplayUIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/GameplayUIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelButtonController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelButtonController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelPackController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelPackController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelScroller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelScroller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelSelectionUIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/LevelSelectionUIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ConveyorController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ConveyorController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ObstacleData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ObstacleData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ObstacleId.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ObstacleId.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ObstacleManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/ObstacleManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/WireController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/WireController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/WireDestroyer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Gameplay/Obstacle/WireDestroyer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor/HintData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor/HintData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor/LevelData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor/LevelData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor/LevelManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/LevelEditor/LevelManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/AdDisplayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/AdDisplayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/AndroidBackButtonHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/AndroidBackButtonHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/InAppPurchaser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/InAppPurchaser.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/PremiumFeaturesManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/PremiumFeaturesManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/RatingRequester.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/RatingRequester.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/ScreenshotSharer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/ScreenshotSharer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/StoreUIController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/PremiumFeatures/StoreUIController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/AppInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/AppInfo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/CoinManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/CoinManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/ScoreManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/ScoreManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/SoundManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/SoundManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/Utilities.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/Services/Utilities.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/ShareUI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/ShareUI/ShareUIController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Scripts/ShareUI/ShareUIController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/Ball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/Ball.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/Switch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/Switch.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/arrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/cancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/cancel.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/circle.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/facebook.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/failed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/failed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/hint.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/hint.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/leaderboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/leaderboard.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/lock.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/mail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/mail.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/music_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/music_off.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/music_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/music_on.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/play.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/rate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/rate.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/remove-ads.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/remove-ads.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/restart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/restart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/rounded.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/rounded.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/settings.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/share.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/share.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/shop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/shop.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/solved.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/solved.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/sound_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/sound_off.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/sound_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/sound_on.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/sunburst.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/sunburst.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/twitter.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/unlock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/unlock.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Gameplay/video.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Carousel_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Carousel_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Carousel_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Carousel_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Carousel_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Carousel_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Fence.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Fence.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_11.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_12.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_14.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_16.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_17.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_18.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_19.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_20.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_21.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_22.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Obstacle_9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Roller_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Roller_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Roller_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Roller_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/SteelGrid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/SteelGrid.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Wire 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Wire 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Wire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/Wire.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/WireDestroyer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/WireDestroyer.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/spindle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Obstacles/spindle.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Poweredby_640px-White_HorizLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/Poweredby_640px-White_HorizLogo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/gif_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/gif_icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/png_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/png_icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/share.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/share.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/Sprites/square.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/User_Guide.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_DrawDotGame/User_Guide.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_Android.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/PDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/PDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/UnityDebugTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/UnityDebugTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Fonts/TTF/Gobold Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Fonts/TTF/Gobold Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Fonts/TTF/RobotoMono SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Fonts/TTF/RobotoMono SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Fonts/roboto-condensed/RobotoCondensed-Light SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Fonts/roboto-condensed/RobotoCondensed-Light SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo_2018.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/BlueprintHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/BlueprintHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Utilities/UtilsClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Utilities/UtilsClass.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TestLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TestLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +861,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/Progress/ProgressControlsForDialogs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unity/Hub/Editor/2022.1.23f1/Editor/Data/CGIncludes/UnityCG.cginc" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.2/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unity/Hub/Editor/2022.1.23f1/Editor/Data/CGIncludes/UnityShaderUtilities.cginc" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.6.0/Runtime/Core.Internal/Components/Authentication/IEnvironmentId.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unity/Hub/Editor/2022.1.23f1/Editor/Data/CGIncludes/UnityInstancing.cginc" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -65,6 +902,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -94,10 +932,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19104">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="19104" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -159,6 +997,14 @@
       <workItem from="1673666003965" duration="281000" />
       <workItem from="1673712380556" duration="30000" />
       <workItem from="1674965447894" duration="83000" />
+      <workItem from="1675687115508" duration="169000" />
+      <workItem from="1675819749977" duration="466000" />
+      <workItem from="1677075610582" duration="2742000" />
+      <workItem from="1677329955571" duration="2624000" />
+      <workItem from="1681300021047" duration="89000" />
+      <workItem from="1681301752089" duration="8000" />
+      <workItem from="1681553188410" duration="93000" />
+      <workItem from="1681903464545" duration="4131000" />
     </task>
     <servers />
   </component>
@@ -181,5 +1027,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Base/Scripts/Helper/Utilities/UtilsClass.cs</url>
+          <line>216</line>
+          <properties documentPath="D:\UnityProjects\BaseFrameworkv2\Assets\Base\Scripts\Helper\Utilities\UtilsClass.cs" initialLine="216" containingFunctionPresentation="method 'GetTextSize'">
+            <startOffsets>
+              <option value="7668" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7729" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -6,12 +6,16 @@ using Base.Services;
 using Base.Module;
 using Base.Pattern;
 using Cysharp.Threading.Tasks;
+using NaughtyAttributes;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TestLog : MonoBehaviour
 {
+    [SerializeField] private TMP_Text m_text;
+    [SerializeField, TextArea(5, 10)] private string m_testString;
     private CompositeDisposable _disposable = new CompositeDisposable();
     public void Start()
     {
@@ -52,6 +56,15 @@ public class TestLog : MonoBehaviour
     private void UnloadScene()
     {
         SceneManager.UnloadSceneAsync("TestScene");
+    }
+    
+    [NaughtyAttributes.Button("Test Get Size", EButtonEnableMode.Editor)]
+    public void TestGetSize()
+    {
+        Vector2 size = UtilsClass.GetTextSize(m_text, m_text.fontSize, m_testString, 500f);
+        m_text.text = m_testString;
+        
+        Debug.LogFormat("Test Get Size {0}", size);
     }
 }
 

@@ -22,7 +22,7 @@ namespace Base.Logging
             var logConsole = new UnityDebugTarget()
             {
                 Name = "UnityDebugLog",
-                Layout = "[${level}]>>>${message}>>>(${stacktrace})",
+                Layout = "[${level}] >>> ${message} >>> (${stacktrace})",
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
             
