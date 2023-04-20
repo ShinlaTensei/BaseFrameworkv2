@@ -175,7 +175,7 @@ namespace Base.Helper
             return false;
         }
         
-        public static Vector2 GetTextSize(TMP_Text tmpText, float fontSize, string text, float maxWidthInUI = 0)
+        public static Vector2 GetSizeOfText(TMP_Text tmpText, float fontSize, string text, float maxWidthInUI = 0)
         {
             if (tmpText.overflowMode != TextOverflowModes.Overflow || !tmpText.enableWordWrapping) return Vector2.zero;
             
