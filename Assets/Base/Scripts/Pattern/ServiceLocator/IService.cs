@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Base.Pattern
 {
-    public interface IService
+    public interface IService : IDisposable
     {
         void Init();
         void DeInit();
@@ -13,6 +14,11 @@ namespace Base.Pattern
     public interface IService<T> : IService
     {
         void UpdateData(T data);
+    }
+
+    public interface IServiceUpdate : IDisposable
+    {
+        void Update();
     }
 }
 

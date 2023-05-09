@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Base.Pattern;
 using Base.Utilities;
@@ -18,23 +19,26 @@ namespace Base.Helper
     public abstract class UIView : BaseMono, IPointerClickHandler
     {
         private const string RootName = "Root";
-        
-        [SerializeField] private GameObject m_root;
-        [SerializeField] private ExitType m_exitType;
-        [SerializeField] private UICanvasType m_canvasType;
+        [SerializeField] protected string       m_viewId;
+        [SerializeField] protected GameObject   m_root;
+        [SerializeField] protected ExitType     m_exitType;
+        [SerializeField] protected UICanvasType m_canvasType;
         [BitFlag(typeof(NavigationState))]
-        [SerializeField] private long m_navigationState = 0;
-        [SerializeField] private bool m_activeDefault;
-        [SerializeField] private bool m_closePrevOnShow;
-        [SerializeField] private bool m_closeOnTouchOutside;
-        [SerializeField] private bool m_triggerViewChange;
+        [SerializeField] protected long         m_navigationState = 0;
+        [SerializeField] protected bool         m_activeDefault;
+        [SerializeField] protected bool         m_closePrevOnShow;
+        [SerializeField] protected bool         m_closeOnTouchOutside;
+        [SerializeField] protected bool         m_triggerViewChange;
         [Condition("m_closeOnTouchOutside", true, false)] 
-        [SerializeField] private RectTransform m_touchRect;
+        [SerializeField] protected RectTransform  m_touchRect;
+
+        private UIViewManager m_manager = null;
 
         private IViewData m_data = null;
 
         private bool m_isShow = false;
 
+        public string ViewID => m_viewId;
         public GameObject Root
         {
             get
@@ -47,6 +51,15 @@ namespace Base.Helper
             }
         }
 
+        public UIViewManager UIManager
+        {
+            get
+            {
+                if (m_manager == null) m_manager = ServiceLocator.GetService<UIViewManager>();
+
+                return m_manager;
+            }
+        }
         public ExitType ExitType => m_exitType;
         public UICanvasType CanvasType => m_canvasType;
         public bool ActiveDefault => m_activeDefault;
@@ -103,6 +116,18 @@ namespace Base.Helper
         public virtual void Hide<T>(T argument) where T : IViewData
         {
             Hide();
+        }
+
+        public virtual void InternalClose()
+        {
+            if (UIManager != null)
+            {
+                UIManager.CloseView(this);
+            }
+            else
+            {
+                Hide();
+            }
         }
         
         /// <summary>

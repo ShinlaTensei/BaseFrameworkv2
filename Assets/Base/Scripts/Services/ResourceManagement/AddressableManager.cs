@@ -141,6 +141,13 @@ namespace Base
             ClearAtlases();
             ReleaseTracked();
         }
+        
+        
+        public void Dispose()
+        {
+            ClearAtlases();
+            ReleaseTracked();
+        }
 
         public void Initialize(Action<bool> callback = null, int retryCount = 0, int retry = 0)
         {

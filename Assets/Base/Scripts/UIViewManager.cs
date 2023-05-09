@@ -33,7 +33,7 @@ namespace Base
         #region UIView Handle
         
         private Dictionary<string, UIView>  m_uiViewPool    = new Dictionary<string, UIView>();
-        private List<UIView>               m_stackUi       = new List<UIView>();
+        private List<UIView>                m_stackUi       = new List<UIView>();
 
         private UIView m_previous;
         private UIView m_current;
@@ -41,7 +41,10 @@ namespace Base
         private AddressableManager m_addressableManager;
 
         public UIView Previous => m_previous;
-
+        
+        /// <summary>
+        /// Fire a signal when UI changed state
+        /// </summary>
         private void NotifyUIViewChanged()
         {
             if (m_previous.TriggerViewChange)
@@ -316,6 +319,11 @@ namespace Base
             m_uiCanvasPool.Clear();
             m_uiViewPool.Clear();
             m_stackUi.Clear();
+        }
+
+        public void Dispose()
+        {
+            m_addressableManager.Dispose();
         }
     }
 }

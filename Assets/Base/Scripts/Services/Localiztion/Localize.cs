@@ -74,6 +74,10 @@ namespace Base.Services
                 }
             }
         }
+
+        public void Dispose()
+        {
+        }
     }
 
     public static class Localization

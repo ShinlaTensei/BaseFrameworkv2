@@ -228,6 +228,31 @@ namespace Base.Pattern
         }
 
         #endregion
+
+        public IList<T> GetAll<T>() where T : class
+        {
+            IList<T> types = new List<T>();
+            foreach (var service in m_services)
+            {
+                Type t = service.Key;
+                IService ins = service.Value;
+                if (ins is T obj)
+                {
+                    types.AddIfNotContains(obj);
+                }
+            }
+
+            foreach (var blueprint in m_blueprints)
+            {
+                IBlueprint bp = blueprint.Value;
+                if (bp is T output)
+                {
+                    types.AddIfNotContains(output);
+                }
+            }
+
+            return types;
+        }
     }
 }
 

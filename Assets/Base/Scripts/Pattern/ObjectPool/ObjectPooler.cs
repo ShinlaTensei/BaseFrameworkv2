@@ -166,6 +166,10 @@ namespace Base.Pattern
                 pool.Reset();
             }
         }
+
+        public void Dispose()
+        {
+        }
     }
     
     [Serializable]
