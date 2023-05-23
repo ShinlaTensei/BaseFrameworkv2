@@ -92,6 +92,38 @@ namespace Base
         {
             return new Vector3(x, y) * _cellSize;
         }
+
+        public Vector3 GetWorldPosition(int x, int y, RectTransform.Axis axis)
+        {
+            if (axis is RectTransform.Axis.Horizontal)
+            {
+                return new Vector3(x, 0, y) * _cellSize;
+            }
+            
+            if (axis is RectTransform.Axis.Vertical)
+            {
+                return GetWorldPosition(x, y);
+            }
+
+            return Vector3.zero;
+        }
+
+        public void DrawGizmos(Transform root)
+        {
+            if (Width > 0 && Height > 0 && CellSize > 0)
+            {
+                Gizmos.color = Color.black;
+                for (int y = 0; y < Height; ++y)
+                {
+                    for (int x = 0; x < Width; ++x)
+                    {
+                        Vector3 position = GetWorldPosition(x, y, RectTransform.Axis.Horizontal);
+                        Vector3 final = root.TransformPoint(position);
+                        Gizmos.DrawSphere(final, .1f);
+                    }
+                }
+            }
+        }
     }
 }
 
