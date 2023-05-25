@@ -88,7 +88,7 @@ namespace Base
             return new Vector2(x, y);
         }
 
-        public Vector3 GetWorldPosition(int x, int y)
+        private Vector3 GetWorldPosition(int x, int y)
         {
             return new Vector3(x, y) * _cellSize;
         }

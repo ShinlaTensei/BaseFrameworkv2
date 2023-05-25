@@ -26,29 +26,37 @@ public class GridMesh : BaseMono
 
     private void Generate()
     {
+        // Create a mesh from grid base
         m_vertices = new Vector3[(m_width) * (m_height)];
         m_meshFilter.mesh = m_mesh = new Mesh();
         m_mesh.name = "Grid Mesh";
+        Vector2[] uv = new Vector2[m_vertices.Length];
         for (int i = 0, y = 0; y < m_height; ++y)
         {
             for (int x = 0; x < m_width; ++x, i++)
             {
                 m_vertices[i] = m_gridBase.GetWorldPosition(x, y, RectTransform.Axis.Horizontal);
+                uv[i] = new Vector2((float)x / m_width, (float)y / m_height);
             }
         }
 
         m_mesh.vertices = m_vertices;
-
-        int[] triangles = new int[(m_width - 1) * 6];
-        for (int ti = 0, x = 0; x < m_width - 1; ++x, ti += 6)
+        m_mesh.uv = uv;
+    
+        int[] triangles = new int[(m_width - 1) * (m_height - 1) * 6];
+        for (int ti = 0, y = 0, vi = 0; y < m_height - 1; ++y, vi++)
         {
-            triangles[ti] = x;
-            triangles[ti + 1] = triangles[ti + 4] = x + m_width;
-            triangles[ti + 2] = triangles[ti + 3] = x + 1;
-            triangles[ti + 5] = x + m_width + 1;
+            for (int x = 0; x < m_width - 1; ++x, ti += 6, vi++)
+            {
+                triangles[ti] = vi;
+                triangles[ti + 1] = triangles[ti + 4] = vi + m_width;
+                triangles[ti + 2] = triangles[ti + 3] = vi + 1;
+                triangles[ti + 5] = vi + m_width + 1;
+            }
         }
 
         m_mesh.triangles = triangles;
+        m_mesh.RecalculateNormals();
     }
 
     private void OnDrawGizmos()

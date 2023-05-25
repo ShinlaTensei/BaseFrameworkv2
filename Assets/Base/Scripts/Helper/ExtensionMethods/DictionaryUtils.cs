@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Base.Helper
 {
@@ -68,10 +67,12 @@ namespace Base.Helper
 
         public static TValue GetValue<TKey, TValue>(this IDictionary<TKey, TValue> mapper, TKey key)
         {
-            TValue value;
-            mapper.TryGetValue(key, out value);
-            
-            return value;
+            if (mapper.TryGetValue(key, out TValue value))
+            {
+                return value;
+            }
+
+            return default;
         }
     }
 }
