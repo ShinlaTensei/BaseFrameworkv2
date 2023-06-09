@@ -15,7 +15,7 @@ public class HoldTest : BaseMono
 
     protected override void Start()
     {
-        m_holdDetector.HoldEvent.Subscribe(OnHoldOnce, true);
+        //m_holdDetector.HoldEvent.Subscribe(OnHoldOnce, true);
     }
 
     private void OnHoldOnce(bool isHold)
