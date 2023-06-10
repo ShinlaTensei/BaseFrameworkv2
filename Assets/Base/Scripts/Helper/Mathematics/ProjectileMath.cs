@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Base.Mathematics
+namespace Base.Helper
 {
     public static class ProjectileMath
     {

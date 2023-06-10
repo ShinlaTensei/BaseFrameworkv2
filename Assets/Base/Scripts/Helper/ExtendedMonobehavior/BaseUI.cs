@@ -1,15 +1,16 @@
-﻿using System;
-using Base.Logging;
-using NaughtyAttributes;
+#region Header
+// Date: 31/05/2023
+// Created by: Huynh Phong Tran
+// File name: BaseUI.cs
+#endregion
+
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Base.Helper
 {
-    public class BaseMono : MonoBehaviour
+    public class BaseUI : UIBehaviour
     {
-        [SerializeField] [ReadOnly] private bool isMissingReference;
-        
-        
         private RectTransform _rectTransform;
         private Transform _transform;
         private GameObject _gameObject;
@@ -54,8 +55,6 @@ namespace Base.Helper
             }
         }
 
-        public bool IsMissingReference => isMissingReference;
-
         public bool Active
         {
             get => CacheGameObject.activeSelf;
@@ -91,40 +90,5 @@ namespace Base.Helper
             get => CacheTransform.localScale;
             set => CacheTransform.localScale = value;
         }
-
-        // protected virtual void OnValidate()
-        // {
-        //     isMissingReference = this.CheckNullAllSerializedFields();
-        // }
-
-        protected virtual void Start()
-        {
-            //if (isMissingReference) return;
-        }
-
-        public GameObject CacheInstantiate()
-        {
-            var obj = Instantiate(CacheGameObject);
-            return obj;
-        }
-
-        public GameObject CacheInstantiate(Vector3 pos, Quaternion rotate, Transform parent)
-        {
-            var obj = Instantiate(CacheGameObject, parent.TransformPoint(pos), rotate, parent);
-            return obj;
-        }
-        
-        public static Transform CacheInstantiate(Transform prefab, Vector3 pos, Quaternion rotate, Transform parent)
-        {
-            var obj = Instantiate(prefab, parent.TransformPoint(pos), rotate, parent);
-            return obj;
-        }
-        
-        public Component CacheInstantiate(Component prefab, Vector3 pos, Quaternion rotate, Transform parent)
-        {
-            var obj = Instantiate(prefab, parent.TransformPoint(pos), rotate, parent);
-            return obj;
-        }
     }
 }
-

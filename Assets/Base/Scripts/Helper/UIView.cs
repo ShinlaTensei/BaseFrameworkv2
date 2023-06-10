@@ -16,7 +16,7 @@ namespace Base.Helper
         Overlap}
     
     public interface IViewData {}
-    public abstract class UIView : BaseMono, IPointerClickHandler
+    public abstract class UIView : BaseUI, IPointerClickHandler
     {
         private const string RootName = "Root";
         [SerializeField] protected string       m_viewId;

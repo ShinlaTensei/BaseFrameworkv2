@@ -212,7 +212,7 @@ namespace Base
             
             instance.CacheTransform.SetScale(1);
             instance.CacheTransform.SetLocalPosition(Vector3.zero);
-            instance.RectTransform.anchoredPosition = Vector3.zero;
+            instance.CacheRectTransform.anchoredPosition = Vector3.zero;
             if (instance.NavigationState.HasBit(NavigationState.Overlap))
             {
                 instance.CacheTransform.SetAsFirstSibling();

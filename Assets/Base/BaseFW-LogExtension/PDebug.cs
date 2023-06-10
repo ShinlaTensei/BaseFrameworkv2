@@ -140,22 +140,22 @@ namespace Base.Logging
 
         public static void InfoFormat(Color color, string format, params object[] args)
         {
-            InfoFormat(Format(null, "<color=#{0}>{1}</color>", ToHtmlStringRGBA(color), format), args);
+            InfoFormat(Format(null, "<color=#{0}>{1}</color> ", ToHtmlStringRGBA(color), format), args);
         }
         
         public static void DebugFormat(Color color, string format, params object[] args)
         {
-            DebugFormat(Format(null, "<color=#{0}>{1}</color>", ToHtmlStringRGBA(color), format), args);
+            DebugFormat(Format(null, "<color=#{0}>{1}</color> ", ToHtmlStringRGBA(color), format), args);
         }
         
         public static void WarnFormat(Color color, string format, params object[] args)
         {
-            WarnFormat(Format(null, "<color=#{0}>{1}</color>", ToHtmlStringRGBA(color), format), args);
+            WarnFormat(Format(null, "<color=#{0}>{1}</color> ", ToHtmlStringRGBA(color), format), args);
         }
         
         public static void ErrorFormat(Color color, string format, params object[] args)
         {
-            ErrorFormat(Format(null, "<color=#{0}>{1}</color>", ToHtmlStringRGBA(color), format), args);
+            ErrorFormat(Format(null, "<color=#{0}>{1}</color> ", ToHtmlStringRGBA(color), format), args);
         }
 
         public static void Error(Exception exception, string message, params object[] args)

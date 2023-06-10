@@ -2,10 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtendedMonobehavior/BaseUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtendedMonobehavior/BaseUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Mathematics/BezierCurve.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Mathematics/BezierCurve.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/CameraInstance.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Services/CameraInstance.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DroppableUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DroppableUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Checkbox-Light-Skin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Checkbox-Light-Skin.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Build Package/BaseV2.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/HoldTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/HoldTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/PDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/BaseFW-LogExtension/PDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Debug/FloatingButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Debug/FloatingButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/Coffee/UIExtensions/UIEffect/UIEffect_Demo_2018.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtendedMonobehavior/BaseMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtendedMonobehavior/BaseMono.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtensionMethods/MathExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Mathematics/MathExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/ExtensionMethods/MathExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Mathematics/MathExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Mathematics/ProjectileMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/Mathematics/ProjectileMath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/UIView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Helper/UIView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/SingletonNonMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/SingletonNonMono.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Base/Scripts/UIViewManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Base/Scripts/UIViewManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DragAndDrop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DragAndDrop.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DragDropDetector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DragDropDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,14 +52,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/Progress/ProgressControlsForDialogs.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/CharacterStats/Stat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/DrawActionButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.2/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Pattern/ServiceLocator/ServiceLocator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.6.0/Runtime/Core.Internal/Components/Authentication/IEnvironmentId.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/UI/UIElements/LoadingSpinner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Base/Scripts/Module/BaseBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -57,13 +85,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\BaseFrameworkv2.exe" />
@@ -178,6 +205,7 @@
       <workItem from="1686103455972" duration="240000" />
       <workItem from="1686111992367" duration="2926000" />
       <workItem from="1686212084609" duration="668000" />
+      <workItem from="1686387543610" duration="2302000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1684663077388</created>

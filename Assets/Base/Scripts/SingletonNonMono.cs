@@ -1,23 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Base
 {
-    public abstract class SingletonNonMono<T> where T : new()
+    public abstract class SingletonNonMono<T> where T : class
     {
         private static T _instance;
+        
+        protected static bool m_ShuttingDown = false;
+
+        private static object m_Lock = new object();
 
         public static T Instance
         {
             get
             {
-                if (_instance == null)
+                if (m_ShuttingDown)
                 {
-                    _instance = new T();
+                    Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
+                                     "' already destroyed. Returning null.");
+                    return null;
                 }
-                return _instance;
+
+                lock (m_Lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = Activator.CreateInstance<T>();
+                    }
+                    return _instance;
+                }
+                
             }
+        }
+
+        ~SingletonNonMono()
+        {
+            m_ShuttingDown = true;
+            _instance = null;
         }
     }
 }

@@ -24,15 +24,15 @@ namespace Base
 
         private void Awake()
         {
-            defaultSize = RectTransform.rect.width;
-            RectTransform.anchoredPosition3D = defaultPosition;
+            defaultSize = CacheRectTransform.rect.width;
+            CacheRectTransform.anchoredPosition3D = defaultPosition;
 
             DockToHorizontalEdge();
         }
 
         private void DockToHorizontalEdge()
         {
-            Vector3 position = RectTransform.anchoredPosition3D;
+            Vector3 position = CacheRectTransform.anchoredPosition3D;
             Vector3 newPos = position;
 
             float scale = RectTransformUtils.GetCanvasScaleOnWidth(Screen.width, parent.GetComponent<Canvas>());
@@ -42,11 +42,11 @@ namespace Base
             newPos.x = right ? actualWidth - defaultSize: -actualWidth + defaultSize;
             newPos.x = newPos.x / 2;
 
-            RectTransform.anchoredPosition3D = newPos;
+            CacheRectTransform.anchoredPosition3D = newPos;
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _startPosition = RectTransform.anchoredPosition;
+            _startPosition = CacheRectTransform.anchoredPosition;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -57,7 +57,7 @@ namespace Base
             if (distance >= holdingThreshold)
             {
                 _onDrag = true;
-                RectTransform.anchoredPosition += eventData.delta / _scaleFactor;
+                CacheRectTransform.anchoredPosition += eventData.delta / _scaleFactor;
             }
         }
 
