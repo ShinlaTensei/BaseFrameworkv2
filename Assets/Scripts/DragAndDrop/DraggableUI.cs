@@ -10,6 +10,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Sprites;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
+using Vector4 = UnityEngine.Vector4;
 
 namespace Base.Helper
 {
@@ -39,7 +41,8 @@ namespace Base.Helper
 
             Vector4 padding = DataUtility.GetPadding(sprite);
 
-            padding = new Vector4(padding.x * Scale.x, padding.y * Scale.y, padding.z * Scale.x, padding.w * Scale.y);
+            float actualWidth = padding.x > padding.z ? sprite.rect.width - padding.z : sprite.rect.width - padding.x;
+            float actualHeight = padding.w > padding.y ? sprite.rect.height - padding.y : sprite.rect.height - padding.w;
         }
 
         public virtual void OnDrag(PointerEventData eventData)
