@@ -7,27 +7,58 @@ using UnityEngine;
 
 namespace Base
 {
-    public class InputHandler : BaseMono, IService
+    public class InputHandler : IService
     {
-        private InputAction inputAction;
+        #if UNITY_EDITOR || UNITY_STANDALONE
+        private bool m_isTouch = false;
+        #elif UNITY_ANDROID
+        private bool m_isTouch = true;
+        #endif
 
-        public InputAction InputAction => inputAction;
+        private List<Touch> m_touches = new List<Touch>();
 
-        public void CreateInputAction()
+        public List<Touch> GetTouch()
         {
-            if (Application.platform is RuntimePlatform.Android)
+            if (m_touches == null)
             {
-                inputAction = CacheGameObject.AddComponent<TouchInputAction>();
+                m_touches = new List<Touch>();
             }
-            else if (Application.platform is RuntimePlatform.WindowsEditor or RuntimePlatform.OSXEditor)
+            m_touches.Clear();
+            if (m_isTouch)
             {
-                inputAction = CacheGameObject.AddComponent<MouseInputAction>();
+                m_touches.AddRange(Input.touches);
+
+                return m_touches;
             }
+            
+            Touch fakeTouch = new Touch();
+            if (Input.GetMouseButtonDown(0))
+            {
+                fakeTouch.phase         = TouchPhase.Began;
+                fakeTouch.position      = Input.mousePosition;
+                fakeTouch.deltaPosition = new Vector2(0, 0);
+                m_touches.Add(fakeTouch);
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                fakeTouch.phase         = TouchPhase.Moved;
+                fakeTouch.position      = Input.mousePosition;
+                fakeTouch.deltaPosition = Vector2.zero;
+                m_touches.Add(fakeTouch);
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                fakeTouch.phase         = TouchPhase.Ended;
+                fakeTouch.position      = Input.mousePosition;
+                fakeTouch.deltaPosition = Vector2.zero;
+            }
+
+            return m_touches;
         }
 
         public void Init()
         {
-            CreateInputAction();
+            
         }
 
         public void DeInit()
