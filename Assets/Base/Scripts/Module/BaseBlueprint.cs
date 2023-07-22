@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Base.Helper;
 using Base.Logging;
 using Google.Protobuf;
@@ -34,7 +35,7 @@ namespace Base.Module
         byte[] SerializeProto();
     }
 
-    public abstract class BaseBlueprint<T> : IBlueprint, IJsonDataDeserialize, IProtoDataDeserialize where T : IMessage<T>
+    public abstract class BaseBlueprintProto<T> : IBlueprint, IProtoDataDeserialize where T : IMessage<T>
     {
         public string TypeUrl { get; set; }
         public bool IsDataReady { get; set; }
@@ -54,11 +55,6 @@ namespace Base.Module
         public abstract void Load();
 
         public abstract void LoadDummyData();
-        public virtual void DeserializeJson(string json)
-        {
-            Data = BlueprintHelper.ProtoDeserialize<T>(json);
-            IsDataReady = Data != null;
-        }
 
         public virtual void DeserializeProto(byte[] rawData)
         {
@@ -70,24 +66,49 @@ namespace Base.Module
         {
             return Data != null ? Data.ToByteArray() : null;
         }
+    }
 
-        public virtual string SerializeJson()
+    public abstract class BaseBlueprintJson<T> : IBlueprint, IJsonDataDeserialize where T : class
+    {
+        public string TypeUrl     { get; set; }
+        public bool   IsDataReady { get; set; }
+        public bool   LoadDummy   { get; set; }
+
+        public T Data;
+        public virtual void InitBlueprint(bool usingLocal = false)
+        {
+            LoadDummy = usingLocal;
+            if (LoadDummy)
+            {
+                LoadDummyData();
+            }
+            else
+            {
+                Load();
+            }
+        }
+
+        public abstract void Load();
+
+        public abstract void LoadDummyData();
+
+        public void DeserializeJson(string json)
         {
             try
             {
-                JsonFormatter formatter = new JsonFormatter(new JsonFormatter.Settings(true));
-                string jsonString = formatter.Format(Data);
-                object jsonObject = JsonConvert.DeserializeObject(jsonString);
-                jsonString = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
-
-                return jsonString;
+                Data = JsonConvert.DeserializeObject<T>(json);
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
-                PDebug.ErrorFormat("[{0}] Error: {1}", GetType(), exception);
+                PDebug.Error(e, e.Message);
             }
 
-            return string.Empty;
+            IsDataReady = Data != null;
+        }
+
+        public string SerializeJson()
+        {
+            return JsonConvert.SerializeObject(Data);
         }
     }
 }

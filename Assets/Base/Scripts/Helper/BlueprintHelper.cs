@@ -13,6 +13,8 @@ namespace Base.Helper
 {
     public static class BlueprintHelper
     {
+        #region Blueprint Proto
+
         public static T ProtoDeserialize<T>(byte[] rawData) where T : IMessage<T>
         {
             try
@@ -76,10 +78,12 @@ namespace Base.Helper
             }
         }
 
+        #endregion
+        
         public static void ReadBlueprint(this IBlueprint blueprint, byte[] rawData)
         {
             BlueprintReaderAttribute att = blueprint.GetType().GetCustomAttribute(typeof(BlueprintReaderAttribute)) 
-                as BlueprintReaderAttribute;
+                    as BlueprintReaderAttribute;
 
             if (att is null || att.IsIgnore) return;
 

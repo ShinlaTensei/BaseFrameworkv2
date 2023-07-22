@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Base.Services
 {
-    public class BlueprintLocalization : BaseBlueprint<LocalizeDataStructure>
+    public class BlueprintLocalization : BaseBlueprintProto<LocalizeDataStructure>
     {
         private Dictionary<string, LocalizeDataItem> m_localizeData;
 
