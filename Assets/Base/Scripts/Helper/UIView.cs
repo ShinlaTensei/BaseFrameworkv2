@@ -31,6 +31,8 @@ namespace Base.Helper
         [SerializeField] protected bool         m_triggerViewChange;
         [Condition("m_closeOnTouchOutside", true, false)] 
         [SerializeField] protected RectTransform  m_touchRect;
+        
+        [Header("Animation")]
 
         private UIViewManager m_manager = null;
 

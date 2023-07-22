@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Net;
 using System.Reflection;
 using Base.Logging;
 using TMPro;
@@ -10,6 +11,19 @@ namespace Base.Helper
 {
     public static class UtilsClass
     {
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                    using (client.OpenRead("http://unity3d.com")) 
+                        return true; 
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public static string FormatMoney(int money, int decPlace = 2)
         {
             string result = String.Empty;

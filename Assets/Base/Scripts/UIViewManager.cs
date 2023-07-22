@@ -15,25 +15,28 @@ namespace Base
 {
     public enum UICanvasType
     {
-        None            = 0,
-        RootCanvas      = 1,
-        ViewCanvas      = 2,
-        TopViewCanvas   = 3,
-        OverlayCanvas   = 4,
-        RetryCanvasUI   = 5,
-        UIOverlayLayout = 6,
+        None             = 0,
+        RootCanvas       = 1,
+        ViewCanvas       = 2,
+        TopViewCanvas    = 3,
+        OverlayCanvas    = 4,
+        RetryCanvasUI    = 5,
+        UIOverlayLayout  = 6,
         CampaignCanvasUI = 7,
     }
-        
-    public class OnUIViewChangedSignal : Signal<UIView, UIView> {}
+
+    public class OnUIViewChangedSignal : Signal<UIView, UIView>
+    {
+    }
+
     public class UIViewManager : BaseMono, IService
     {
         private const string RootName = "Root";
 
         #region UIView Handle
-        
-        private Dictionary<string, UIView>  m_uiViewPool    = new Dictionary<string, UIView>();
-        private List<UIView>                m_stackUi       = new List<UIView>();
+
+        private Dictionary<string, UIView> m_uiViewPool = new Dictionary<string, UIView>();
+        private List<UIView>               m_stackUi    = new List<UIView>();
 
         private UIView m_previous;
         private UIView m_current;
@@ -41,7 +44,7 @@ namespace Base
         private AddressableManager m_addressableManager;
 
         public UIView Previous => m_previous;
-        
+
         /// <summary>
         /// Fire a signal when UI changed state
         /// </summary>
@@ -52,7 +55,8 @@ namespace Base
                 ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(m_previous, m_current);
             }
         }
-        private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, 
+                                              CancellationToken cancellationToken = default) where T : UIView
         {
             T view = instance ? instance : GetView<T>();
 
@@ -65,27 +69,51 @@ namespace Base
             {
                 await InitCompleted(view, root, cancellationToken);
             }
-            
+
             onInit?.Invoke(view);
 
             return view;
         }
-        
-        public async UniTask<T> Show<T>(T instance, IViewData viewData = null, Action<T> onInit = null, 
-            Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+
+        private async UniTask<UIView> ShowAsync(string viewId, string sceneName, Action<UIView> onInit = null, Transform root = null,
+                                                CancellationToken cancellationToken = default)
+        {
+            UIView instance = GetView(viewId);
+
+            if (!instance)
+            {
+                instance = await InitAsync(viewId, sceneName, null, cancellationToken);
+            }
+
+            if (instance)
+            {
+                await InitCompleted(instance, root, cancellationToken);
+            }
+            
+            onInit?.Invoke(instance);
+
+            return instance;
+        }
+
+        public async UniTask<T> Show<T>(T instance, IViewData viewData = null, Action<T> onInit = null, Transform root = null,
+                                        CancellationToken cancellationToken = default) where T : UIView
         {
             T inst = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-
+            inst.Populate(viewData);
             return inst;
         }
-        
+
         public async UniTask<T> Show<T, Y>(T instance, Y value, Action<T> onInit = null, Transform root = null,
-            CancellationToken cancellationToken = default) where T : UIView where Y : IViewData
+                                           CancellationToken cancellationToken = default) where T : UIView where Y : IViewData
         {
-            return await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
+            instance = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
+            
+            instance.Populate(value);
+            return instance;
         }
 
-        public async UniTask<T> Show<T>(Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        public async UniTask<T> Show<T>(Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default)
+                where T : UIView
         {
             T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
 
@@ -93,11 +121,19 @@ namespace Base
         }
 
         public async UniTask<T1> Show<T1, T2>(T2 value, Action<T1> onInit = null, Transform root = null,
-            CancellationToken cancellationToken = default) where T1 : UIView where T2 : IViewData
+                                              CancellationToken cancellationToken = default) where T1 : UIView where T2 : IViewData
         {
             T1 inst = await ShowAsync<T1>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-
+            inst.Populate(value);
             return inst;
+        }
+
+        public async UniTask<UIView> Show<T>(string viewId, string sceneName, T viewData, Action<UIView> onInit = null, Transform root = null,
+                                             CancellationToken cancellationToken = default) where T : IViewData
+        {
+            UIView view = await ShowAsync(viewId, sceneName, onInit, root, cancellationToken);
+            view.Populate(viewData);
+            return view;
         }
 
         public void CloseView<T>(T view) where T : UIView
@@ -129,9 +165,9 @@ namespace Base
 
         private void Add<T>(T view) where T : UIView
         {
-            if (!m_uiViewPool.ContainsKey(typeof(T).Name))
+            if (!m_uiViewPool.ContainsKey(view.GetType().Name))
             {
-                m_uiViewPool.TryAdd(typeof(T).Name, view);
+                m_uiViewPool.TryAdd(view.GetType().Name, view);
             }
         }
 
@@ -147,12 +183,19 @@ namespace Base
                 m_stackUi.Remove(value);
             }
         }
-        
+
         public T GetView<T>() where T : UIView
         {
             m_uiViewPool.TryGetValue(typeof(T).Name, out UIView value);
 
             return value as T;
+        }
+        
+        public UIView GetView(string viewID)
+        {
+            m_uiViewPool.TryGetValue(viewID, out UIView value);
+
+            return value;
         }
 
         private void PushStack<T>(T view) where T : UIView
@@ -162,6 +205,7 @@ namespace Base
                 m_stackUi.Remove(view);
                 m_stackUi.Insert(0, view);
             }
+
             PDebug.InfoFormat("[UIViewManager] Push {0}", view.GetType().Name);
         }
 
@@ -178,15 +222,15 @@ namespace Base
 
             string modelName = attribute.ModelName;
 
-            GameObject inst = null;
-            string prefabPath = string.Empty;
+            GameObject inst       = null;
+            string     prefabPath = string.Empty;
 
             if (m_addressableManager.IsInit && m_addressableManager.IsReadyToGetBundle)
             {
                 prefabPath = modelName;
                 inst = await m_addressableManager.InstantiateAsync(prefabPath,
-                    parent: GetCanvasWithTag(UICanvasType.RootCanvas, attribute.SceneName), retryCount: 5,
-                    cancellationToken: cancellationToken);
+                        parent: GetCanvasWithTag(UICanvasType.RootCanvas, attribute.SceneName), retryCount: 5,
+                        cancellationToken: cancellationToken);
             }
 
             T view = inst != null ? inst.GetComponent<T>() : null;
@@ -195,7 +239,30 @@ namespace Base
             return view;
         }
 
-        private async UniTask InitCompleted<T>(T instance, Transform root = null, CancellationToken cancellationToken = default) where T : UIView
+        private async UniTask<UIView> InitAsync(string viewID, string sceneName, Action<UIView> onCompleted = null, 
+                                               CancellationToken cancellationToken = default)
+        {
+            string modelName = viewID;
+
+            GameObject inst       = null;
+            string     prefabPath = string.Empty;
+
+            if (m_addressableManager.IsInit && m_addressableManager.IsReadyToGetBundle)
+            {
+                prefabPath = modelName;
+                inst = await m_addressableManager.InstantiateAsync(prefabPath,
+                        parent: GetCanvasWithTag(UICanvasType.RootCanvas, sceneName), retryCount: 5,
+                        cancellationToken: cancellationToken);
+            }
+
+            UIView view = inst != null ? inst.GetComponent<UIView>() : null;
+            onCompleted?.Invoke(view);
+
+            return view;
+        }
+
+        private async UniTask InitCompleted<T>(T instance, Transform root = null, CancellationToken cancellationToken = default)
+                where T : UIView
         {
             if (instance == null)
             {
@@ -205,11 +272,8 @@ namespace Base
             }
 
             Transform parent = root != null ? root : GetCanvasWithTag(instance.CanvasType, instance.CacheGameObject.scene.name);
-            if (parent)
-            {
-                instance.CacheTransform.SetParent(parent, false);
-            }
-            
+            if (parent) instance.CacheTransform.SetParent(parent, false);
+
             instance.CacheTransform.SetScale(1);
             instance.CacheTransform.SetLocalPosition(Vector3.zero);
             instance.CacheRectTransform.anchoredPosition = Vector3.zero;
@@ -221,10 +285,11 @@ namespace Base
             {
                 instance.CacheTransform.SetAsLastSibling();
             }
+
             instance.Root.SetActive(instance.ActiveDefault);
-            
+
             m_previous = m_current;
-            m_current = instance;
+            m_current  = instance;
             await m_current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
             m_current.Show();
             if (m_previous && m_current.ClosePrevOnShow) CloseView(m_previous);
@@ -236,7 +301,7 @@ namespace Base
         #endregion
 
         #region Canvas Handle
-        
+
         private Dictionary<string, Transform> m_uiCanvasPool = new Dictionary<string, Transform>();
 
         public Transform GetCanvasWithTag(UICanvasType enumTag)
@@ -258,11 +323,11 @@ namespace Base
 
             return null;
         }
-        
+
         public Transform GetCanvasWithTag(UICanvasType enumTag, string sceneName)
         {
             string newTag = !(enumTag is UICanvasType.None) ? enumTag.ToString() : UICanvasType.RootCanvas.ToString();
-            Scene scene = SceneManager.GetSceneByName(sceneName);
+            Scene  scene  = SceneManager.GetSceneByName(sceneName);
 
             if (!scene.isLoaded) return null;
 
@@ -283,12 +348,12 @@ namespace Base
                     return final;
                 }
             }
-            
+
             PDebug.WarnFormat("Cannot find canvas with tag {tag} in scene: {sceneName}", newTag, sceneName);
 
             return null;
         }
-        
+
         public void Remove(UICanvasType canvasType)
         {
             string key = canvasType.ToString();
@@ -327,4 +392,3 @@ namespace Base
         }
     }
 }
-

@@ -108,7 +108,7 @@ namespace Base
             {
                 // Properties
                 List<PropertyInfo> infos = mono.GetType().GetProperties()
-                    .Where(e => e.GetCustomAttributes(typeof(DebugInfoAttribute), false).Length > 0).ToList();
+                    .Where(e => e.GetCustomAttributes(typeof(DebugInfoAttribute), true).Length > 0).ToList();
                 for (int i = 0; i < infos.Count; ++i)
                 {
                     PropertyInfo propertyInfo = infos[i];

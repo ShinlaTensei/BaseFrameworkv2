@@ -179,7 +179,7 @@ namespace Base
 
             void CallOnMainThread()
             {
-                PDebug.GetLogger().Info("[AddressableManager] Initializing Completed!!!");
+                PDebug.Info("[AddressableManager] Initializing Completed!!!");
 
                 IsInit = true;
                 IsReadyToGetBundle = true;
@@ -190,7 +190,7 @@ namespace Base
             {
                 if (retry >= retryCount)
                 {
-                    PDebug.GetLogger().Error("[AddressableManager] Initializing Error: {msg}", ex.Message);
+                    PDebug.ErrorFormat("[AddressableManager] Initializing Error: {msg}", ex.Message);
                     IsInit = true;
                     IsReadyToGetBundle = false;
                     callback?.Invoke(false);
@@ -201,7 +201,7 @@ namespace Base
 
                     void CallRetry()
                     {
-                        PDebug.GetLogger().Info("[AddressableManager]Initialized retry");
+                        PDebug.Info("[AddressableManager]Initialized retry");
                         Initialize(callback, retryCount, retry);
                     }
 
@@ -264,6 +264,43 @@ namespace Base
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
                 yield return new WaitUntil(() => Application.internetReachability != NetworkReachability.NotReachable);
+            }
+        }
+        
+        public AsyncOperationHandle<long>? GetDownloadSizeAsync(object key, Action<long> callback)
+        {
+            void OnComplete(AsyncOperationHandle<long> result)
+            {
+                if (result.Status == AsyncOperationStatus.Succeeded)
+                {
+                    CallInMainThread(result.Result);
+                }
+                else
+                {
+                    CheckThenRetry(result.Result, result.OperationException);
+                }
+            }
+
+            void CallInMainThread(long result)
+            {
+                callback?.Invoke(result);
+            }
+            void CheckThenRetry(long result, Exception e)
+            {
+                PDebug.ErrorFormat($"[AddressableManager]GetDownloadSize '{key}'. Error: '{GetError(e)}'");
+                callback?.Invoke(result);
+            }
+
+            try
+            {
+                AsyncOperationHandle<long> handle = Addressables.GetDownloadSizeAsync(key);
+                handle.Completed += OnComplete;
+                return handle;
+            }
+            catch (Exception e)
+            {
+                CheckThenRetry(0, e);
+                return null;
             }
         }
     }
