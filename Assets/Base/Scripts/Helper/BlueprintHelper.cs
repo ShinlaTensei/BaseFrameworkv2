@@ -89,7 +89,17 @@ namespace Base.Helper
 
             if (att.IsLocal)
             {
-                
+                string dataPath = $"{Application.streamingAssetsPath}/{att.DataPath}";
+                if (att.DataFormat is DataFormat.Json)
+                {
+                    string json = File.ReadAllText(dataPath);
+                    (blueprint as IJsonDataDeserialize)?.DeserializeJson(json);
+                }
+                else
+                {
+                    byte[] data = File.ReadAllBytes(dataPath);
+                    (blueprint as IProtoDataDeserialize)?.DeserializeProto(data);
+                }
             }
             else
             {
