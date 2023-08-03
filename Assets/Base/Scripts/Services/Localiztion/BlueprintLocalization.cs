@@ -5,23 +5,40 @@ using Base.Logging;
 using Base.Module;
 using Base.Pattern;
 using Base.Data.Structure;
+using FileHelpers;
 using UnityEngine;
 
 namespace Base.Services
 {
-    public class BlueprintLocalization : BaseBlueprintProto<LocalizeDataStructure>
+    [DelimitedRecord(",")]
+    [IgnoreFirst]
+    public record LocalizeDataRecord
     {
-        private Dictionary<string, LocalizeDataItem> m_localizeData;
+        public string Key { get; set; }
+        public string VI  { get; set; }
+        public string EN  { get; set; }
+    }
+    [BlueprintReader("Data/BlueprintLocalization", DataFormat.Csv, RemotePath = "BlueprintLocalization")]
+    public class BlueprintLocalization : BaseBlueprintCsv<LocalizeDataRecord>
+    {
+        private Dictionary<string, string> m_localizeData = new Dictionary<string, string>();
 
         public override void Load()
         {
-            m_localizeData = new Dictionary<string, LocalizeDataItem>();
-            if (Data != null && Data.LocalizeData.Count > 0)
+            LocalizeManager localizeManager = ServiceLocator.GetService<LocalizeManager>()!;
+            if (Data != null && Data.Count > 0)
             {
                 m_localizeData.Clear();
-                foreach (var dataItem in Data.LocalizeData)
+                foreach (var dataItem in Data)
                 {
-                    m_localizeData.TryAdd(dataItem.Key, dataItem);
+                    if (localizeManager.CurrentLanguage is LanguageCode.Vi)
+                    {
+                        m_localizeData.TryAdd(dataItem.Key, dataItem.VI);
+                    }
+                    else if (localizeManager.CurrentLanguage is LanguageCode.En)
+                    {
+                        m_localizeData.TryAdd(dataItem.Key, dataItem.EN);
+                    }
                 }
             }
         }
@@ -35,7 +52,7 @@ namespace Base.Services
         {
             if (m_localizeData.ContainsKey(key))
             {
-                return m_localizeData[key].Data;
+                return m_localizeData[key];
             }
             PDebug.WarnFormat("[BlueprintLocalize] Missing localize text of ID ({0})", key);
             return string.Empty;

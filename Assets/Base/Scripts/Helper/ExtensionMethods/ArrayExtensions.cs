@@ -19,6 +19,13 @@ namespace Base.Helper
                 while (arrayTraverse.Step());
             }
         }
+
+        public static void Clear(this Array array, int startIndex, int count)
+        {
+            Array.Clear(array, startIndex, count);
+        }
+
+        public static void ClearAll(this Array array) => Clear(array, 0, array.Length);
     }
 }
 

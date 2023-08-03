@@ -3,6 +3,7 @@ using System.Threading;
 using Base.Pattern;
 using Base.Utilities;
 using Cysharp.Threading.Tasks;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,8 @@ namespace Base.Helper
         Obscured,
         Overlap}
     
+    public enum ViewBackgroundType {None, Blur, Transparent}
+    
     public interface IViewData {}
     public abstract class UIView : BaseUI, IPointerClickHandler
     {
@@ -25,20 +28,22 @@ namespace Base.Helper
         [SerializeField] protected UICanvasType m_canvasType;
         [BitFlag(typeof(NavigationState))]
         [SerializeField] protected long         m_navigationState = 0;
-        [SerializeField] protected bool         m_activeDefault;
-        [SerializeField] protected bool         m_closePrevOnShow;
-        [SerializeField] protected bool         m_closeOnTouchOutside;
-        [SerializeField] protected bool         m_triggerViewChange;
+
+        [SerializeField] protected ViewBackgroundType m_backgroundType;
+        [SerializeField] protected bool               m_activeDefault;
+        [SerializeField] protected bool               m_closeOnTouchOutside;
+        [SerializeField] protected bool               m_closePrevOnShow;
+        [SerializeField] protected bool               m_triggerViewChange;
         [Condition("m_closeOnTouchOutside", true, false)] 
         [SerializeField] protected RectTransform  m_touchRect;
         
         [Header("Animation")]
 
-        private UIViewManager m_manager = null;
+        protected UIViewManager m_manager = null;
 
-        private IViewData m_data = null;
+        protected IViewData m_data = null;
 
-        private bool m_isShow = false;
+        protected bool m_isShow = false;
 
         public string ViewID => m_viewId;
         public GameObject Root
@@ -62,13 +67,14 @@ namespace Base.Helper
                 return m_manager;
             }
         }
-        public ExitType ExitType => m_exitType;
-        public UICanvasType CanvasType => m_canvasType;
-        public bool ActiveDefault => m_activeDefault;
-        public bool ClosePrevOnShow => m_closePrevOnShow;
-        public bool TriggerViewChange => m_triggerViewChange;
-        public long NavigationState => m_navigationState;
-        public bool IsShowing { get => m_isShow; set => m_isShow = value; }
+        public ExitType           ExitType          => m_exitType;
+        public UICanvasType       CanvasType        => m_canvasType;
+        public bool               ActiveDefault     => m_activeDefault;
+        public bool               ClosePrevOnShow   => m_closePrevOnShow;
+        public bool               TriggerViewChange => m_triggerViewChange;
+        public long               NavigationState   => m_navigationState;
+        public ViewBackgroundType BackgroundType    => m_backgroundType;
+        public bool               IsShowing         { get => m_isShow; set => m_isShow = value; }
 
         public virtual void Show()
         {
@@ -101,10 +107,9 @@ namespace Base.Helper
 
         public virtual void Back()
         {
-            UIViewManager viewManager = ServiceLocator.GetService<UIViewManager>();
-            if (viewManager && viewManager.Previous)
+            if (UIManager && UIManager.Previous)
             {
-                viewManager.Show(viewManager.Previous).Forget();
+                UIManager.Show(UIManager.Previous).Forget();
             }
         }
 
@@ -144,8 +149,8 @@ namespace Base.Helper
                 await UniTask.Yield();
             }
         }
-        
-        public virtual void Populate<T>(T viewData) where T : IViewData {}
+
+        public abstract void Populate<T>(T viewData) where T : IViewData;
 
         public void OnPointerClick(PointerEventData eventData)
         {

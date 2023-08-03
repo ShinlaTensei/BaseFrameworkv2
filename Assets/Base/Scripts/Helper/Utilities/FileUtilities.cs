@@ -4,18 +4,27 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
-using Base.Helper;
 using Base.Logging;
 using FileHelpers;
 using Newtonsoft.Json;
 using UnityEngine.Android;
 
-namespace Base.Module
+namespace Base.Helper
 {
     public static class FileUtilities
     {
         #region Save & Load
 
+        public static bool HasFile(string path) => File.Exists(path);
+
+        public static void DeleteFile(string path)
+        {
+            if (!string.IsNullOrEmpty(path))
+            {
+                File.Delete(path);
+            }
+        }
+        
         public static void SaveToBinary(object data, string fileName)
         {
             FileStream stream = new FileStream(Application.persistentDataPath + "/" + fileName,
@@ -274,7 +283,7 @@ namespace Base.Module
 
         #region File Helper
 
-        public static T[] ReadFromCsv<T>(string filePath) where T : class
+        public static T[] ReadFromCsvFile<T>(string filePath) where T : class
         {
             if (!File.Exists(filePath))
             {
@@ -286,13 +295,20 @@ namespace Base.Module
             return engine.ReadFile(filePath);
         }
         
-        public static T[] ReadFromCsv<T>(byte[] rawData) where T : class
+        public static List<T> ReadFromCsvData<T>(byte[] rawData) where T : class
         {
             string source = Encoding.UTF8.GetString(rawData);
 
             FileHelperEngine<T> engine = new FileHelperEngine<T>();
 
-            return engine.ReadString(source);
+            return engine.ReadStringAsList(source);
+        }
+        
+        public static List<T> ReadFromCsvData<T>(string data) where T : class
+        {
+            FileHelperEngine<T> engine = new FileHelperEngine<T>();
+
+            return engine.ReadStringAsList(data);
         }
 
         #endregion
@@ -304,9 +320,9 @@ namespace Base.Module
         /// (Window:"C:\Users\{Your_user_name}\", Android: "/storage/emulated/0/Android/data/{your_package_name}/files/")</returns>
         public static string GetSystemPath()
         {
-#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_STANDALONE_WIN
+#if (UNITY_EDITOR || UNITY_STANDALONE || UNITY_STANDALONE_WIN) && !UNITY_EDITOR_OSX
             return Environment.GetEnvironmentVariable("USERPROFILE") + "\\";
-#elif UNITY_ANDROID || !DEBUG
+#elif UNITY_ANDROID || !DEBUG || UNITY_EDITOR_OSX
             return Application.persistentDataPath + "/";
 #endif
         }

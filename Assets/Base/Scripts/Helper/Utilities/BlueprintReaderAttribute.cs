@@ -1,6 +1,6 @@
 using System;
 
-public enum DataFormat {Proto, Json}
+public enum DataFormat {Proto, Json, Csv}
 
 [AttributeUsage(AttributeTargets.Class)]
 public class BlueprintReaderAttribute : Attribute

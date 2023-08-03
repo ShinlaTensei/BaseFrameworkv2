@@ -24,6 +24,11 @@ namespace Base.Helper
                 return false;
             }
         }
+
+        public static bool IsNetworkReachable()
+        {
+            return Application.internetReachability is not NetworkReachability.NotReachable;
+        }
         public static string FormatMoney(int money, int decPlace = 2)
         {
             string result = String.Empty;

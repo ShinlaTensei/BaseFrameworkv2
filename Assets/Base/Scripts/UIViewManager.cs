@@ -31,7 +31,9 @@ namespace Base
 
     public class UIViewManager : BaseMono, IService
     {
-        private const string RootName = "Root";
+        [SerializeField] private GameObject m_blurObj;
+        [SerializeField] private GameObject m_transparentObj;
+        private const            string     RootName = "Root";
 
         #region UIView Handle
 
@@ -45,15 +47,20 @@ namespace Base
 
         public UIView Previous => m_previous;
 
+        protected override void Start()
+        {
+            base.Start();
+
+            ServiceLocator.SetService(this);
+            Init();
+        }
+
         /// <summary>
         /// Fire a signal when UI changed state
         /// </summary>
         private void NotifyUIViewChanged()
         {
-            if (m_previous.TriggerViewChange)
-            {
-                ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(m_previous, m_current);
-            }
+            ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(m_previous, m_current);
         }
         private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, 
                                               CancellationToken cancellationToken = default) where T : UIView
@@ -144,8 +151,6 @@ namespace Base
             {
                 if (view.ExitType is ExitType.Remove or ExitType.RemoveImmediate) Remove(view);
                 view.Hide();
-
-                NotifyUIViewChanged();
             }
         }
 
@@ -163,7 +168,7 @@ namespace Base
             return null;
         }
 
-        private void Add<T>(T view) where T : UIView
+        public void Add<T>(T view) where T : UIView
         {
             if (!m_uiViewPool.ContainsKey(view.GetType().Name))
             {
@@ -182,6 +187,11 @@ namespace Base
             {
                 m_stackUi.Remove(value);
             }
+        }
+
+        public bool HasView<T>() where T : UIView
+        {
+            return GetView<T>() != null;
         }
 
         public T GetView<T>() where T : UIView
@@ -279,23 +289,41 @@ namespace Base
             instance.CacheRectTransform.anchoredPosition = Vector3.zero;
             if (instance.NavigationState.HasBit(NavigationState.Overlap))
             {
-                instance.CacheTransform.SetAsFirstSibling();
-            }
-            else
-            {
                 instance.CacheTransform.SetAsLastSibling();
+            }
+            else if (instance.NavigationState.HasBit(NavigationState.Obscured))
+            {
+                instance.CacheTransform.SetAsFirstSibling();
             }
 
             instance.Root.SetActive(instance.ActiveDefault);
+
+            if (instance.BackgroundType is ViewBackgroundType.Blur)
+            {
+                GameObject blurObj = Instantiate(m_blurObj, instance.Root.transform);
+                blurObj.transform.SetAsFirstSibling();
+            }
+            else if (instance.BackgroundType is ViewBackgroundType.Transparent)
+            { 
+                GameObject transparentObj = Instantiate(m_transparentObj, instance.Root.transform);
+                transparentObj.transform.SetAsFirstSibling();
+            }
 
             m_previous = m_current;
             m_current  = instance;
             await m_current.Await(cancellationToken).AttachExternalCancellation(cancellationToken);
             m_current.Show();
-            if (m_previous && m_current.ClosePrevOnShow) CloseView(m_previous);
+            if (m_current.ClosePrevOnShow) CloseView(m_previous);
 
+            PDebug.InfoFormat("[UIViewManager] Request show {0} - Previous {1}", m_current.name, m_previous ? m_previous.name : "NULL");
+            
             Add(instance);
-            PushStack(instance);
+            if (m_current.TriggerViewChange)
+            {
+                PushStack(instance);
+                NotifyUIViewChanged();
+            }
+
         }
 
         #endregion

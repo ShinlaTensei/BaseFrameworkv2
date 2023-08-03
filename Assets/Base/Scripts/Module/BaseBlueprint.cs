@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using Base.Helper;
 using Base.Logging;
 using Google.Protobuf;
 using Newtonsoft.Json;
-using UnityEngine;
 
 namespace Base.Module
 {
@@ -19,6 +16,12 @@ namespace Base.Module
         string TypeUrl     { get; set; }
         bool   IsDataReady { get; set; }
         bool   LoadDummy   { get; set; }
+    }
+
+    public interface ICsvDataDeserialize
+    {
+        void DeserializeCsv(string csv);
+        void SerializeCsv();
     }
     
     public interface IJsonDataDeserialize
@@ -109,6 +112,51 @@ namespace Base.Module
         public string SerializeJson()
         {
             return JsonConvert.SerializeObject(Data);
+        }
+    }
+
+    public abstract class BaseBlueprintCsv<T> : IBlueprint, ICsvDataDeserialize where T : class
+    {
+        public string TypeUrl     { get; set; }
+        public bool   IsDataReady { get; set; }
+        public bool   LoadDummy   { get; set; }
+
+        public List<T>    Data;
+
+        public virtual void InitBlueprint(bool usingLocal = false)
+        {
+            LoadDummy = usingLocal;
+            if (LoadDummy)
+            {
+                LoadDummyData();
+            }
+            else
+            {
+                Load();
+            }
+        }
+
+        public abstract void Load();
+
+        public abstract void LoadDummyData();
+
+        public virtual void DeserializeCsv(string csv)
+        {
+            try
+            {
+                Data = FileUtilities.ReadFromCsvData<T>(csv);
+            }
+            catch (Exception e)
+            {
+                PDebug.Error(e, e.Message);
+            }
+
+            IsDataReady = Data != null;
+        }
+
+        public virtual void SerializeCsv()
+        {
+            
         }
     }
 }

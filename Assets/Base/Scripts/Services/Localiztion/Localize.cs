@@ -7,8 +7,6 @@ using Base.Logging;
 
 namespace Base.Services
 {
-    public class LanguageChangeSignal : Signal<string> {}
-    
     public class LanguageChangedRequestSignal : Signal<string> {}
 
     public enum LanguageCode {En, Vi}
@@ -87,7 +85,7 @@ namespace Base.Services
             BlueprintLocalization blueprint = ServiceLocator.GetBlueprint<BlueprintLocalization>();
             string text = blueprint?.GetTextByKey(key);
         
-            return text != string.Empty ? text : key;
+            return !string.IsNullOrEmpty(text) ? text : key;
         }
         
         public static string GetText(string textID)

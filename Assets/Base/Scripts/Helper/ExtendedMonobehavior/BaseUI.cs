@@ -90,5 +90,18 @@ namespace Base.Helper
             get => CacheTransform.localScale;
             set => CacheTransform.localScale = value;
         }
+        
+        public virtual void Next() {}
+        public virtual void Back() {}
+
+        public virtual void Show()
+        {
+            Active = true;
+        }
+
+        public virtual void Hide()
+        {
+            Active = false;
+        }
     }
 }

@@ -48,11 +48,10 @@ namespace Base.Helper
             }
 
             m_time -= Time.deltaTime;
-            bool hasNetwork;
             if (m_time <= 0)
             {
                 m_time     = m_checkNetworkInterval;
-                hasNetwork = UtilsClass.CheckForInternetConnection();
+                bool hasNetwork = UtilsClass.IsNetworkReachable();
                 
                 if (m_hasNetwork != hasNetwork)
                 {

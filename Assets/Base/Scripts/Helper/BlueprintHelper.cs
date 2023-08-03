@@ -86,7 +86,7 @@ namespace Base.Helper
                     as BlueprintReaderAttribute;
 
             if (att is null || att.IsIgnore) return;
-
+            blueprint.LoadDummy = att.IsLocal;
             if (att.IsLocal)
             {
                 string dataPath = $"{Application.streamingAssetsPath}/{att.DataPath}";
@@ -95,10 +95,14 @@ namespace Base.Helper
                     string json = File.ReadAllText(dataPath);
                     (blueprint as IJsonDataDeserialize)?.DeserializeJson(json);
                 }
-                else
+                else if (att.DataFormat is DataFormat.Proto)
                 {
                     byte[] data = File.ReadAllBytes(dataPath);
                     (blueprint as IProtoDataDeserialize)?.DeserializeProto(data);
+                }
+                else
+                {
+                    
                 }
             }
             else
@@ -108,9 +112,14 @@ namespace Base.Helper
                     string json = Encoding.UTF8.GetString(rawData);
                     (blueprint as IJsonDataDeserialize)?.DeserializeJson(json);
                 }
-                else
+                else if (att.DataFormat is DataFormat.Proto)
                 {
                     (blueprint as IProtoDataDeserialize)?.DeserializeProto(rawData);
+                }
+                else
+                {
+                    string csv = Encoding.UTF8.GetString(rawData);
+                    (blueprint as ICsvDataDeserialize)?.DeserializeCsv(csv);
                 }
             }
         }
