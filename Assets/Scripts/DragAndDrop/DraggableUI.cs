@@ -6,6 +6,8 @@
 
 using System;
 using Base.Logging;
+using Base.Pattern;
+using Base.Services;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Sprites;
@@ -15,6 +17,7 @@ using Vector4 = UnityEngine.Vector4;
 
 namespace Base.Helper
 {
+    public class TestSignal : Signal {}
     public class DraggableUI : DraggableItem, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler
     {
         [SerializeField, Range(1f, 10f)] 
@@ -33,6 +36,13 @@ namespace Base.Helper
             {
                 m_parentBefore = (RectTransform)Parent;
             }
+            
+            ServiceLocator.Get<TestSignal>().Subscribe(TestFunction);
+        }
+
+        private void TestFunction()
+        {
+            
         }
 
         private void Snapping(RectTransform parent)

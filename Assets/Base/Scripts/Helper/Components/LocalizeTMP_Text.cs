@@ -15,7 +15,7 @@ namespace Base.Helper
         private void Awake()
         {
             _tmpText = GetComponent<TMP_Text>();
-            ServiceLocator.GetSignal<LanguageChangedRequestSignal>()?.Subscribe(OnLanguageChanged);
+            ServiceLocator.Get<LanguageChangedRequestSignal>()?.Subscribe(OnLanguageChanged);
         }
 
         protected override void Start()
@@ -27,7 +27,7 @@ namespace Base.Helper
 
         private void OnDestroy()
         {
-            ServiceLocator.GetSignal<LanguageChangedRequestSignal>()?.UnSubscribe(OnLanguageChanged);
+            ServiceLocator.Get<LanguageChangedRequestSignal>()?.UnSubscribe(OnLanguageChanged);
         }
 
         private void OnLanguageChanged(string langCode)

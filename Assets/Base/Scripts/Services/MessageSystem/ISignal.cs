@@ -45,7 +45,7 @@ namespace Base.Services
             }
             catch (Exception e)
             {
-                PDebug.GetLogger().Error(e);
+                PDebug.GetLogger().Error(e, e.Message);
             }
 
             try
@@ -54,7 +54,7 @@ namespace Base.Services
             }
             catch (Exception e)
             {
-                PDebug.GetLogger().Error(e);
+                PDebug.GetLogger().Error(e, e.Message);
             }
 
             OnceListener = null;
@@ -95,7 +95,7 @@ namespace Base.Services
             }
             catch (Exception e)
             {
-                PDebug.GetLogger().Error(e);
+                PDebug.GetLogger().Error(e, e.Message);
             }
 
             try
@@ -104,7 +104,7 @@ namespace Base.Services
             }
             catch (Exception e)
             {
-                PDebug.GetLogger().Error(e);
+                PDebug.GetLogger().Error(e, e.Message);
             }
 
             OnceListener = null;
@@ -150,7 +150,7 @@ namespace Base.Services
             }
             catch (Exception e)
             {
-                PDebug.GetLogger().Error(e);
+                PDebug.GetLogger().Error(e, e.Message);
             }
 
             try
@@ -159,7 +159,7 @@ namespace Base.Services
             }
             catch (Exception e)
             {
-                PDebug.GetLogger().Error(e);
+                PDebug.GetLogger().Error(e, e.Message);
             }
 
             OnceListener = null;

@@ -104,14 +104,14 @@ namespace Base.Services
     {
         public static void RegisterListener(this MonoBehaviour target, Enum eventId, Callback<object> func)
         {
-            ServiceLocator.GetService<ObserverManager>().AddListener(eventId, func);
+            ServiceLocator.Get<ObserverManager>().AddListener(eventId, func);
         }
 
         public static void RemoveListener(this MonoBehaviour target, Enum eventId, Callback<object> func)
         {
             try
             {
-                ServiceLocator.GetService<ObserverManager>().RemoveListener(eventId, func);
+                ServiceLocator.Get<ObserverManager>().RemoveListener(eventId, func);
             }
             catch (Exception e)
             {
@@ -121,7 +121,7 @@ namespace Base.Services
 
         public static void PostEvent(this MonoBehaviour target, Enum eventId, object argument)
         {
-            ServiceLocator.GetService<ObserverManager>().BroadcastEvent(eventId, argument);
+            ServiceLocator.Get<ObserverManager>().BroadcastEvent(eventId, argument);
         }
     }
 }

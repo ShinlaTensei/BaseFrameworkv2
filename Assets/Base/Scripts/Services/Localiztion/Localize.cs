@@ -27,7 +27,6 @@ namespace Base.Services
         
         public void Init()
         {
-            ServiceLocator.SetSignal<LanguageChangedRequestSignal>();
 
             if (PlayerPrefs.HasKey(KeyLang))
             {
@@ -42,7 +41,7 @@ namespace Base.Services
             }
             else
             {
-                _currentLang = LanguageCode.En;
+                _currentLang = LanguageCode.Vi;
             }
         }
 
@@ -64,7 +63,7 @@ namespace Base.Services
 
                 try
                 {
-                    ServiceLocator.GetSignal<LanguageChangedRequestSignal>()?.Dispatch(_currentLang.ToString());
+                    ServiceLocator.Get<LanguageChangedRequestSignal>()?.Dispatch(_currentLang.ToString());
                 }
                 catch (Exception e)
                 {
@@ -82,9 +81,9 @@ namespace Base.Services
     {
         private static string GetLocalizeText(string key)
         {
-            BlueprintLocalization blueprint = ServiceLocator.GetBlueprint<BlueprintLocalization>();
-            string text = blueprint?.GetTextByKey(key);
-        
+            BlueprintLocalization blueprint = ServiceLocator.Get<BlueprintLocalization>();
+            string                text      = blueprint?.GetTextByKey(key);
+            
             return !string.IsNullOrEmpty(text) ? text : key;
         }
         
