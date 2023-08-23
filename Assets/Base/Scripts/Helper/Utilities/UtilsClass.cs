@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
 using Base.Logging;
+using Base.Pattern;
 using TMPro;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace Base.Helper
@@ -469,6 +471,26 @@ namespace Base.Helper
         public static T GetOrAddComponent<T>(this GameObject source) where T : Component
         {
             return source.GetComponent<T>() ?? source.AddComponent<T>();
+        }
+
+        public static void SetActive<T>(this T component, bool value) where T : Component
+        {
+            component.gameObject.SetActive(value);
+        }
+
+        #endregion
+
+        #region Asset
+
+        public static void LoadAssetSprite(string keyId, Image component)
+        {
+            ServiceLocator.Get<AddressableManager>().LoadSpriteAsync(keyId, sprite =>
+                                                                                   {
+                                                                                       if (sprite != null && component != null)
+                                                                                       {
+                                                                                           component.sprite = sprite;
+                                                                                       }
+                                                                                   });
         }
 
         #endregion

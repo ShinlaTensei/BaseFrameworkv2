@@ -51,7 +51,7 @@ namespace Base
         {
             base.Start();
 
-            ServiceLocator.SetService(this);
+            ServiceLocator.Set(this);
             Init();
         }
 
@@ -60,7 +60,7 @@ namespace Base
         /// </summary>
         private void NotifyUIViewChanged()
         {
-            ServiceLocator.GetSignal<OnUIViewChangedSignal>()?.Dispatch(m_previous, m_current);
+            ServiceLocator.Get<OnUIViewChangedSignal>()?.Dispatch(m_previous, m_current);
         }
         private async UniTask<T> ShowAsync<T>(T instance, Action<T> onInit = null, Transform root = null, 
                                               CancellationToken cancellationToken = default) where T : UIView
@@ -110,15 +110,6 @@ namespace Base
             return inst;
         }
 
-        public async UniTask<T> Show<T, Y>(T instance, Y value, Action<T> onInit = null, Transform root = null,
-                                           CancellationToken cancellationToken = default) where T : UIView where Y : IViewData
-        {
-            instance = await ShowAsync<T>(instance, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-            
-            instance.Populate(value);
-            return instance;
-        }
-
         public async UniTask<T> Show<T>(Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default)
                 where T : UIView
         {
@@ -127,16 +118,8 @@ namespace Base
             return inst;
         }
 
-        public async UniTask<T1> Show<T1, T2>(T2 value, Action<T1> onInit = null, Transform root = null,
-                                              CancellationToken cancellationToken = default) where T1 : UIView where T2 : IViewData
-        {
-            T1 inst = await ShowAsync<T1>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
-            inst.Populate(value);
-            return inst;
-        }
-
-        public async UniTask<UIView> Show<T>(string viewId, string sceneName, T viewData, Action<UIView> onInit = null, Transform root = null,
-                                             CancellationToken cancellationToken = default) where T : IViewData
+        public async UniTask<UIView> Show(string viewId, string sceneName, IViewData viewData, Action<UIView> onInit = null, Transform root = null,
+                                             CancellationToken cancellationToken = default)
         {
             UIView view = await ShowAsync(viewId, sceneName, onInit, root, cancellationToken);
             view.Populate(viewData);
@@ -178,9 +161,9 @@ namespace Base
 
         public void Remove<T>(T value) where T : UIView
         {
-            if (m_uiViewPool.ContainsKey(typeof(T).Name))
+            if (m_uiViewPool.ContainsKey(value.GetType().Name))
             {
-                m_uiViewPool.Remove(typeof(T).Name);
+                m_uiViewPool.Remove(value.GetType().Name);
             }
 
             if (m_stackUi.Contains(value))
@@ -404,7 +387,7 @@ namespace Base
 
         public void Init()
         {
-            m_addressableManager = ServiceLocator.GetService<AddressableManager>();
+            m_addressableManager = ServiceLocator.Get<AddressableManager>();
         }
 
         public void DeInit()

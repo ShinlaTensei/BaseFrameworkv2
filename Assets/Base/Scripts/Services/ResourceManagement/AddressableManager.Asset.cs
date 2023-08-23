@@ -125,7 +125,7 @@ namespace Base
 
                 retry++;
                 await UniTask.Delay(TimeSpan.FromSeconds(RETRY_DELAY_TIMER), true, cancellationToken: cancellationToken);
-                PDebug.GetLogger().Info("[AddressableManager Retry Count {count}", retry);
+                PDebug.GetLogger().Info("[AddressableManager] Retry Count {count}", retry);
 
                 return await InstantiateAsync(key, parent, instantiateInWorld, retryCount, retry, cancellationToken);
             }

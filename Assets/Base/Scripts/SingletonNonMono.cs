@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Base
 {
-    public abstract class SingletonNonMono<T> where T : class
+    public class SingletonNonMono<T> where T : class
     {
-        private static T _instance;
+        private static Lazy<T> m_instance = new Lazy<T>(Activator.CreateInstance<T>);
         
         protected static bool m_ShuttingDown = false;
 
@@ -26,20 +26,10 @@ namespace Base
 
                 lock (m_Lock)
                 {
-                    if (_instance == null)
-                    {
-                        _instance = Activator.CreateInstance<T>();
-                    }
-                    return _instance;
+                    return m_instance.Value;
                 }
                 
             }
-        }
-
-        ~SingletonNonMono()
-        {
-            m_ShuttingDown = true;
-            _instance = null;
         }
     }
 }

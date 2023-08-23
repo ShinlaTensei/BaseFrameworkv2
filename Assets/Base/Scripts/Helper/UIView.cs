@@ -62,7 +62,7 @@ namespace Base.Helper
         {
             get
             {
-                if (m_manager == null) m_manager = ServiceLocator.GetService<UIViewManager>();
+                if (m_manager == null) m_manager = ServiceLocator.Get<UIViewManager>();
 
                 return m_manager;
             }
