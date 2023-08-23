@@ -1,154 +1,55 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading;
+using Base.Logging;
+using UniRx;
 using UnityEngine;
 
 namespace Base.Helper
 {
-    public delegate void IntervalDelegate(IntervalConfig config);
-
-    public class IntervalConfig
+    public class BaseInterval : SingletonNonMono<BaseInterval>
     {
-        public bool isCancel = false;
-        public bool isDone = false;
-        public MonoBehaviour caller;
-        public IEnumerator action = null;
+        private CompositeDisposable m_compositeDisposable;
 
-        public void Start()
+        private CompositeDisposable CompositeDisposable => LazyInitializer.EnsureInitialized(ref m_compositeDisposable);
+
+        public static void RunInterval(float timeInSeconds, Action callBack = null)
         {
-            if (caller != null && action != null)
-                caller.StartCoroutine(action);
+            IDisposable disposable = Observable.Interval(TimeSpan.FromSeconds(timeInSeconds)).Subscribe(_ =>
+                                                    {
+                                                        callBack?.Invoke();
+                                                    }, Instance.OnError);
+            
+            Instance.CompositeDisposable.Add(disposable);
         }
 
-        public void Stop()
+        public static void RunInterval<T>(float timeInSeconds, T data, Action<T> callback = null)
         {
-            if (caller != null && action != null)
-            {
-                caller.StopCoroutine(action);
-            }
-        }
-    }
-    public static class BaseInterval
-    {
-        
-        /// <summary>
-        /// Run a function after an amount of time
-        /// </summary>
-        /// <param name="caller"> The caller object </param>
-        /// <param name="time"></param>
-        /// <param name="callback"></param>
-        /// <param name="config"></param>
-        public static IntervalConfig RunAfterTime(MonoBehaviour caller, float time, IntervalDelegate callback)
-        {
-            IntervalConfig interval = new IntervalConfig();
-
-            interval.action = _RunAfterTime(interval, time, callback);
-            interval.caller = caller;
-            interval.Start();
-            return interval;
-        }
-        
-        private static IEnumerator _RunAfterTime(IntervalConfig config, float _time, IntervalDelegate _callback)
-        {
-            yield return new WaitForSeconds(_time);
-            if (!config.isCancel)
-            {
-                _callback.Invoke(config);
-                config.isDone = true;
-            }
-        }
-        
-        /// <summary>
-        /// Run a function at end of frame
-        /// </summary>
-        /// <param name="caller"></param>
-        /// <param name="callback"></param>
-        public static IntervalConfig RunAtEndOfFrame(MonoBehaviour caller, IntervalDelegate callback)
-        {
-            IntervalConfig config = new IntervalConfig();
-            config.caller = caller;
-            config.action = _RunAtEndOfFrame(config, callback);
-            config.Start();
-            return config;
-        }
-        
-        private static IEnumerator _RunAtEndOfFrame(IntervalConfig config, IntervalDelegate callback)
-        {
-            yield return new WaitForEndOfFrame();
-
-            if (!config.isCancel)
-            {
-                callback.Invoke(config);
-                config.isDone = true;
-            }
-        }
-        
-        /// <summary>
-        /// Run a function at every frame
-        /// </summary>
-        /// <param name="caller"></param>
-        /// <param name="initialDelay"></param>
-        /// <param name="timeDelay"></param>
-        /// <param name="callback"></param>
-        /// <returns></returns>
-        public static IntervalConfig RunAtEveryFrame(MonoBehaviour caller,float initialDelay, float timeDelay, IntervalDelegate callback)
-        {
-            IntervalConfig config = new IntervalConfig();
-            config.caller = caller;
-            config.action = _RunAtEveryFrame(config, initialDelay, timeDelay, callback);
-            config.Start();
-            return config;
+            IDisposable disposable = Observable.Interval(TimeSpan.FromSeconds(timeInSeconds), Scheduler.MainThread).Subscribe(_ =>
+                                                                             {
+                                                                                 callback?.Invoke(data);
+                                                                             }, Instance.OnError);
+            
+            Instance.CompositeDisposable.Add(disposable);
         }
 
-        private static IEnumerator _RunAtEveryFrame(IntervalConfig config, float initialDelay, float timeDelay, 
-            IntervalDelegate callback)
+        public static void RunAfterTime(float timeInSeconds, IScheduler scheduler = null, Action startAction = null, Action onComplete = null)
         {
-            if (initialDelay > 0)
-            {
-                yield return new WaitForSeconds(initialDelay);
-            }
+            if (scheduler is null) scheduler = Scheduler.MainThread;
 
-            while (true)
-            {
-                if (!config.isCancel)
-                {
-                    callback.Invoke(config);
-                }
-                else
-                {
-                    break;
-                }
-
-                if (timeDelay > 0)
-                {
-                    yield return new WaitForSeconds(timeDelay);
-                }
-            }
-
-            config.isDone = true;
+            IDisposable disposable = Observable.Start(startAction, TimeSpan.FromSeconds(timeInSeconds), scheduler)
+                      .Subscribe(_ => onComplete?.Invoke(), onError: Instance.OnError);
+            
+            Instance.CompositeDisposable.Add(disposable);
         }
 
-        public static IntervalConfig RunLerp(MonoBehaviour caller, float duration, Action<float> callback)
+        private void OnError(Exception exception)
         {
-            IntervalConfig config = new IntervalConfig();
-            config.caller = caller;
-            config.action = _RunLerp(config, duration, callback);
-            config.Start();
-            return config;
+            PDebug.Error(exception, "[BaseInterval] Exception ERROR: {0}", exception.Message);
         }
 
-        private static IEnumerator _RunLerp(IntervalConfig config, float duration, Action<float> callback)
+        public void Cancel()
         {
-            config.isDone = false;
-            float t = 0f;
-            while (t < 1.0f)
-            {
-                t = Mathf.Clamp01(t + Time.deltaTime / duration);
-                if (!config.isCancel)
-                    callback.Invoke(t);
-                yield return null;
-            }
-            config.isDone = true;
+            CompositeDisposable.Clear();
         }
     }
 }
