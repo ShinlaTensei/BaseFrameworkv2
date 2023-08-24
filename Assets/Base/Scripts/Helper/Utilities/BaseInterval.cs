@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using Base.Logging;
 using UniRx;
-using UnityEngine;
 
 namespace Base.Helper
 {
@@ -11,34 +10,59 @@ namespace Base.Helper
         private CompositeDisposable m_compositeDisposable;
 
         private CompositeDisposable CompositeDisposable => LazyInitializer.EnsureInitialized(ref m_compositeDisposable);
-
+        
+        /// <summary>
+        /// Run an action on MainThread every amount of seconds
+        /// </summary>
+        /// <param name="timeInSeconds"></param>
+        /// <param name="callBack"></param>
         public static void RunInterval(float timeInSeconds, Action callBack = null)
         {
-            IDisposable disposable = Observable.Interval(TimeSpan.FromSeconds(timeInSeconds)).Subscribe(_ =>
-                                                    {
-                                                        callBack?.Invoke();
-                                                    }, Instance.OnError);
+            IDisposable disposable = Observable.Interval(TimeSpan.FromSeconds(timeInSeconds)).Subscribe(_ => callBack?.Invoke(), Instance.OnError);
             
             Instance.CompositeDisposable.Add(disposable);
         }
-
-        public static void RunInterval<T>(float timeInSeconds, T data, Action<T> callback = null)
+        /// <summary>
+        /// Run an action on MainThread every amount of seconds
+        /// </summary>
+        /// <param name="timeInSeconds"></param>
+        /// <param name="callback"></param>
+        public static void RunInterval(float timeInSeconds, Action<long> callback = null)
         {
-            IDisposable disposable = Observable.Interval(TimeSpan.FromSeconds(timeInSeconds), Scheduler.MainThread).Subscribe(_ =>
-                                                                             {
-                                                                                 callback?.Invoke(data);
-                                                                             }, Instance.OnError);
-            
-            Instance.CompositeDisposable.Add(disposable);
+            Observable.Interval(TimeSpan.FromSeconds(timeInSeconds), Scheduler.MainThread)
+                                               .Subscribe(unit =>
+                                                          {
+                                                              callback?.Invoke(unit);
+                                                          }, Instance.OnError)
+                                               .AddTo(Instance.CompositeDisposable);
+
         }
-
-        public static void RunAfterTime(float timeInSeconds, IScheduler scheduler = null, Action startAction = null, Action onComplete = null)
+        
+        /// <summary>
+        /// Run an action on MainThread every amount of seconds
+        /// </summary>
+        /// <param name="dueTime">Time delay at start</param>
+        /// <param name="interval">Time delay every frame</param>
+        /// <param name="callback">Action</param>
+        public static void RunInterval(float dueTime, float interval, Action callback = null)
         {
-            if (scheduler is null) scheduler = Scheduler.MainThread;
+            Observable.Timer(TimeSpan.FromSeconds(dueTime), TimeSpan.FromSeconds(interval))
+                                               .Subscribe(_ => callback?.Invoke(), e => Instance.OnError(e))
+                                               .AddTo(Instance.CompositeDisposable);
+        }
+        
+        /// <summary>
+        /// Run action after an amount of time
+        /// </summary>
+        /// <param name="dueTime">Time delay at start</param>
+        /// <param name="startAction"></param>
+        /// <param name="scheduler">Can be schedule on MainThread, MainThreadEndOfFrame, ...</param>
+        public static void RunAfterTime(float dueTime, Action startAction = null, IScheduler scheduler = null)
+        {
+            scheduler ??= Scheduler.MainThread;
 
-            IDisposable disposable = Observable.Start(startAction, TimeSpan.FromSeconds(timeInSeconds), scheduler)
-                      .Subscribe(_ => onComplete?.Invoke(), onError: Instance.OnError);
-            
+            IDisposable disposable = Observable.Timer(TimeSpan.FromSeconds(dueTime), scheduler)
+                                               .Subscribe(_ => startAction?.Invoke(), e => Instance.OnError(e));
             Instance.CompositeDisposable.Add(disposable);
         }
 
@@ -47,9 +71,9 @@ namespace Base.Helper
             PDebug.Error(exception, "[BaseInterval] Exception ERROR: {0}", exception.Message);
         }
 
-        public void Cancel()
+        public static void Cancel()
         {
-            CompositeDisposable.Clear();
+            Instance.CompositeDisposable.Clear();
         }
     }
 }

@@ -1,279 +1,146 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Base.Module;
+using Base.Helper;
+using Base.Logging;
+using UniRx;
 using UnityEngine;
 using Object = UnityEngine.Object;
-using Base.Helper;
+using UniRx.Toolkit;
 
 namespace Base.Pattern
 {
-    public class ObjectPooler : BaseMono, IService
+    public interface IPoolUnit
     {
-        #region Singleton
+        void Dispose();
+    }
+    public class PoolSystem : SingletonMono<PoolSystem>
+    {
+        private IDictionary<string, IPoolUnit> m_poolDictionary = new Dictionary<string, IPoolUnit>();
 
-        private static ObjectPooler _sharedInstance;
+        private IDictionary<string, IPoolUnit> PoolDictionary => m_poolDictionary;
 
-        public static ObjectPooler SharedInstance
-        {
-            get
-            {
-                if (_sharedInstance == null)
-                {
-                    _sharedInstance = FindObjectOfType<ObjectPooler>();
-                    if (!_sharedInstance)
-                    {
-                        GameObject poolMaster = new GameObject("PoolMaster");
-                        _sharedInstance = poolMaster.AddComponent<ObjectPooler>();
-                        _sharedInstance.Position = Vector3.zero;
-                    }
-                }
-
-                return _sharedInstance;
-            }
-        }
-
-        #endregion
+        private CompositeDisposable CompositeDisposable { get; set; } = new CompositeDisposable();
         
-        private Dictionary<string, BasePool> _poolDictionary = new Dictionary<string, BasePool>();
-        
-        [CustomClassDrawer] public List<BasePool> listPool = new List<BasePool>();
-
-        public bool isInitializeOnStart = false;
-
-        #region Unity life cycle
-
-        private void Awake()
+        protected override void OnDestroy()
         {
-            DontDestroyOnLoad(this);
-            _sharedInstance = this;
-        }
+            base.OnDestroy();
 
-        protected override void Start()
-        {
-            if (isInitializeOnStart)
+            foreach (var poolUnit in m_poolDictionary)
             {
-                Init();
-            }
-        }
-
-        #endregion
-
-        public static bool Include(string key)
-        {
-            return SharedInstance._poolDictionary.ContainsKey(key);
-        }
-        
-        public void Init()
-        {
-            InitObjectPool();
-        }
-
-        public void DeInit()
-        {
-            _poolDictionary.Clear();
-            listPool.Clear();
-            _sharedInstance = null;
-        }
-
-        private static void InitObjectPool()
-        {
-            for (int i = 0; i < SharedInstance.listPool.Count; i++)
-            {
-                SharedInstance._poolDictionary[SharedInstance.listPool[i].name] = SharedInstance.listPool[i];
-            }
-
-            var list = SharedInstance._poolDictionary.Values.ToList();
-            int length = SharedInstance._poolDictionary.Values.Count;
-
-            for (int i = 0; i < length; i++)
-            {
-                list[i].InitBasePool(SharedInstance.transform);
-            }
-        }
-
-        public static void InitObjectPool(string key)
-        {
-            bool isContain = SharedInstance._poolDictionary.ContainsKey(key);
-            if (!isContain)
-            {
-                BasePool pool = SharedInstance.listPool.Find(item => item.name.Equals(key));
-                if (pool != null)
-                {
-                    SharedInstance._poolDictionary[pool.name] = pool;
-                
-                    SharedInstance._poolDictionary[pool.name].InitBasePool(SharedInstance.transform);
-                }
+                poolUnit.Value.Dispose();
             }
             
+            CompositeDisposable.Clear();
         }
 
-        public static Transform Get(string name)
+        public static void CreatePool<T>(T instance) where T : Component
         {
-            try
+            if (!IsPoolExist<T>())
             {
-                return SharedInstance._poolDictionary[name].Get();
-            }
-            catch (NullReferenceException exception)
-            {
-                Debug.LogWarning(exception.Message);
-                return null;
+                PoolUnit<T> poolInstance = new PoolUnit<T>(instance);
+                Instance.PoolDictionary.TryAdd(typeof(T).Name, poolInstance);
             }
         }
 
-        public static Transform Get(string name, Vector3 position, Vector3 eulerAngle, Transform newParent = null, bool isWorld = false)
+        private static bool IsPoolExist<T>() where T : Component
         {
-            try
+            return Instance.PoolDictionary.ContainsKey(typeof(T).Name);
+        }
+
+        public static T Rent<T>(Vector3 initialPosition, Quaternion rotation, Transform parent = null, bool useWorldPos = false) where T : Component
+        {
+            if (Instance.PoolDictionary.TryGetValue(typeof(T).Name, out IPoolUnit poolUnit))
             {
-                return SharedInstance._poolDictionary[name].Get(position, eulerAngle, newParent, isWorld);
+                if (poolUnit is PoolUnit<T> pool) return pool.GetUnit(initialPosition, rotation, parent, useWorldPos);
             }
-            catch (NullReferenceException exception)
+
+            return null;
+        }
+
+        public static void Return<T>(T instance) where T : Component
+        {
+            if (Instance.PoolDictionary.TryGetValue(typeof(T).Name, out IPoolUnit poolUnit))
             {
-                Debug.LogWarning(exception.Message);
-                return null;
+                if (poolUnit is PoolUnit<T> pool) pool.Return(instance);
             }
         }
 
-        public static void Return(string name, Transform obj, Transform newParent = null)
+        public static void Preload<T>(int preloadCount, int threshold) where T : Component
         {
-            try
+            if (Instance.PoolDictionary.TryGetValue(typeof(T).Name, out IPoolUnit poolUnit))
             {
-                if (SharedInstance._poolDictionary.Count > 0)
+                if (poolUnit is PoolUnit<T> pool)
                 {
-                    SharedInstance._poolDictionary[name].Return(obj, newParent);
+                    IObservable<Unit> observable = pool.PreloadAsync(preloadCount, threshold);
+                    observable.Subscribe(unit => PDebug.InfoFormat("[PoolSystem] Preload Complete of {0}", typeof(T).Name), Instance.OnPreloadError)
+                              .AddTo(Instance.CompositeDisposable);
                 }
             }
-            catch (Exception exception)
-            {
-                Debug.LogWarning(exception.Message);
-            }
         }
 
-        public static void ResetAll()
+        #region Callback
+
+        void OnPreloadError(Exception exception)
         {
-            for (int i = 0; i < SharedInstance.listPool.Count; ++i)
+            #if UNITY_EDITOR
+            Debug.Break();
+            #endif
+            switch (exception)
             {
-                SharedInstance.listPool[i].Reset();
+                case NullReferenceException:
+                case ArgumentNullException:
+                default:
+                    PDebug.Error(exception, "[PoolSystem] ERROR: {0}", exception.Message);
+                    break;
             }
-        }
-
-        public static void ResetPool(string key)
-        {
-            bool isContain = SharedInstance._poolDictionary.ContainsKey(key);
-            if (isContain)
-            {
-                BasePool pool = SharedInstance._poolDictionary[key];
-                pool.Reset();
-            }
-        }
-
-        public void Dispose()
-        {
-        }
-    }
-    
-    [Serializable]
-    public class BasePool
-    {
-        public string name;
-        public Transform prefab;
-        public int amount;
-        public bool isAutoGen = false;
-        
-        [NonSerialized] public Queue<Transform> Pool = new Queue<Transform>();
-
-        private Transform _thisTransform;
-
-        public void InitBasePool(Transform root)
-        {
-            GameObject basePoolObject = new GameObject(name);
-            basePoolObject.transform.SetParent(root);
-            _thisTransform = basePoolObject.transform;
-            _thisTransform.position = Vector3.zero;
-            for (int i = 0; i < amount; i++)
-            {
-                Transform pooledObj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, _thisTransform);
-                pooledObj.gameObject.SetActive(false);
-                Pool.Enqueue(pooledObj);
-            }
-        }
-
-        public void Reset()
-        {
-            Pool.Clear();
-            _thisTransform.DestroyAllChildren();
-            for (int i = 0; i < amount; i++)
-            {
-                Transform pooledObj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, _thisTransform);
-                pooledObj.gameObject.SetActive(false);
-                Pool.Enqueue(pooledObj);
-            }
-        }
-
-        private void AdditionalInit(int count)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                Transform pooledObj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, _thisTransform);
-                pooledObj.gameObject.SetActive(false);
-                Pool.Enqueue(pooledObj);
-            }
-        }
-        
-        #region Get object from pool
-
-        public Transform Get()
-        {
-            if (Pool.Count == 0 && isAutoGen)
-            {
-                AdditionalInit(10);
-            }
-            var obj = Pool.Dequeue();
-            //Pool.Enqueue(obj);
-            obj.gameObject.SetActive(true);
-            return obj;
-        }
-
-        public Transform Get(Vector3 position, Vector3 eulerAngle, Transform newParent = null, bool isWorld = false)
-        {
-            var obj = Get();
-            if (newParent && !isWorld)
-            {
-                obj.SetParent(newParent);
-                obj.localPosition = position;
-                obj.localRotation = Quaternion.Euler(eulerAngle);
-            }
-            else if (newParent && isWorld)
-            {
-                obj.SetParent(newParent);
-                obj.position = position;
-                obj.rotation = Quaternion.Euler(eulerAngle);
-            }
-            else if (!newParent)
-            {
-                obj.position = position;
-                obj.rotation = Quaternion.Euler(eulerAngle);
-            }
-
-            return obj;
         }
 
         #endregion
-        public void Return(Transform obj, Transform newParent = null)
+        
+    }
+
+    public class PoolUnit<T> : ObjectPool<T>, IPoolUnit where T : Component
+    {
+        public PoolUnit(T prefab)
         {
-            obj.gameObject.SetActive(false);
-            if (newParent)
+            m_prefab = prefab;
+        }
+        
+        private T m_prefab;
+
+        protected override T CreateInstance()
+        {
+            return Object.Instantiate(m_prefab);
+        }
+
+        public T GetUnit(Vector3 initialPosition, Quaternion rotation, Transform parent = null, bool useWorldPos = false)
+        {
+            T instance = Rent();
+
+            if (parent)
             {
-                obj.SetParent(newParent);
+                Transform transform = instance.transform;
+                transform.SetParent(parent, useWorldPos);
+                transform.position = initialPosition;
+                transform.rotation = rotation;
             }
             else
             {
-                obj.SetParent(_thisTransform);
+                Transform transform = instance.transform;
+                transform.position = initialPosition;
+                transform.rotation = rotation;
             }
-            obj.position = Vector3.zero;
-            obj.rotation = Quaternion.identity;
-            
-            Pool.Enqueue(obj);
+
+            return instance;
+        }
+
+        protected override void OnBeforeReturn(T instance)
+        {
+            instance.transform.RemoveFromParent();
+            instance.transform.position = Vector3.zero;
+            instance.transform.rotation = Quaternion.identity;
+            base.OnBeforeReturn(instance);
         }
     }
 }

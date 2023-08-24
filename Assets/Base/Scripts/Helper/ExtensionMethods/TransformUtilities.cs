@@ -128,6 +128,11 @@ namespace Base.Helper
             }
         }
 
+        public static void RemoveFromParent(this Transform target)
+        {
+            target.SetParent(target.root);
+        }
+
         #endregion
 
     }

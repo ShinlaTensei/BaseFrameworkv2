@@ -8,6 +8,7 @@ using System;
 using Base.Logging;
 using Base.Pattern;
 using Base.Services;
+using UniRx.Toolkit;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Sprites;
@@ -38,6 +39,15 @@ namespace Base.Helper
             }
             
             ServiceLocator.Get<TestSignal>().Subscribe(TestFunction);
+            
+            BaseInterval.RunInterval(3f, () => PDebug.Info("Test"));
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            
+            BaseInterval.Cancel();
         }
 
         private void TestFunction()

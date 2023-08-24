@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c311854aeb43462fbd03e8e89a338aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_draggableUI: {fileID: 47109051}
 --- !u!1 &443462628
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +622,6 @@ GameObject:
   - component: {fileID: 1820693078}
   - component: {fileID: 1820693080}
   - component: {fileID: 1820693079}
-  - component: {fileID: 1820693081}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -687,17 +687,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820693077}
   m_CullTransparentMesh: 1
---- !u!114 &1820693081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820693077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa03913a69324801ba216d3546476e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMoveToStartPos: 0
-  m_scaleFactor: 2
