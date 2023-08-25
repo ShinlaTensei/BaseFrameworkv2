@@ -46,22 +46,6 @@ namespace Base.Helper
                     
                 }
             }
-
-            m_time -= Time.deltaTime;
-            if (m_time <= 0)
-            {
-                m_time     = m_checkNetworkInterval;
-                bool hasNetwork = UtilsClass.IsNetworkReachable();
-                
-                if (m_hasNetwork != hasNetwork)
-                {
-                    m_hasNetwork = hasNetwork;
-                    if (!m_hasNetwork)
-                    {
-                        PDebug.Error("[NETWORK ERROR] No Internet Connection");
-                    }
-                }
-            }
         }
     } 
 }

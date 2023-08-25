@@ -22,9 +22,9 @@ namespace Base.Logging
             if (logEvent.Level <= LogLevel.Info)
                 Debug.LogFormat("<b><color=aqua>{0}</color></b> >>> <b>{1}</b> >>> {2}", level, message, stackTrace);
             else if (logEvent.Level == LogLevel.Warn)
-                Debug.LogWarningFormat("<b><color=yellow>{0}</color></b> >>> <b>{1}</b>  >>> {2}", level, message, stackTrace);
+                Debug.LogWarningFormat("<b><color=yellow>{0}</color></b> >>> <b>{1}</b> >>> {2}", level, message, stackTrace);
             else
-                Debug.LogErrorFormat("<b><color=red>{0}</color></b> >>> <b>{1}</b>  >>> {2}", level, message, stackTrace);
+                Debug.LogErrorFormat("<b><color=red>{0}</color></b> >>> <b>{1}</b> >>> {2}", level, message, stackTrace);
         }
     }
 }

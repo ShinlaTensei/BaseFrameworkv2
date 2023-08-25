@@ -1,10 +1,7 @@
-using System;
 using System.Threading;
 using Base.Pattern;
 using Base.Utilities;
 using Cysharp.Threading.Tasks;
-using NaughtyAttributes;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

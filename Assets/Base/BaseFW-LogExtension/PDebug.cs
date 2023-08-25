@@ -18,37 +18,12 @@ namespace Base.Logging
             // Init configuration
             var config = new NLog.Config.LoggingConfiguration();
             
-            #if UNITY_EDITOR || UNITY_ANDROID
             var logConsole = new UnityDebugTarget()
             {
                 Name = "UnityDebugLog",
-                Layout = "[${level}]>>>${message}>>>${callsite:captureStackTrack=false:skipFrames=1:fileName=true:includeSourcePath=false}"
+                Layout = "[${level}]>>>${message}>>>${callsite:captureStackTrace=false:skipFrames=1:fileName=true:includeSourcePath=false}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
-            
-            // #elif UNITY_ANDROID
-            // string logFilePath = FileUtilities.GetSystemPath();
-            // string fileDirectory = Application.productName + "-Debug";
-            // string fileName = "DebugLog.txt";
-            // var logFile = new NLog.Targets.FileTarget
-            // {
-            //     FileName = logFilePath + fileDirectory + "/" + fileName,
-            //     Layout = "[${longdate}] >>> [${level}] >>> ${message} >>> (${stacktrace})"
-            // };
-            // config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
-            // CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "/" + "DebugLog.txt");
-            // #elif UNITY_STANDALONE || UNITY_STANDALONE_WIN
-            // string logFilePath = FileUtilities.GetSystemPath();
-            // string fileDirectory = Application.productName + "-Debug";
-            // string fileName = "DebugLog.txt";
-            // var logFile = new NLog.Targets.FileTarget
-            // {
-            //     FileName = logFilePath + fileDirectory + "\\" + fileName,
-            //     Layout = "[${longdate}] >>> [${level}] >>> ${message} >>> (${stacktrace})"
-            // };
-            // config.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
-            // CheckOldLog(FileUtilities.GetSystemPath() + Application.productName + "-Debug" + "\\" + "DebugLog.txt");
-            #endif
 
             LogManager.Configuration = config;
             
@@ -56,20 +31,6 @@ namespace Base.Logging
             LogManager.Shutdown();
 #endif
         }
-        
-        private static void CheckOldLog(string path)
-        {
-            if (File.Exists(path))
-            {
-                UnityEngine.Debug.Log(path);
-                File.Delete(path);
-            }
-        }
-        
-        // public static Logger GetLogger(this MonoBehaviour target)
-        // {
-        //     return LogManager.GetCurrentClassLogger();
-        // }
 
         public static Logger GetLogger()
         {
