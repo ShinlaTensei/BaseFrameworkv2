@@ -107,6 +107,14 @@ namespace Base
             inst.Populate(viewData);
             return inst;
         }
+        
+        public async UniTask<T> Show<T>(IViewData viewData = null, Action<T> onInit = null, Transform root = null,
+                                        CancellationToken cancellationToken = default) where T : UIView
+        {
+            T inst = await ShowAsync<T>(null, onInit, root, cancellationToken).AttachExternalCancellation(cancellationToken);
+            inst.Populate(viewData);
+            return inst;
+        }
 
         public async UniTask<T> Show<T>(Action<T> onInit = null, Transform root = null, CancellationToken cancellationToken = default)
                 where T : UIView

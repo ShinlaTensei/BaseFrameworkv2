@@ -86,10 +86,10 @@ namespace Base.Pattern
 
         #endregion
 
-        public IList<T> GetAll<T>() where T : class
+        public static IList<T> GetAll<T>() where T : class
         {
             IList<T> types = new List<T>();
-            foreach (var service in m_class)
+            foreach (var service in Instance.m_class)
             {
                 Type t = service.Key;
                 object ins = service.Value;
