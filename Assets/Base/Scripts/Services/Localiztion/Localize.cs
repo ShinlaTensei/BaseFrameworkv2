@@ -11,7 +11,12 @@ namespace Base.Services
 
     public enum LanguageCode {En, Vi}
     
-    public class LocalizeManager : IService
+    public interface IBlueprintLocalization
+    {
+        public string GetTextByKey(string key);
+    }
+    
+    public class LocalizeService : IService
     {
         private readonly Dictionary<SystemLanguage, LanguageCode> _supportLanguage = new Dictionary<SystemLanguage, LanguageCode>
         {
@@ -81,8 +86,8 @@ namespace Base.Services
     {
         private static string GetLocalizeText(string key)
         {
-            BlueprintLocalization blueprint = ServiceLocator.Get<BlueprintLocalization>();
-            string                text      = blueprint?.GetTextByKey(key);
+            IBlueprintLocalization blueprint = ServiceLocator.Get<IBlueprintLocalization>();
+            string                 text      = blueprint?.GetTextByKey(key) ?? string.Empty;
             
             return !string.IsNullOrEmpty(text) ? text : key;
         }
