@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Base.Services
 {
-    public class ObserverManager : IService, IDisposable
+    public class ObserverManager : Service, IDisposable
     {
         private Dictionary<Enum, Callback<object>> _listeners;
 
