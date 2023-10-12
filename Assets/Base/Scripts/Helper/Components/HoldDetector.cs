@@ -15,9 +15,9 @@ namespace Base.Helper
         private float   m_holdTime;
         private bool    m_isHold;
         private bool    m_isPress;
-    
-        private UnityEvent m_onLongPress    = new UnityEvent();
-        private UnityEvent m_clickEvent        = new UnityEvent();
+
+        private UnityEvent m_onLongPress = new UnityEvent();
+        private UnityEvent m_clickEvent  = new UnityEvent();
     
         public UnityEvent OnLongPress       => m_onLongPress;
         public UnityEvent ClickEvent        => m_clickEvent;

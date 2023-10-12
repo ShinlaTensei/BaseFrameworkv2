@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Base.Pattern
 {
-    public class StateController : BaseMono
+    public abstract class StateController : BaseMono
     {
         [SerializeField] private string m_runningState = string.Empty;
         
@@ -29,17 +29,28 @@ namespace Base.Pattern
         public State PreviousState => m_previousState;
 
         #region Life Cycle
+        protected override void Start()
+        {
+            base.Start();
+
+            OnStateChangedEvent += OnStateChanged;
+        }
+
+        protected virtual void OnDestroy()
+        {
+            OnStateChangedEvent -= OnStateChanged;
+        }
 
         protected virtual void Update()
         {
             if (CurrentState is null) return;
 
             bool isTransition = CheckTransition();
-            
-            m_transitionQueue.Clear();
 
             if (isTransition)
             {
+                m_transitionQueue.Clear();
+                
                 PreviousState?.OnExit();
                 CurrentState.OnEnter();
 
@@ -56,6 +67,8 @@ namespace Base.Pattern
 
         #endregion
 
+        protected abstract void OnStateChanged(State previousSate, State currentState);
+
         private bool CheckTransition()
         {
             if (!CurrentState.IsReadyToExit()) return false;
@@ -65,7 +78,7 @@ namespace Base.Pattern
                 return false;
             }
 
-            State newState     = m_transitionQueue.Dequeue();
+            State newState     = m_transitionQueue.Peek();
             bool  readyToEnter = newState.IsReadyToEnter();
 
             if (readyToEnter)
@@ -73,7 +86,7 @@ namespace Base.Pattern
                 m_previousState = CurrentState;
                 m_currentState  = newState;
             }
-            return true;
+            return readyToEnter;
         }
 
         public State GetState<T>() where T : State

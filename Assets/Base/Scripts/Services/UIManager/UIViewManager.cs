@@ -27,7 +27,7 @@ namespace Base
     {
     }
 
-    public class UIViewManager : BaseMono, IService
+    public partial class UIViewManager : BaseMono, IService
     {
         [SerializeField] private GameObject m_blurObj;
         [SerializeField] private GameObject m_transparentObj;

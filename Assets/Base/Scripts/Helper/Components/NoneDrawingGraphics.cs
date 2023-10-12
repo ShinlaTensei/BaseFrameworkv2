@@ -6,6 +6,7 @@ namespace Base.Helper
     /// A concrete subclass of the Unity UI `Graphic` class that just skips drawing.
     /// Useful for providing a raycast target without actually drawing anything.
     [RequireComponent(typeof(CanvasRenderer))]
+    [AddComponentMenu("UI/None Drawing Graphic")]
     public class NoneDrawingGraphics : Graphic
     {
         /// <summary>
