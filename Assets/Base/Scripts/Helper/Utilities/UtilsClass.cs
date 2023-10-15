@@ -348,63 +348,6 @@ namespace Base.Helper
 
         #endregion
 
-        #region Child Interactions
-
-        public static T FindChildRecursive<T>(this Transform transform, string name, bool recursive = true)
-        {
-            foreach (Transform tm in transform)
-            {
-                if (tm.name == name && tm.GetComponent<T>() != null) { return tm.GetComponent<T>(); }
-                if (recursive)
-                {
-                    T res = FindChildRecursive<T>(tm, name);
-                    if (res != null) { return res; }
-                }
-            }
-            return default(T);
-        }
-        public static T FindChildRecursive<T>(this Component obj, string name, bool recursive = true)
-        {
-            foreach (Transform o in obj.transform)
-            {
-                if (o.name == name && o.gameObject.GetComponent<T>() != null) { return o.gameObject.GetComponent<T>(); }
-                if (recursive)
-                {
-                    T res = FindChildRecursive<T>(o, name);
-                    if (res != null) { return res; }
-                }
-            }
-            return default(T);
-        }
-        public static T FindChildRecursive<T>(this GameObject obj, string name, bool recursive = true)
-        {
-            foreach (Transform o in obj.transform)
-            {
-                if (o.name == name && o.gameObject.GetComponent<T>() != null) { return o.gameObject.GetComponent<T>(); }
-                if (recursive)
-                {
-                    T res = FindChildRecursive<T>(o.gameObject, name);
-                    if (res != null) { return res; }
-                }
-            }
-            return default(T);
-        }
-        public static GameObject FindChildRecursive(this GameObject obj, string name, bool recursive = true)
-        {
-            foreach (Transform o in obj.transform)
-            {
-                if (o.gameObject.name == name) { return o.gameObject; }
-                if (recursive)
-                {
-                    GameObject res = FindChildRecursive(o.gameObject, name);
-                    if (res != null) { return res; }
-                }
-            }
-            return null;
-        }
-
-        #endregion
-
         #region Component
 
         

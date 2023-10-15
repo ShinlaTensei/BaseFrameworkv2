@@ -21,7 +21,7 @@ namespace Base.Logging
             var logConsole = new UnityDebugTarget()
             {
                 Name = "UnityDebugLog",
-                Layout = "[${level}]>>>${message}>>>${callsite:captureStackTrace=false:skipFrames=1:fileName=true:includeSourcePath=false}"
+                Layout = "[${level}]---${message}---${callsite:captureStackTrace=true:skipFrames=1:fileName=true}"
             };
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logConsole);
 
