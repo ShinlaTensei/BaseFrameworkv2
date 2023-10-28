@@ -5,6 +5,7 @@
 #endregion
 
 using System;
+using Base;
 using Base.Helper;
 using Base.Logging;
 using UnityEngine;

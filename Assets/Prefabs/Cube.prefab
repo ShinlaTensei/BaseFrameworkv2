@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7695114300211419479}
   - component: {fileID: 7695114300211419478}
   - component: {fileID: 7695114300211419477}
-  - component: {fileID: -4537979549266697462}
+  - component: {fileID: 472281424980199334}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-4537979549266697462
+--- !u!114 &472281424980199334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,12 +107,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7695114300211419476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b94d16a0f41d474b87c4bcda9982f90, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e5969448996db6449f349cc98a81f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMissingReference: 0
-  root: {fileID: 7695114300211419476}
-  exitType: 1
-  canvasType: 0
-  activeDefault: 1
-  closePrevOnShow: 1
+  m_viewId: 
+  m_root: {fileID: 0}
+  m_exitType: 0
+  m_canvasType: 0
+  m_navigationState: 0
+  m_backgroundType: 0
+  m_activeDefault: 0
+  m_closeOnTouchOutside: 0
+  m_closePrevOnShow: 0
+  m_triggerViewChange: 0
+  m_touchRect: {fileID: 0}
