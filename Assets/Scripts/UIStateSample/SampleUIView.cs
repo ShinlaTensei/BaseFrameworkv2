@@ -10,4 +10,8 @@ public class SampleUIView : UIView
     {
         throw new System.NotImplementedException();
     }
+    public override void RePopulate()
+    {
+        throw new System.NotImplementedException();
+    }
 }
