@@ -30,7 +30,7 @@ namespace Base.Helper
         private RectTransform   m_parentAfter;
         private RectTransform   m_parentBefore;
 
-        private void Awake()
+        protected override void Awake()
         {
             m_image = GetComponent<Image>();
             if (Parent)
