@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Build Package/BaseV2.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DroppableUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DroppableUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/manifest_template.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/manifest_template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +62,7 @@
   "keyToString": {
     "Discover.Launch.Via.Unity": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -212,7 +212,7 @@
       <workItem from="1698501031546" duration="5323000" />
       <workItem from="1699963575865" duration="475000" />
       <workItem from="1699964092341" duration="707000" />
-      <workItem from="1702953063479" duration="1939000" />
+      <workItem from="1702953063479" duration="2909000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1684663077388</created>
