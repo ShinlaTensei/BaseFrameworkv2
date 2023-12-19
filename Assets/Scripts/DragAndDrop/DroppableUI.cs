@@ -4,6 +4,7 @@
 // File name: DroppableUI.cs
 #endregion
 
+using System.Collections.Generic;
 using Base.Pattern;
 using UnityEngine;
 using UnityEngine.EventSystems;
