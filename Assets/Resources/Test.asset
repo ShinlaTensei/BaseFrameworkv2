@@ -22,17 +22,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   m_audioInfoConfigs:
-  - audioGenre: 1
-    audioId: 93b4c499-e1e8-4b45-ac2c-3d6a11e29894
-    audioKey: abcd
-    is3dAudio: 0
-    loop: 0
-    mute: 0
-    audioClip: {fileID: 0}
-  - audioGenre: 2
-    audioId: 2c021288-4e4e-4aff-a8c7-61e93b5fe3ec
-    audioKey: 
-    is3dAudio: 0
-    loop: 0
-    mute: 0
-    audioClip: {fileID: 0}
+  - m_audioGenre: 1
+    m_audioKey: 
+    m_is3dAudio: 0
+    m_loop: 0
+    m_mute: 0
+    m_audioClip: {fileID: 0}

@@ -315,6 +315,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5905987907143743058, guid: 4f83820239bfff0408c578c2ed1e5385, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 5905987907143743059, guid: 4f83820239bfff0408c578c2ed1e5385, type: 3}
       propertyPath: m_Name
       value: CheatMenuHorizontal
