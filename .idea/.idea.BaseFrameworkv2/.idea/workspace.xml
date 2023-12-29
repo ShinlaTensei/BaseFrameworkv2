@@ -5,99 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioMappingConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioMappingConfiguration.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/CHANGELOG.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/CODE_OF_CONDUCT.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/CODE_OF_CONDUCT.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/CONTRIBUTING.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/LICENSE.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Prefabs/UI-Effect-Snapshot-Extra.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Prefabs/UI-Effect-Snapshot-Extra.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Prefabs/UIEffectSnapshotPanel.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Prefabs/UIEffectSnapshotPanel.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/README.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Coffee.UIEffectSnapshot.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Coffee.UIEffectSnapshot.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/Coffee.UIEffectSnapshot.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/Coffee.UIEffectSnapshot.Editor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/ExtraShaderGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/ExtraShaderGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/ImportSampleMenu.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/ImportSampleMenu.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/MaterialArrayEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/MaterialArrayEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/MenuOptions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/MenuOptions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotPanelEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotPanelEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshot.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotPanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotPanel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotRequest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotUpdater.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotUpdater.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Utils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Scripts/Utils.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect-Snapshot.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect-Snapshot.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/UI-Effect-Snapshot-Extra.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/Shaders/UI-Effect-Snapshot-Extra.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base/Plugins/com.coffee.ui-effect-snapshot/package.json.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/CHANGELOG.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/CHANGELOG.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/CODE_OF_CONDUCT.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/CODE_OF_CONDUCT.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/CONTRIBUTING.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/CONTRIBUTING.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/LICENSE.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/LICENSE.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Prefabs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Prefabs/UI-Effect-Snapshot-Extra.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Prefabs/UI-Effect-Snapshot-Extra.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Prefabs/UIEffectSnapshotPanel.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Prefabs/UIEffectSnapshotPanel.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/README.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/README.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Coffee.UIEffectSnapshot.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Coffee.UIEffectSnapshot.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/Coffee.UIEffectSnapshot.Editor.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/Coffee.UIEffectSnapshot.Editor.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/ExtraShaderGUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/ExtraShaderGUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/ImportSampleMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/ImportSampleMenu.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/MaterialArrayEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/MaterialArrayEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/MenuOptions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/MenuOptions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotPanelEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Editor/UIEffectSnapshotPanelEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshot.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshot.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotPanel.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotPanel.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotRequest.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotRequest.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotUpdater.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/UIEffectSnapshotUpdater.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Utils.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Scripts/Utils.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect-Snapshot.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect-Snapshot.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/Resources/UI-Effect.cginc.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/UI-Effect-Snapshot-Extra.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/Shaders/UI-Effect-Snapshot-Extra.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/package.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Libraries/com.coffee.ui-effect-snapshot/package.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioDataContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioDataContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/IAudioInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/IAudioInfo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioInfo.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/SoundService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/SoundService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioMappingConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioMappingConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -314,6 +224,7 @@
       <workItem from="1703039373438" duration="1328000" />
       <workItem from="1703152204236" duration="4143000" />
       <workItem from="1703213337301" duration="5670000" />
+      <workItem from="1703834526257" duration="4039000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1684663077388</created>
