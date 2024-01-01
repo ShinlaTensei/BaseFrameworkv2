@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c5624eaea34add83b6fa88e554e917, type: 3}
-  m_Name: Test
+  m_Name: AudioConfig
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -23,8 +23,16 @@ MonoBehaviour:
     SerializationNodes: []
   m_audioInfoConfigs:
   - m_audioGenre: 1
-    m_audioKey: 
+    m_audioId: 81807fce-e8b2-4fc4-8a3d-0e8769344228
+    m_audioKey: button-click
     m_is3dAudio: 0
     m_loop: 0
     m_mute: 0
-    m_audioClip: {fileID: 0}
+    m_audioClip: {fileID: 8300000, guid: a882fae5ed495f447873397c3bad428c, type: 3}
+  - m_audioGenre: 2
+    m_audioId: a9a36e03-2e4e-4a4d-b51d-91aa3b614dc9
+    m_audioKey: ambient
+    m_is3dAudio: 0
+    m_loop: 1
+    m_mute: 0
+    m_audioClip: {fileID: 8300000, guid: 2e51a4535d12e1340a2e77e3dee2ad21, type: 3}
