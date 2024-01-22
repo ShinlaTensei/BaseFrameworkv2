@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 68cd0e8a71acefc4db9c4f53829693f1
   m_CachedHash:
     serializedVersion: 2
-    Hash: 91dd5fd522b2b88611056f3fb5910cf7
+    Hash: 5232304ec31f25cb7c026eb2aa09d2b9
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -32,14 +32,11 @@ MonoBehaviour:
   m_ShaderBundleNaming: 0
   m_ShaderBundleCustomNaming: 
   m_MonoScriptBundleNaming: 0
-  m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: 4b156513f8fac89418bdac7ec06cdfc6
   m_RemoteCatalogLoadPath:
     m_Id: 22048e3e8bdb42b4a8060ab831a8e84f
-  m_ContentStateBuildPathProfileVariableName: <default settings path>
-  m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: 

@@ -4,8 +4,9 @@
 // File name: DragDropDetector.cs
 #endregion
 
+using System.Collections;
 using System.Collections.Generic;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,9 +14,9 @@ namespace Base.Helper
 {
     public abstract class DraggableItem : BaseUI
     {
-        [SerializeField, Dropdown("m_boolValue")] protected bool m_isMoveToStartPos;
+        [SerializeField, ValueDropdown(nameof(GetBoolValues))] protected bool m_isMoveToStartPos;
 
-        private List<bool> m_boolValue = new List<bool> { true, false };
+        private IEnumerable GetBoolValues() => new List<ValueDropdownItem>() { new ValueDropdownItem("True", true), new ValueDropdownItem("False", false) };
 
         public abstract void SetParentAfterDrag(Transform parent);
     }
