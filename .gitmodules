@@ -1,3 +1,6 @@
 [submodule "base-package"]
 	path = base-package
 	url = D:\\UnityProjects\\BaseFrameworkv2\\base-package
+[submodule "Assets/base-package"]
+	path = Assets/base-package
+	url = https://github.com/ShinlaTensei/base-package.git

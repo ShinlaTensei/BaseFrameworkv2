@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362cf399ff6c470b98c8d367aa804314, type: 3}
+  m_Script: {fileID: 11500000, guid: d2dbb80564e842a3875cfc5e1bb3ba45, type: 3}
   m_Name: AudioDataContainer
   m_EditorClassIdentifier: 
-  m_serializedAssetTypes:
-  - Base.Services.AudioAssetData
-  - Base.Services.AudioAssetData
-  m_serializedAssets:
-  - '{"Clips":[],"Guid":"d840c2b55eb543445af921c6ec820bc3","Index":1,"Type":"","ObjectName":"Oneshot"}'
-  - '{"Clips":["AMBIENCE_Ferry_Car_Deck_01_loop_stereo"],"Guid":"ff622b1484f10744986f681be83e63fd","Index":0,"Type":"","ObjectName":"Sound"}'
-  m_audioTypes:
-  - Sound
-  - Oneshot
+  m_serializedAssetTypes: []
+  m_serializedAssets: []
+  m_audioTypes: []
   m_audioKeySettings: []
