@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Base;
 using Base.Helper;
 using Base.Pattern;
-using Base.Services;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ public class GlobalConfig : MonoBehaviour
 
     private void Awake()
     {
-        ServiceLocator.Get<SoundService>().Init();
+        ServiceLocator.Get<AudioService>().Init();
         ServiceLocator.Get<TimingService>().SetTimeInitialize(DateTime.Now);
         m_timer = new TimerDataMutable(ServiceLocator.Get<TimingService>().GetCurrentTime(), 3600);
         m_timer.SetupTimer(OnTimeRunning, OnTimeFinished);
