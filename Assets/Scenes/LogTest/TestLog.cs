@@ -12,12 +12,10 @@ using UnityEngine.SceneManagement;
 
 public class TestLog : MonoBehaviour
 {
-    [SerializeField] private TMP_Text m_text;
-    [SerializeField, TextArea(5, 10)] private string m_testString;
     private CompositeDisposable _disposable = new CompositeDisposable();
     public void Start()
     {
-        PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
+        PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now);
         PDebug.Info("Test log Info v3");
         PDebug.Info("Test log");
 
@@ -31,6 +29,11 @@ public class TestLog : MonoBehaviour
 
         var data = FileUtilities.LoadDataWithEncrypted<TestData>(FileUtilities.GetSystemPath() + "/TestEncrypt.bin");
         PDebug.InfoFormat("Load Data: {@data}", data);
+        PDebug.Trace("Test trace");
+        PDebug.Debug("Test Debug");
+        PDebug.Info("Test info");
+        PDebug.Warn("Test warning");
+        PDebug.Error("Test error");
     }
 
     private void OnDisable()
@@ -39,21 +42,9 @@ public class TestLog : MonoBehaviour
         _disposable.Clear();
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        var clickStream = Observable.EveryUpdate().Where(source => Input.GetMouseButtonDown(0));
-        clickStream.Buffer(clickStream.Throttle(TimeSpan.FromMilliseconds(250f))).Where(source => source.Count >= 2)
-            .Subscribe(source => UnloadScene()).AddTo(_disposable);
-
-        Observable.EveryUpdate().Where(source => Input.GetKeyDown(KeyCode.Space)).Subscribe(source =>
-        {
-            PDebug.DebugFormat("ServiceLocator Instance: {0}", ServiceLocator.Instance);
-        }).AddTo(_disposable);
-    }
-
-    private void UnloadScene()
-    {
-        SceneManager.UnloadSceneAsync("TestScene");
+        PDebug.Shutdown();
     }
 }
 

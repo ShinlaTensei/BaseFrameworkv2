@@ -21,22 +21,6 @@ MonoBehaviour:
     m_Address: Cube
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 9e0c7ee47407dd348aa6a7a0458c6575
-    m_Address: AMBIENCE_Ferry_Car_Deck_01_loop_stereo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 44f1da9573a96ce4d94139c1be3f0dc8
-    m_Address: AMBIENCE_Ferry_Car_Deck_02_loop_stereo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 602888a882094534cacd3aa7363b9638
-    m_Address: AMBIENCE_Ferry_Outside_01_loop_stereo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 2e51a4535d12e1340a2e77e3dee2ad21
-    m_Address: AMBIENCE_Ferry_Outside_02_loop_stereo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bb0db355df41e2e46b1490ab1f9c22ae, type: 2}
   m_SchemaSet:
