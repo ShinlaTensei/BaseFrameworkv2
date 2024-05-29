@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_serializedAssetTypes: []
   m_serializedAssets: []
-  m_audioTypes: []
-  m_audioKeySettings: []
+  m_audioTypes:
+  - TestType
+  - TestType2

@@ -2,17 +2,11 @@ using System;
 using Base;
 using Base.Helper;
 using Base.Logging;
-using Base.Module;
-using Base.Pattern;
-using Cysharp.Threading.Tasks;
-using TMPro;
 using UniRx;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TestLog : MonoBehaviour
 {
-    private CompositeDisposable _disposable = new CompositeDisposable();
     public void Start()
     {
         PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now);
@@ -39,7 +33,6 @@ public class TestLog : MonoBehaviour
     private void OnDisable()
     {
         PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now.ToFileTime());
-        _disposable.Clear();
     }
 
     private void OnDestroy()

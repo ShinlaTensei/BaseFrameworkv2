@@ -6,15 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/ColorPaletteManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/ColorPaletteManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSample/SaveTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSample/SaveTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ConfigObject/AudioDataContainer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ConfigObject/AudioDataContainer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogTest/TestLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogTest/TestLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TestLog.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TestLog.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Helper/ExtensionMethods/FileUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Helper/ExtensionMethods/FileUtilities.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Logger/PDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Logger/PDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/AudioManagerEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/AudioManagerEditorWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioAssetData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioAssetData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +35,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/39/693320f2/OdinEditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/3b/6500980f/EditorPrefString.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/3f/1ed7697f/EditorPref`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/84/07f1bc26/ListDrawerChain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/95/4181c3eb/DefaultDrawerChainResolver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/98/af2a78da/OdinFeedbackWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e8c82ffe64a4e1d8e997fa7e5933f7081a400/18/2556d35e/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e8c82ffe64a4e1d8e997fa7e5933f7081a400/d4/b06bd4f5/ReorderableList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e8c82ffe64a4e1d8e997fa7e5933f7081a400/f7/8ae11e1f/EditorPrefs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Editor/GradientIamgeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Runtime/Helper/Components/GradientImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Runtime/Helper/ExtensionMethods/PathUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioDataContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -85,7 +89,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "CSharpParameterNameHintsOptions",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -139,10 +143,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22704">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="22704" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -289,7 +293,14 @@
       <workItem from="1716094098062" duration="398000" />
       <workItem from="1716094550441" duration="7758000" />
       <workItem from="1716108708018" duration="6477000" />
-      <workItem from="1716378805740" duration="2224000" />
+      <workItem from="1716378805740" duration="2516000" />
+      <workItem from="1716387337957" duration="2505000" />
+      <workItem from="1716471206072" duration="3112000" />
+      <workItem from="1716627968484" duration="1042000" />
+      <workItem from="1716713644917" duration="1993000" />
+      <workItem from="1716732484869" duration="3530000" />
+      <workItem from="1716810883343" duration="3238000" />
+      <workItem from="1716901317780" duration="7164000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1684663077388</created>
