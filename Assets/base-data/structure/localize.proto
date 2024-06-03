@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package base.data;
+
+option csharp_namespace = "Base.Data.Structure";
+
+message LocalizeDataStructure {
+  string langCode = 1;
+  repeated LocalizeDataItem localizeData = 2;
+}
+
+message LocalizeDataItem {
+  string key = 1;
+  string data = 2;
+}
