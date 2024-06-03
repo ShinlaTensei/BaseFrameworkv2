@@ -1,14 +1,27 @@
 using System;
 using Base;
+using Base.Core;
 using Base.Helper;
 using Base.Logging;
+using Base.Pattern;
+using Sirenix.Serialization;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class TestLog : MonoBehaviour
+public class TestLog : BaseMono
 {
-    public void Start()
+    [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioDataContainer m_audioDataContainer;
+    [SerializeField] private UnityEvent m_event;
+
+    protected override void Start()
     {
+        PoolSystem.CreatePool(m_audioSource);
+        ServiceLocator.Get<AudioService>().Init();
+        ServiceLocator.Get<AudioService>().UpdateData(m_audioDataContainer);
+        BaseInterval.RunInterval(1f, m_event.Invoke);
+        
         PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now);
         PDebug.Info("Test log Info v3");
         PDebug.Info("Test log");

@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 68cd0e8a71acefc4db9c4f53829693f1
   m_SerializeEntries:
-  - m_GUID: 1233ca305f0cfab4590ed5d763c6de78
-    m_Address: Cube
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 00a6fd8b7e722a943b403b60e633496c
     m_Address: Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav
     m_ReadOnly: 0
