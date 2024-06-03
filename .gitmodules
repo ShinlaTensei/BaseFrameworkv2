@@ -4,3 +4,6 @@
 [submodule "Assets/base-package"]
 	path = Assets/base-package
 	url = https://github.com/ShinlaTensei/base-package.git
+[submodule "Assets/base-package.data"]
+	path = Assets/base-package.data
+	url = git@github.com:ShinlaTensei/base-package.data.git
