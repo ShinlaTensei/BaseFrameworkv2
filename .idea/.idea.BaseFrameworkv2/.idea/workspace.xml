@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/Base.Data.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/Base.Data.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/bin.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/bin/protoc.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/bin/protoc.exe.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/implement.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/implement/Localize.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/implement/Localize.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/structure.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/structure/localize.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Base.Data/structure/localize.proto.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ConfigObject/AudioDataContainer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ConfigObject/AudioDataContainer.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/AudioManagerEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/Audio/AudioManagerEditorWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/AudioManagerEditorWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/Audio/AudioManagerEditorWindow.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +31,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/13adf3fa3c294df3837c3b9a91e8b14712d800/62/b03bfc0b/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -155,10 +149,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19352">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="19352" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />

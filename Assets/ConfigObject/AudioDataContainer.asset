@@ -15,7 +15,7 @@ MonoBehaviour:
   m_serializedAssetTypes:
   - Base.AudioAssetData
   m_serializedAssets:
-  - '{"ClipAssetKey":"Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav","CacheClip":{"TrackResurrection":false,"TrackedObject":null},"Volume":1.0,"AssetGuid":"00a6fd8b7e722a943b403b60e633496c","SourceObject":null,"Guid":"7a8e79cb78cbebd44b393f553757cc28","Index":0,"Type":"TestType","ObjectName":"test_sound"}'
+  - '{"ClipAssetKey":"Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav","CacheClip":{"TrackResurrection":false,"TrackedObject":null},"Volume":1.0,"AssetGuid":"00a6fd8b7e722a943b403b60e633496c","SourceObject":null,"Guid":"037725aa977fe9c428f4b305898699ea","Index":0,"Type":"TestType","ObjectName":"test"}'
   m_audioTypes:
   - TestType
   - TestType2
