@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: dd716bd01d883d74589a208361692c8f
+    m_Address: Assets/Universal Sound FX/8BIT/Jumping/8BIT_RETRO_Jump_Dirty_mono.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bb0db355df41e2e46b1490ab1f9c22ae, type: 2}
   m_SchemaSet:

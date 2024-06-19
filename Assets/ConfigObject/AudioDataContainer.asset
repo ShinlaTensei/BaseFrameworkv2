@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_serializedAssetTypes:
   - Base.AudioAssetData
+  - Base.AudioAssetData
   m_serializedAssets:
-  - '{"ClipAssetKey":"Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav","CacheClip":{"TrackResurrection":false,"TrackedObject":null},"Volume":1.0,"AssetGuid":"00a6fd8b7e722a943b403b60e633496c","SourceObject":null,"Guid":"037725aa977fe9c428f4b305898699ea","Index":0,"Type":"TestType","ObjectName":"test"}'
+  - '{"ClipAssetKey":"Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav","CacheClip":{"TrackResurrection":false,"TrackedObject":null},"Volume":1.0,"AssetGuid":"00a6fd8b7e722a943b403b60e633496c","SourceObject":null,"Guid":"04b7712f3fcd4d34690e970100912a3e","Index":0,"Type":"TestType","ObjectName":"test_sound"}'
+  - '{"ClipAssetKey":"Assets/Universal Sound FX/8BIT/Beeps/8BIT_RETRO_Beep_1_Short_mono.wav","CacheClip":{"TrackResurrection":false,"TrackedObject":null},"Volume":1.0,"AssetGuid":"dd716bd01d883d74589a208361692c8f","SourceObject":null,"Guid":"3ef6bbe751e550e45872af35209ca37c","Index":1,"Type":"TestType","ObjectName":"test_sound2"}'
   m_audioTypes:
   - TestType
   - TestType2

@@ -17,7 +17,6 @@ public class TestLog : BaseMono
 
     protected override void Start()
     {
-        PoolSystem.CreatePool(m_audioSource);
         ServiceLocator.Get<AudioService>().Init();
         ServiceLocator.Get<AudioService>().UpdateData(m_audioDataContainer);
         BaseInterval.RunInterval(1f, m_event.Invoke);

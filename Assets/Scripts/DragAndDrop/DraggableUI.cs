@@ -38,7 +38,7 @@ namespace Base.Helper
                 m_parentBefore = (RectTransform)Parent;
             }
             
-            ServiceLocator.Get<TestSignal>().Subscribe(TestFunction);
+            SignalLocator.Get<TestSignal>().Subscribe(TestFunction);
             
             BaseInterval.RunInterval(3f, () => PDebug.Info("Test"));
         }

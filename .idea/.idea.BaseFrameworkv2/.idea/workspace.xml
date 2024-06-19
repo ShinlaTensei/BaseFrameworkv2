@@ -5,20 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7e0b94a-0046-4aa9-9b27-3363746d1e21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BaseFrameworkv2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Build Package.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BuildPackage.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ConfigObject/AudioDataContainer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ConfigObject/AudioDataContainer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/BlurConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/BlurConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/IBlurAlgorithm.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/IBlurAlgorithm.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/ScalableBlur.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/ScalableBlur.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/ScalableBlurConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/BlurAlgorithm/ScalableBlurConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/MenuIntegration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/MenuIntegration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources/BlurConfig Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources/BlurConfig Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources/BlurSource Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources/BlurSource Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources/TranslucentImage Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Resources/TranslucentImage Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/ScalableBlurConfigEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/ScalableBlurConfigEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/ScenceGizmoAutoDisable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/ScenceGizmoAutoDisable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/TranslucentImageEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/TranslucentImageEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/TranslucentImageSourceEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/TranslucentImageSourceEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Unity2019ShaderCompilerBugWorkaround.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/Unity2019ShaderCompilerBugWorkaround.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/UnityShaderBugHack.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Editor/UnityShaderBugHack.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImageEditorEnhancement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImageEditorEnhancement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImageMeshEffect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImageMeshEffect.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImageSource.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TranslucentImageSource.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TrueShadowCompat.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/TrueShadowCompat.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities/Extensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities/Extensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities/ResizableScreenRect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities/ResizableScreenRect.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities/ShaderId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TranslucentImage/Script/Utilities/ShaderId.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogTest/TestLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogTest/TestLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogTest/TestLog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogTest/TestLog.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SoundManagerSample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SoundManagerSample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/AudioManagerEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/Audio/AudioManagerEditorWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/AudioManagerEditorWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/Audio/AudioManagerEditorWindow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/base-package.data" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/base-package.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Proto" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Assets/base-package" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -31,10 +96,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/13adf3fa3c294df3837c3b9a91e8b14712d800/62/b03bfc0b/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/39/693320f2/OdinEditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a1987d3fdcc4a32be753a33377e98752dd600/3b/6500980f/EditorPrefString.cs" root0="SKIP_HIGHLIGHTING" />
@@ -47,15 +108,23 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e8c82ffe64a4e1d8e997fa7e5933f7081a400/d4/b06bd4f5/ReorderableList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e8c82ffe64a4e1d8e997fa7e5933f7081a400/f7/8ae11e1f/EditorPrefs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/47fc8c70fa834cbf8141d7c1a758912546ac00/24/00b04655/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/47fc8c70fa834cbf8141d7c1a758912546ac00/87/55592f7e/ArraySortHelper`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/47fc8c70fa834cbf8141d7c1a758912546ac00/dc/90e94de0/Char.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/91dc399f41a440558c716315c7e834ab15aa00/e0/afe6e407/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e76e2ed3fb454b9bb43e6cd7f2323f2a128000/01/7560eedb/SirenixEditorGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e76e2ed3fb454b9bb43e6cd7f2323f2a128000/f7/2fd591d7/GUIHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DragAndDrop/DraggableUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventorySlotEnhanced.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/base-package/Editor/CustomEditor/ProtoGenerator/ProtoGeneratorEditorWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Editor/GradientIamgeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Runtime/Helper/Components/GradientImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Runtime/Helper/ExtensionMethods/PathUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/base-package/Runtime/Services/Audio/AudioDataContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.4.1/Runtime/External/Addressables/AddressablesAsyncExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/Util/MonoBehaviourCallbackHooks.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -84,28 +153,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Standalone Player.Start Unity.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Standalone Player.Start Unity.executor": "Run",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\phong\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\phong\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\phong\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\phong\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\phong\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\phong\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\BaseFrameworkv2.exe" />
@@ -149,10 +218,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19352">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="19352" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -319,6 +388,19 @@
       <workItem from="1717417239400" duration="338000" />
       <workItem from="1717417596420" duration="290000" />
       <workItem from="1717417899780" duration="295000" />
+      <workItem from="1717500914499" duration="8942000" />
+      <workItem from="1717674352595" duration="12886000" />
+      <workItem from="1717767749219" duration="5814000" />
+      <workItem from="1717813452634" duration="6209000" />
+      <workItem from="1717833898859" duration="3903000" />
+      <workItem from="1717837855525" duration="1579000" />
+      <workItem from="1717901238456" duration="10992000" />
+      <workItem from="1718029121781" duration="2645000" />
+      <workItem from="1718634812443" duration="102000" />
+      <workItem from="1718808259867" duration="323000" />
+      <workItem from="1718811314341" duration="4000" />
+      <workItem from="1718811331299" duration="2778000" />
+      <workItem from="1718816814294" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1684663077388</created>
@@ -356,25 +438,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/base-package/Runtime/Core/DataContainer.cs</url>
-          <line>109</line>
-          <properties documentPath="D:\UnityProjects\BaseFrameworkv2\Assets\base-package\Runtime\Core\DataContainer.cs" containingFunctionPresentation="Method 'Save'">
-            <startOffsets>
-              <option value="3997" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4028" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
