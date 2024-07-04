@@ -19,7 +19,7 @@ public class TestLog : BaseMono
     {
         ServiceLocator.Get<AudioService>().Init();
         ServiceLocator.Get<AudioService>().UpdateData(m_audioDataContainer);
-        BaseInterval.RunInterval(1f, m_event.Invoke);
+        BaseInterval.RunInterval(1, m_event.Invoke);
         
         PDebug.DebugFormat("[{0}] Time run: {1}", this.GetType(), DateTime.Now);
         PDebug.Info("Test log Info v3");

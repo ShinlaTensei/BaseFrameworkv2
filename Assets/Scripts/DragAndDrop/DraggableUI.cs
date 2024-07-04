@@ -40,7 +40,7 @@ namespace Base.Helper
             
             SignalLocator.Get<TestSignal>().Subscribe(TestFunction);
             
-            BaseInterval.RunInterval(3f, () => PDebug.Info("Test"));
+            BaseInterval.RunInterval(3, () => PDebug.Info("Test"));
         }
 
         protected override void OnDestroy()
