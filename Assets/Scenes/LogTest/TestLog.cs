@@ -26,14 +26,14 @@ public class TestLog : BaseMono
         PDebug.Info("Test log");
 
         string message = "I am a God";
-        string encrypted = Encryption.Encrypt(message);
+        byte[] encrypted = Encryption.Encrypt(message);
         PDebug.InfoFormat("{msg}", encrypted);
-        string decrypted = Encryption.Decrypt(encrypted);
+        byte[] decrypted = Encryption.Decrypt(encrypted);
         PDebug.InfoFormat("{msg}", decrypted);
         // TestData test = new TestData {name = "LALLALALA", amount = 1000};
         // FileUtilities.SaveDataWithEncrypted(FileUtilities.GetSystemPath(),"TestEncrypt.bin", test);
 
-        var data = FileUtilities.LoadDataWithEncrypted<TestData>(FileUtilities.GetSystemPath() + "/TestEncrypt.bin");
+        var data = FileUtilities.LoadDataWithEncrypted<TestData>(PathUtility.GetSystemPath() + "/TestEncrypt.bin");
         PDebug.InfoFormat("Load Data: {@data}", data);
         PDebug.Trace("Test trace");
         PDebug.Debug("Test Debug");
